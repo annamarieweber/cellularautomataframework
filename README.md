@@ -28,7 +28,7 @@ To run tests, run the following command
 
 ## Support
 
-For support, create an issue with the label support
+For support, create an issue with the label For support, create an issue with the label ![support](https://img.shields.io/github/labels/annamarieweber/cellularautomataframework/support)
 
 ## Acknowledgements
 
