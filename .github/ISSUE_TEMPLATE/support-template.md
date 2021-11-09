@@ -1,7 +1,7 @@
 ---
 name: Support Template
 about: This template is for creating support issues and asking questions of the authors
-title: SUPP_#
+title: SUPP
 labels: support
 assignees: annamarieweber
 
