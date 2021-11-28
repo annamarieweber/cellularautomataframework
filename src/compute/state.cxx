@@ -110,3 +110,29 @@ int main(){
  * cell_state_encoded into 8 b
  * 
  **/
+
+
+/** where neighborhood has n elements that can be in m different states we can model the neighborhood using an n digit number in base m  such that the ith nieghbor neighborhood[i] = state(i)*m^(n-i) 
+ * 
+ * input: 
+ * 
+ * 
+ * compute:
+ * 
+ *      the next state can be determined by taking a summation of all calls in the neighborhood and then checking.
+ *      for an example the below neighborhood:
+ * 
+ *      013
+ *      320
+ *      011
+ * 
+ *      would be represented by 0133320011
+ * `
+ * 
+ *      needs:
+ *         - change of bases ability to model in different bases dependent on how many possible states a cell can have     
+ * output: 
+ *  use input params to determine how to map the n digit states to whatver they need to be for the output format
+ *         - we could maybe just return hex codes then those can go directly into the output service so no furhter computation is needed.
+ * 
+ * 
