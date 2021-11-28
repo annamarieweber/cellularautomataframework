@@ -127,7 +127,8 @@ int main(){
  *      011
  * 
  *      would be represented by 0133320011
- * `
+ * 
+ *      we should be able to thenconvert this into a binary representation and that should allow us to do logical operations on it
  * 
  *      needs:
  *         - change of bases ability to model in different bases dependent on how many possible states a cell can have     
@@ -136,3 +137,50 @@ int main(){
  *         - we could maybe just return hex codes then those can go directly into the output service so no furhter computation is needed.
  * 
  * 
+ * 
+ * 
+ **/
+class Cell{
+	private:
+		int celltype;
+	public:
+		/**
+		 * neighborhood contructor for CA cell
+		 *
+		 * @param n_minus the prior state neighborhood encoded into an unsigned long
+		 *
+		 **/
+		Cell::Cell(unsigned long n_minus,TransitionFunction fn){ 
+			celltype = fn(n_minus);
+    }
+
+		/**
+		 * No argument constructor for CA Cell
+		 **/
+    Cell::Cell(){
+			celltype = 0;
+		}
+		
+};
+
+class CellularAutomata{
+    private:
+      int neighborhood_size;
+      std::string neighborhood_shape;
+      std::vector<Cell> world;
+      std::vector<int> calc_neigborhood(int i);	
+			void exec_step(){
+				for(int j = 0; j < world.size(); j++){
+					//comput the next cell state update the world vector i guess
+				}
+			}
+
+    public:
+				void run(int steps, std::os output){
+					for(int i = 0; i < steps; i++){
+						exec_step();
+
+};
+
+//is it possible to identify the neigborhoods of in between cells based on the outomes from other neighborhoods? could we reduce the computation be neighborhood size? Probaly not im just lat night thinking that is why this branch is called brainstorming
+
