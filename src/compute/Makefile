@@ -20,7 +20,7 @@ INC_DIR = ../../include
 LIB_DIR     = ../../lib
 
 # targets this makefile builds
-COMPUTE_OBJS=
+COMPUTE_OBJS=state.o
 
 all: $(COMPUTE_OBJS)
 
