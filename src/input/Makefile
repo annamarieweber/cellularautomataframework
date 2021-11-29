@@ -20,7 +20,11 @@ INC_DIR = ../../include
 LIB_DIR     = ../../lib
 
 # targets this makefile builds
-INPUT_OBJS=
+INPUT_OBJS = CA_input.o
+
+CA_input.o: $(INC_DIR)/myutils.h $(INC_DIR)/CellularAutomata.h
+	$(CXX) $(CXXFLAGS) CA_input.cxx -I$(INC_DIR)
+	mv CA_input.o $(LIB_DIR)
 
 all: $(INPUT_OBJS)
 
