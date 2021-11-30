@@ -3,47 +3,53 @@
 #include "CellularAutomata.h"
 #include "myutils.h"
 
-CellularAutomata::CellularAutomata(int rows, int columns, std::map<std::string, int> legend, std::vector<int> data)
+CellularAutomata::CellularAutomata(int rows, int columns, std::map<std::string, int> legend, std::vector<int> data, std::string product, std::string reactor, std::pair<int, int> starting_position)
 {
     // Will need to ensure that the integers in the legend cover the data that is input, if not it should throw an error.
     _rows = rows;
     _columns = columns;
+    // Data will be stored in row major format.
     _data = data;
     _size = rows*columns;
     _legend = legend;
+    _product = product;
+    _reactor = reactor;
+    _starting_position = starting_position;
 }
 
-CellularAutomata::CellularAutomata(int rows, int columns, std::map<std::string, int> legend)
+CellularAutomata::CellularAutomata(int rows, int columns, std::map<std::string, int> legend, std::string product, std::string reactor, std::pair<int, int> starting_position)
 {
     _rows = rows;
     _columns = columns;
     _size = rows*columns;
     _legend = legend;
+    _product = product;
+    _reactor = reactor;
+    _starting_position = starting_position;
     // Calls the Initialize function to build a Cellular Automata randomly with the specifications above. May be useful to eventually add a density to each variable in the legend so that the user can specify how much of each to place. This could be done with another map function, which maps the variable to a density.
     CellularAutomata::Initialize();
 }
 
 void CellularAutomata::Initialize()
 {   
-    // Grabs the max element in the legend map.
+    // Grabs the max element in the legend map, leaving out the reactor and product values (The reactor will be placed specifically by the user and the product will be placed after the compute steps).
     int max = 0;
-    for(auto it = _legend.begin(); it != _legend.end(); ++it )
+    for(const auto &it : _legend)
     {
-        if (it->second > max) 
+        if (it.second > max && it.first != _product && it.first != _reactor) 
         {
-            max = it->second;
+            max = it.second;
         }
     }
     std::cout << "Max value is: " << max << std::endl;
 
-    
-    // Grabs the min element in the legend map.
+    // Grabs the min element in the legend map, leaving out the reactor and product values (The reactor will be placed specifically by the user and the product will be placed after the compute steps).
     int min = 2000;
-    for(auto it = _legend.begin(); it != _legend.end(); ++it )
+    for(const auto &it2 : _legend)
     {
-        if (it->second < min) 
+        if (it2.second < min && it2.first != _product && it2.first != _reactor) 
         {
-            min = it->second;
+            min = it2.second;
         }
     }
     std::cout << "Min value is: " << min << std::endl;
@@ -53,12 +59,16 @@ void CellularAutomata::Initialize()
     {
         _data.push_back(generate_rand_int(min, max));
     }
-    
+
+    // Generates the starting position for the reactor variable which will cause changes throughout the Cellular Automata. Acceses using row major
+    int index = _starting_position.first * _columns + _starting_position.second;
+    _data[index] = _legend[_reactor]; 
 }
 
+// Code to evaluate von neumman neighborhood.
 void CellularAutomata::vn_neighborhood(int row, int column)
 {
-    int index = row*column;
+    int index = row * _columns + column;
 
     int west = (_size + ((index - 1) % _size)) % _size;
     int east = (_size + ((index + 1) % _size)) % _size;
@@ -76,8 +86,8 @@ void CellularAutomata::moore_neighborhood(int row, int column)
     // This is harder so I have not yet done it XD.
 }
 
-// Part 3: Output services, this is a tempory print that is being used to test if the Initialize function is working as intended.
-// Print the formatted matrix out to the terminal using std::cout. Each row is printed with the first element of the matrix following an opening square bracket and all elements being seperated by commas. The last element of the matrix is also followed by a closing square bracket.
+// Temporary print that is being used to test if the Initialize function is working as intended.
+// Print the formatted matrix out to the terminal using std::cout. Each row is printed with the first element of the Cellular Automata following an opening square bracket and all elements being seperated by commas. The last element of the Cellular Automata is also followed by a closing square bracket.
 void CellularAutomata::print()
 {
     for(int i = 0; i < _rows; i++)
