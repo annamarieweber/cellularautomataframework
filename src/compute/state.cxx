@@ -12,40 +12,36 @@ typedef unsigned long long ull;
 #define B(x) (1ULL << (x))
 
 class State{
+	ull* state_encoding;
+	int size = 9;
+	int radius = 1;
 
+	public:
 
-ull* state_encoding;
-int size = 9;
-int radius = 1;
-
-
-    public: 
-void transition_fn(int rule)
-{
-	int i;
+	void transition_fn(int rule){
+		int i;
     int j;
-	ull st;
-
-
-    
+		ull st;
 
     for (i = N; i--;){
         st = state_encoding[i];
         for(j = N; j--;)putchar(st & B(j) ? '#' : '.');
         putchar('\n');
     }
- 
-	printf("Rule %d:\n", rule);
+
+		printf("Rule %d:\n", rule);
 
  
 		for (int i = 0; i < N; i++){
-            st = state_encoding[i];
-            for(int j = 0; j < N; j++){
-                //basically each one should have a 
-                if (rule & B(7 & (st>>(i-1) | st<<(N+1-i))))
-				state_encoding[j] |= B(i);
-            }
+			st = state_encoding[i];
+        for(int j = 0; j < N; j++){
+					//basically each one should have a 
+          if (rule & B(7 & (st>>(i-1) | st<<(N+1-i)))){
+						state_encoding[j] |= B(i);
+					}
         }
+    }
+
 
     
 
@@ -56,8 +52,9 @@ void transition_fn(int rule)
         putchar('\n');
     }
         
+};
 
-}
+
  
 
 
@@ -85,11 +82,11 @@ void transition_fn(int rule)
 // }
 
 
-    State(ull* start){
-        state_encoding = start;
-        std::cout << start << std::endl;
-    }
-};
+//    State(ull* start){
+//      state_encoding = start;
+//       std::cout << start << std::endl;
+//    }
+//};
 
 int main(){
 
@@ -119,15 +116,17 @@ int main(){
  * 
  * compute:
  * 
- *      the next state can be determined by taking a summation of all calls in the neighborhood and then checking.
+ *      the next state can be determined by taking a summation of all cells in the neighborhood and then checking.
  *      for an example the below neighborhood:
+ *     
+ *      x x x x x x x x x x x
+ *      x x x 0 1 3 x x x x x
+ *      x x x 3 2 0 x x x x x
+ *      x x x 0 1 1 x x x x x
+ * 	    x x x x x x x x x x x
  * 
- *      013
- *      320
- *      011
- * 
- *      would be represented by 0133320011
- * 
+ *      would be represented by 0133320011 => 1 if the cell is 2 and it has 2 or more 1s in the neighborhood  let the value be 1
+ *      
  *      we should be able to thenconvert this into a binary representation and that should allow us to do logical operations on it
  * 
  *      needs:
@@ -171,14 +170,17 @@ class CellularAutomata{
       std::vector<int> calc_neigborhood(int i);	
 			void exec_step(){
 				for(int j = 0; j < world.size(); j++){
-					//comput the next cell state update the world vector i guess
+					//compute the next cell state update the world vector i guess
 				}
+
 			}
 
     public:
-				void run(int steps, std::os output){
+			void run(int steps, std::os output){
 					for(int i = 0; i < steps; i++){
 						exec_step();
+						output << world;
+					}
 
 };
 
