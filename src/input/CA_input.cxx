@@ -158,7 +158,6 @@ void CellularAutomata::moore_neighborhood(int row, int column)
     std::cout << "East neighbour is: " << east << std::endl;
     std::cout << "South East neighbour is: " << south_east << std::endl;    
     std::cout << "South neighbour is: " << south << std::endl;
-    std::cout << "West neighbour is: " << west << std::endl;
     std::cout << "South West neighbour is: " << south_west << std::endl;
     std::cout << "West neighbour is: " << west << std::endl;
     std::cout << "North West neighbour is: " << north_west << std::endl;
