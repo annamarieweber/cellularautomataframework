@@ -9,9 +9,10 @@ class CellularAutomata
         // Holds the dimensions of the Cellular Automata.
         int _size;
         // Holds the data for the Cellular Automata.
-        std::vector<int> _data;
+        std::vector<std::vector<int>> _data;
         // Holds the legend information for the Cellular Automata.
         std::map<std::string, int> _legend;
+        std::map<std::string, std::pair<int, float>> _legend_density;
         int _rows;
         int _columns;
         std::string _product;
@@ -20,10 +21,12 @@ class CellularAutomata
         
     public:
         // Constructor for the class, calls the initialization to set up the Cellular Automata.
-        CellularAutomata(int rows, int columns, std::map<std::string, int> legend, std::vector<int> data, std::string product, std::string reactor, std::pair<int, int> starting_position);
+        CellularAutomata(int rows, int columns, std::map<std::string, int> legend, std::vector<std::vector<int>> data, std::string product, std::string reactor, std::pair<int, int> starting_position);
         // Another constructor for the class, sets up the vector using a range of states and an increment value.
         CellularAutomata(int rows, int columns, std::map<std::string, int> legend, std::string product, std::string reactor, std::pair<int, int> starting_position);
-        void Initialize();
+        CellularAutomata(int rows, int columns, std::map<std::string, std::pair<int, float>> legend, std::string product, std::string reactor, std::pair<int, int> starting_position);
+        void Initialize_Rand();
+        void Initialize_Density();
         void vn_neighborhood(int row, int column);
         void moore_neighborhood(int row, int column); 
         void print();
