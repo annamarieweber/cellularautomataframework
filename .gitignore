@@ -24,3 +24,10 @@
 *.out
 *.app
 © 2021 GitHub, Inc.
+
+# Binaries
+*/bin
+
+# IDE Setting Files
+*.vscode/
+*.DS_Store
