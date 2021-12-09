@@ -165,22 +165,43 @@ void CellularAutomata::moore_neighborhood(int row, int column)
 
 }
 
-void CellularAutomata::run(int num_steps, int rule_num){
+std::vector<int> get_neighborhood(int x, int y,int neighborhood_num){
+  switch(neighborhood_num) {
+    case 1:
+      return moore_neighborhood(x,y);
+    case 2:
+      return vn_neighborhood(x,y);
+    default:
+      return moore_neighborhood(x,y);
+  }
+}
+
+void CellularAutomata::run(int num_steps, int rule_num, int neighborhood_num){
   for(int i=0; i < num_steps; i++){
     step(int rule_num);
   }
 }
 
-void CellularAutomata::step(int rule_num){
-  if(rule_num == 0){
-    for(int x = 0; x < _columns; x++){
-      for(int y = 0; y < _rows; y++){
-
-      }
+//logic for taking a single step of the CA simluation todo: document the funciton
+void CellularAutomata::step(int rule_num, int neighborhood_num){
+  for(int x = 0; x < _columns; x++){
+    for(int y = 0; y < _rows; y++){
+      _data[x][y] = majority_rule(x,y,neighborhood_num);
     }
   }
 }
 
+
+// logic for the majority rule todo:  add additional function documentation
+int CellularAutomata::majority_rule(int x, int y, neighborhood_num){
+  std::vector<int> neighborhood = get_neighborhood(x,y,neighborhood_num);
+  int sum = 0;
+  for(int i = 0; i < neighborhood.size(); i++){
+    sum += neighborhood[i];
+  }
+
+  return round((double)sum/neighborhood.size());
+}
 
 // Temporary print that is being used to test if the Initialize function is working as intended.
 // Print the formatted matrix out to the terminal using std::cout. Each row is printed with the first element of the Cellular Automata following an opening square bracket and all elements being seperated by commas. The last element of the Cellular Automata is also followed by a closing square bracket.
