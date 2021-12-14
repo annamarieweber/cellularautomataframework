@@ -18,6 +18,4 @@ int main(void)
 
     //3 steps with purity rule and moore neighborhood;
     Test2.run(30,2,1); 
-
-
 }
