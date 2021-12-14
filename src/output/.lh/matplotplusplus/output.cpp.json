@@ -1,0 +1,22 @@
+{
+    "sourceFile": "matplotplusplus/output.cpp",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1639515698265,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1639515749697,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,30 @@\n #include <matplot/matplot.h>\n+\n+\n+int main() {\n+    using namespace matplot;\n+\n+    std::vector<std::vector<double>> data = {\n+        {12, 135, 20, 0, 127}, {0, 1, 0, 0, 1},  {19, 31, 81, 8, 49},\n+        {9, 18, 42, 2, 85},    {0, 5, 3, 0, 17}, {31, 143, 135, 6, 23},\n+        {32, 102, 54, 6, 7},   {5, 11, 4, 0, 4}, {16, 41, 13, 3, 22},\n+        {18, 70, 37, 1, 19}};\n+\n+    heatmap(data)->normalization(matrix::color_normalization::columns);\n+\n+    title(\"Count of Cause vs. Region\");\n+    auto ax = gca();\n+    ax->x_axis().ticklabels(\n+        {\"MidWest\", \"NorthEast\", \"SouthEast\", \"SouthWest\", \"West\"});\n+    ax->y_axis().ticklabels(\n+        {\"Attack\", \"Earthquake\", \"Energy emergency\", \"Equipment fault\", \"Fire\",\n+         \"Severe Storm\", \"Thunder Storm\", \"Unknown\", \"Wind\", \"Winter Storm\"});\n+    xlabel(ax, \"Region\");\n+    ylabel(ax, \"Cause\");\n+    float w = ax->width();\n+    ax->width(w * 0.85f);\n+    ax->x_origin(ax->x_origin() + w * 0.1f);\n+\n+    show();\n+    return 0;\n+}\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1639515698265,
+            "name": "Commit-0",
+            "content": "#include <matplot/matplot.h>\n"
+        }
+    ]
+}

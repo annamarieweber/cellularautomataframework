@@ -1,0 +1,194 @@
+{
+    "sourceFile": "seaborn-cpp/Python3.x/main.cpp",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 44,
+            "patches": [
+                {
+                    "date": 1639520941222,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1639520960439,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,2 +1,24 @@\n #include\"seaborn.h\"\n \n+import numpy as np\n+import matplotlib.pyplot as plt\n+import seaborn as sns\n+from matplotlib.animation import FuncAnimation\n+\n+# generate random noise for the heatmap\n+rnd_data = np.random.normal(0, 1, (500, 100, 100))\n+\n+def my_func(i):\n+    ax.cla()\n+    sns.heatmap(rnd_data[i, ...],\n+                ax = ax,\n+                cbar = True,\n+                cbar_ax = cbar_ax,\n+                vmin = rnd_data.min(),\n+                vmax = rnd_data.max())\n+\n+grid_kws = {'width_ratios': (0.9, 0.05), 'wspace': 0.2}\n+fig, (ax, cbar_ax) = plt.subplots(1, 2, gridspec_kw = grid_kws, figsize = (12, 8))\n+anim = FuncAnimation(fig = fig, func = my_func, frames = 200, interval = 50, blit = False)\n+\n+plt.show()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1639521091732,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,7 @@\n #include\"seaborn.h\"\n \n+\n import numpy as np\n import matplotlib.pyplot as plt\n import seaborn as sns\n from matplotlib.animation import FuncAnimation\n"
+                },
+                {
+                    "date": 1639523617581,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,37 @@\n #include\"seaborn.h\"\n \n \n+int main() {\n+    using namespace matplot;\n+\n+    std::vector<std::vector<double>> data = {\n+        {12, 135, 20, 0, 127}, {0, 1, 0, 0, 1},  {19, 31, 81, 8, 49},\n+        {9, 18, 42, 2, 85},    {0, 5, 3, 0, 17}, {31, 143, 135, 6, 23},\n+        {32, 102, 54, 6, 7},   {5, 11, 4, 0, 4}, {16, 41, 13, 3, 22},\n+        {18, 70, 37, 1, 19}};\n+\n+    heatmap(data)->normalization(matrix::color_normalization::columns);\n+\n+    title(\"Count of Cause vs. Region\");\n+    auto ax = gca();\n+    ax->x_axis().ticklabels(\n+        {\"MidWest\", \"NorthEast\", \"SouthEast\", \"SouthWest\", \"West\"});\n+    ax->y_axis().ticklabels(\n+        {\"Attack\", \"Earthquake\", \"Energy emergency\", \"Equipment fault\", \"Fire\",\n+         \"Severe Storm\", \"Thunder Storm\", \"Unknown\", \"Wind\", \"Winter Storm\"});\n+    xlabel(ax, \"Region\");\n+    ylabel(ax, \"Cause\");\n+    float w = ax->width();\n+    ax->width(w * 0.85f);\n+    ax->x_origin(ax->x_origin() + w * 0.1f);\n+\n+    show();\n+    return 0;\n+}\n+\n+\n+\n import numpy as np\n import matplotlib.pyplot as plt\n import seaborn as sns\n from matplotlib.animation import FuncAnimation\n"
+                },
+                {
+                    "date": 1639523634854,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,10 +30,9 @@\n }\n \n \n \n-import numpy as np\n-import matplotlib.pyplot as plt\n+=import matplotlib.pyplot as plt\n import seaborn as sns\n from matplotlib.animation import FuncAnimation\n \n # generate random noise for the heatmap\n"
+                },
+                {
+                    "date": 1639523653247,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,11 @@\n \n \n int main() {\n     using namespace matplot;\n+    import seaborn as sns\n \n+\n     std::vector<std::vector<double>> data = {\n         {12, 135, 20, 0, 127}, {0, 1, 0, 0, 1},  {19, 31, 81, 8, 49},\n         {9, 18, 42, 2, 85},    {0, 5, 3, 0, 17}, {31, 143, 135, 6, 23},\n         {32, 102, 54, 6, 7},   {5, 11, 4, 0, 4}, {16, 41, 13, 3, 22},\n@@ -29,10 +31,9 @@\n     return 0;\n }\n \n \n-\n-=import matplotlib.pyplot as plt\n+import matplotlib.pyplot as plt\n import seaborn as sns\n from matplotlib.animation import FuncAnimation\n \n # generate random noise for the heatmap\n"
+                },
+                {
+                    "date": 1639523658882,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n \n \n int main() {\n     using namespace matplot;\n-    import seaborn as sns\n+    using namespace seaborn as sns\n \n \n     std::vector<std::vector<double>> data = {\n         {12, 135, 20, 0, 127}, {0, 1, 0, 0, 1},  {19, 31, 81, 8, 49},\n"
+                },
+                {
+                    "date": 1639523668612,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,9 @@\n #include\"seaborn.h\"\n \n \n int main() {\n-    using namespace matplot;\n-    using namespace seaborn as sns\n+        using namespace seaborn;\n \n \n     std::vector<std::vector<double>> data = {\n         {12, 135, 20, 0, 127}, {0, 1, 0, 0, 1},  {19, 31, 81, 8, 49},\n"
+                },
+                {
+                    "date": 1639523694512,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,10 @@\n #include\"seaborn.h\"\n \n \n int main() {\n-        using namespace seaborn;\n+    using namespace matplotlib\n+    using namespace seaborn;\n \n \n     std::vector<std::vector<double>> data = {\n         {12, 135, 20, 0, 127}, {0, 1, 0, 0, 1},  {19, 31, 81, 8, 49},\n"
+                },
+                {
+                    "date": 1639523772048,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n #include\"seaborn.h\"\n+#include <matplot/matplot.h>\n \n-\n int main() {\n-    using namespace matplotlib\n+    using namespace matplotlib;\n     using namespace seaborn;\n \n \n     std::vector<std::vector<double>> data = {\n"
+                },
+                {
+                    "date": 1639523793002,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,11 +31,8 @@\n     return 0;\n }\n \n \n-import matplotlib.pyplot as plt\n-import seaborn as sns\n-from matplotlib.animation import FuncAnimation\n \n # generate random noise for the heatmap\n rnd_data = np.random.normal(0, 1, (500, 100, 100))\n \n"
+                },
+                {
+                    "date": 1639523801789,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,28 @@\n int main() {\n     using namespace matplotlib;\n     using namespace seaborn;\n \n+# generate random noise for the heatmap\n+rnd_data = np.random.normal(0, 1, (500, 100, 100))\n \n+def my_func(i):\n+    ax.cla()\n+    sns.heatmap(rnd_data[i, ...],\n+                ax = ax,\n+                cbar = True,\n+                cbar_ax = cbar_ax,\n+                vmin = rnd_data.min(),\n+                vmax = rnd_data.max())\n+\n+grid_kws = {'width_ratios': (0.9, 0.05), 'wspace': 0.2}\n+fig, (ax, cbar_ax) = plt.subplots(1, 2, gridspec_kw = grid_kws, figsize = (12, 8))\n+anim = FuncAnimation(fig = fig, func = my_func, frames = 200, interval = 50, blit = False)\n+\n+plt.show()\n+\n+\n+\n     std::vector<std::vector<double>> data = {\n         {12, 135, 20, 0, 127}, {0, 1, 0, 0, 1},  {19, 31, 81, 8, 49},\n         {9, 18, 42, 2, 85},    {0, 5, 3, 0, 17}, {31, 143, 135, 6, 23},\n         {32, 102, 54, 6, 7},   {5, 11, 4, 0, 4}, {16, 41, 13, 3, 22},\n@@ -31,22 +50,4 @@\n     return 0;\n }\n \n \n-\n-# generate random noise for the heatmap\n-rnd_data = np.random.normal(0, 1, (500, 100, 100))\n-\n-def my_func(i):\n-    ax.cla()\n-    sns.heatmap(rnd_data[i, ...],\n-                ax = ax,\n-                cbar = True,\n-                cbar_ax = cbar_ax,\n-                vmin = rnd_data.min(),\n-                vmax = rnd_data.max())\n-\n-grid_kws = {'width_ratios': (0.9, 0.05), 'wspace': 0.2}\n-fig, (ax, cbar_ax) = plt.subplots(1, 2, gridspec_kw = grid_kws, figsize = (12, 8))\n-anim = FuncAnimation(fig = fig, func = my_func, frames = 200, interval = 50, blit = False)\n-\n-plt.show()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1639523807715,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,25 +4,25 @@\n int main() {\n     using namespace matplotlib;\n     using namespace seaborn;\n \n-# generate random noise for the heatmap\n-rnd_data = np.random.normal(0, 1, (500, 100, 100))\n+    # generate random noise for the heatmap\n+    rnd_data = np.random.normal(0, 1, (500, 100, 100))\n \n-def my_func(i):\n-    ax.cla()\n-    sns.heatmap(rnd_data[i, ...],\n-                ax = ax,\n-                cbar = True,\n-                cbar_ax = cbar_ax,\n-                vmin = rnd_data.min(),\n-                vmax = rnd_data.max())\n+    def my_func(i):\n+        ax.cla()\n+        sns.heatmap(rnd_data[i, ...],\n+                    ax = ax,\n+                    cbar = True,\n+                    cbar_ax = cbar_ax,\n+                    vmin = rnd_data.min(),\n+                    vmax = rnd_data.max())\n \n-grid_kws = {'width_ratios': (0.9, 0.05), 'wspace': 0.2}\n-fig, (ax, cbar_ax) = plt.subplots(1, 2, gridspec_kw = grid_kws, figsize = (12, 8))\n-anim = FuncAnimation(fig = fig, func = my_func, frames = 200, interval = 50, blit = False)\n+    grid_kws = {'width_ratios': (0.9, 0.05), 'wspace': 0.2}\n+    fig, (ax, cbar_ax) = plt.subplots(1, 2, gridspec_kw = grid_kws, figsize = (12, 8))\n+    anim = FuncAnimation(fig = fig, func = my_func, frames = 200, interval = 50, blit = False)\n \n-plt.show()\n+    plt.show()\n \n \n \n     std::vector<std::vector<double>> data = {\n"
+                },
+                {
+                    "date": 1639524477139,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,9 +32,9 @@\n         {18, 70, 37, 1, 19}};\n \n     heatmap(data)->normalization(matrix::color_normalization::columns);\n \n-    title(\"Count of Cause vs. Region\");\n+    title(\"\");\n     auto ax = gca();\n     ax->x_axis().ticklabels(\n         {\"MidWest\", \"NorthEast\", \"SouthEast\", \"SouthWest\", \"West\"});\n     ax->y_axis().ticklabels(\n"
+                },
+                {
+                    "date": 1639524486143,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,12 +35,11 @@\n \n     title(\"\");\n     auto ax = gca();\n     ax->x_axis().ticklabels(\n-        {\"MidWest\", \"NorthEast\", \"SouthEast\", \"SouthWest\", \"West\"});\n+        {\"\"});\n     ax->y_axis().ticklabels(\n-        {\"Attack\", \"Earthquake\", \"Energy emergency\", \"Equipment fault\", \"Fire\",\n-         \"Severe Storm\", \"Thunder Storm\", \"Unknown\", \"Wind\", \"Winter Storm\"});\n+        {\"\"});\n     xlabel(ax, \"Region\");\n     ylabel(ax, \"Cause\");\n     float w = ax->width();\n     ax->width(w * 0.85f);\n"
+                },
+                {
+                    "date": 1639524491744,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,10 +38,10 @@\n     ax->x_axis().ticklabels(\n         {\"\"});\n     ax->y_axis().ticklabels(\n         {\"\"});\n-    xlabel(ax, \"Region\");\n-    ylabel(ax, \"Cause\");\n+    xlabel(ax, \"\");\n+    ylabel(ax, \"\");\n     float w = ax->width();\n     ax->width(w * 0.85f);\n     ax->x_origin(ax->x_origin() + w * 0.1f);\n \n"
+                },
+                {
+                    "date": 1639524527425,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,12 +25,12 @@\n \n \n \n     std::vector<std::vector<double>> data = {\n-        {12, 135, 20, 0, 127}, {0, 1, 0, 0, 1},  {19, 31, 81, 8, 49},\n-        {9, 18, 42, 2, 85},    {0, 5, 3, 0, 17}, {31, 143, 135, 6, 23},\n+        {12, 135, 20, 0, 127}, {0, 1, 0, 0,, 0, 17}, {31, 143, 135, 6, 23},\n         {32, 102, 54, 6, 7},   {5, 11, 4, 0, 4}, {16, 41, 13, 3, 22},\n-        {18, 70, 37, 1, 19}};\n+        {18, 70, 37, 1, 19}}; 1},  {19, 31, 81, 8, 49},\n+        {9, 18, 42, 2, 85},    {0, 5, 3\n \n     heatmap(data)->normalization(matrix::color_normalization::columns);\n \n     title(\"\");\n"
+                },
+                {
+                    "date": 1639524539044,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,13 +24,9 @@\n     plt.show()\n \n \n \n-    std::vector<std::vector<double>> data = {\n-        {12, 135, 20, 0, 127}, {0, 1, 0, 0,, 0, 17}, {31, 143, 135, 6, 23},\n-        {32, 102, 54, 6, 7},   {5, 11, 4, 0, 4}, {16, 41, 13, 3, 22},\n-        {18, 70, 37, 1, 19}}; 1},  {19, 31, 81, 8, 49},\n-        {9, 18, 42, 2, 85},    {0, 5, 3\n+    std::vector<std::vector<double>> data_;\n \n     heatmap(data)->normalization(matrix::color_normalization::columns);\n \n     title(\"\");\n@@ -44,8 +40,11 @@\n     float w = ax->width();\n     ax->width(w * 0.85f);\n     ax->x_origin(ax->x_origin() + w * 0.1f);\n \n+        anim = FuncAnimation(fig = fig, func = my_func, frames = 200, interval = 50, blit = False)\n+\n+\n     show();\n     return 0;\n }\n \n"
+                },
+                {
+                    "date": 1639524547602,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,9 +40,9 @@\n     float w = ax->width();\n     ax->width(w * 0.85f);\n     ax->x_origin(ax->x_origin() + w * 0.1f);\n \n-        anim = FuncAnimation(fig = fig, func = my_func, frames = 200, interval = 50, blit = False)\n+    matplotlib.animation fig = fig, func = my_func, frames = 200, interval = 50, blit = False)\n \n \n     show();\n     return 0;\n"
+                },
+                {
+                    "date": 1639524591820,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,28 +4,11 @@\n int main() {\n     using namespace matplotlib;\n     using namespace seaborn;\n \n-    # generate random noise for the heatmap\n-    rnd_data = np.random.normal(0, 1, (500, 100, 100))\n+ \n \n-    def my_func(i):\n-        ax.cla()\n-        sns.heatmap(rnd_data[i, ...],\n-                    ax = ax,\n-                    cbar = True,\n-                    cbar_ax = cbar_ax,\n-                    vmin = rnd_data.min(),\n-                    vmax = rnd_data.max())\n \n-    grid_kws = {'width_ratios': (0.9, 0.05), 'wspace': 0.2}\n-    fig, (ax, cbar_ax) = plt.subplots(1, 2, gridspec_kw = grid_kws, figsize = (12, 8))\n-    anim = FuncAnimation(fig = fig, func = my_func, frames = 200, interval = 50, blit = False)\n-\n-    plt.show()\n-\n-\n-\n     std::vector<std::vector<double>> data_;\n \n     heatmap(data)->normalization(matrix::color_normalization::columns);\n \n@@ -40,9 +23,9 @@\n     float w = ax->width();\n     ax->width(w * 0.85f);\n     ax->x_origin(ax->x_origin() + w * 0.1f);\n \n-    matplotlib.animation fig = fig, func = my_func, frames = 200, interval = 50, blit = False)\n+    matplotlib.animation(fig = fig, func = my_func, frames = 200, interval = 50, blit = False)\n \n \n     show();\n     return 0;\n"
+                },
+                {
+                    "date": 1639524946857,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,29 +6,30 @@\n     using namespace seaborn;\n \n  \n \n+import numpy as np\n+import matplotlib.pyplot as plt\n+import seaborn as sns\n+from matplotlib.animation import FuncAnimation\n \n-    std::vector<std::vector<double>> data_;\n+# generate random noise for the heatmap\n+rnd_data = np.random.normal(0, 1, (500, 100, 100))\n \n-    heatmap(data)->normalization(matrix::color_normalization::columns);\n+def my_func(i):\n+    ax.cla()\n+    sns.heatmap(rnd_data[i, ...],\n+                ax = ax,\n+                cbar = True,\n+                cbar_ax = cbar_ax,\n+                vmin = rnd_data.min(),\n+                vmax = rnd_data.max())\n \n-    title(\"\");\n-    auto ax = gca();\n-    ax->x_axis().ticklabels(\n-        {\"\"});\n-    ax->y_axis().ticklabels(\n-        {\"\"});\n-    xlabel(ax, \"\");\n-    ylabel(ax, \"\");\n-    float w = ax->width();\n-    ax->width(w * 0.85f);\n-    ax->x_origin(ax->x_origin() + w * 0.1f);\n+grid_kws = {'width_ratios': (0.9, 0.05), 'wspace': 0.2}\n+fig, (ax, cbar_ax) = plt.subplots(1, 2, gridspec_kw = grid_kws, figsize = (12, 8))\n+anim = FuncAnimation(fig = fig, func = my_func, frames = 200, interval = 50, blit = False)\n \n-    matplotlib.animation(fig = fig, func = my_func, frames = 200, interval = 50, blit = False)\n+plt.show()\n \n-\n-    show();\n-    return 0;\n }\n \n \n"
+                },
+                {
+                    "date": 1639524952878,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,15 +4,8 @@\n int main() {\n     using namespace matplotlib;\n     using namespace seaborn;\n \n- \n-\n-import numpy as np\n-import matplotlib.pyplot as plt\n-import seaborn as sns\n-from matplotlib.animation import FuncAnimation\n-\n # generate random noise for the heatmap\n rnd_data = np.random.normal(0, 1, (500, 100, 100))\n \n def my_func(i):\n"
+                },
+                {
+                    "date": 1639524969402,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,22 +7,22 @@\n \n # generate random noise for the heatmap\n rnd_data = np.random.normal(0, 1, (500, 100, 100))\n \n-def my_func(i):\n-    ax.cla()\n-    sns.heatmap(rnd_data[i, ...],\n-                ax = ax,\n-                cbar = True,\n-                cbar_ax = cbar_ax,\n-                vmin = rnd_data.min(),\n-                vmax = rnd_data.max())\n+    def my_func(i):\n+        ax.cla()\n+        sns.heatmap(rnd_data[i, ...],\n+                    ax = ax,\n+                    cbar = True,\n+                    cbar_ax = cbar_ax,\n+                    vmin = rnd_data.min(),\n+                    vmax = rnd_data.max())\n \n-grid_kws = {'width_ratios': (0.9, 0.05), 'wspace': 0.2}\n-fig, (ax, cbar_ax) = plt.subplots(1, 2, gridspec_kw = grid_kws, figsize = (12, 8))\n-anim = FuncAnimation(fig = fig, func = my_func, frames = 200, interval = 50, blit = False)\n+    grid_kws = {'width_ratios': (0.9, 0.05), 'wspace': 0.2}\n+    fig, (ax, cbar_ax) = plt.subplots(1, 2, gridspec_kw = grid_kws, figsize = (12, 8))\n+    anim = FuncAnimation(fig = fig, func = my_func, frames = 200, interval = 50, blit = False)\n \n-plt.show()\n+    show()\n \n }\n \n \n"
+                },
+                {
+                    "date": 1639524975100,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,11 @@\n     grid_kws = {'width_ratios': (0.9, 0.05), 'wspace': 0.2}\n     fig, (ax, cbar_ax) = plt.subplots(1, 2, gridspec_kw = grid_kws, figsize = (12, 8))\n     anim = FuncAnimation(fig = fig, func = my_func, frames = 200, interval = 50, blit = False)\n \n-    show()\n+    show();\n \n+    return 0;\n+\n }\n \n \n"
+                },
+                {
+                    "date": 1639524980233,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n \n # generate random noise for the heatmap\n rnd_data = np.random.normal(0, 1, (500, 100, 100))\n \n-    def my_func(i):\n+    void my_func(i):\n         ax.cla()\n         sns.heatmap(rnd_data[i, ...],\n                     ax = ax,\n                     cbar = True,\n"
+                },
+                {
+                    "date": 1639524985793,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,10 +4,10 @@\n int main() {\n     using namespace matplotlib;\n     using namespace seaborn;\n \n-# generate random noise for the heatmap\n-rnd_data = np.random.normal(0, 1, (500, 100, 100))\n+    # generate random noise for the heatmap\n+    rnd_data = np.random.normal(0, 1, (500, 100, 100))\n \n     void my_func(i):\n         ax.cla()\n         sns.heatmap(rnd_data[i, ...],\n"
+                },
+                {
+                    "date": 1639525042824,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n #include\"seaborn.h\"\n #include <matplot/matplot.h>\n-\n+#include <ctime>\n int main() {\n     using namespace matplotlib;\n     using namespace seaborn;\n \n"
+                },
+                {
+                    "date": 1639525050313,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,9 @@\n #include\"seaborn.h\"\n #include <matplot/matplot.h>\n #include <ctime>\n+using namespace matplotlib;\n+using namespace seaborn;\n int main() {\n     using namespace matplotlib;\n     using namespace seaborn;\n \n"
+                },
+                {
+                    "date": 1639525055498,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,10 +3,8 @@\n #include <ctime>\n using namespace matplotlib;\n using namespace seaborn;\n int main() {\n-    using namespace matplotlib;\n-    using namespace seaborn;\n \n     # generate random noise for the heatmap\n     rnd_data = np.random.normal(0, 1, (500, 100, 100))\n \n"
+                },
+                {
+                    "date": 1639525064806,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-#include\"seaborn.h\"\n+#include\"Seaborn.h\"\n #include <matplot/matplot.h>\n #include <ctime>\n using namespace matplotlib;\n using namespace seaborn;\n"
+                },
+                {
+                    "date": 1639525078174,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,12 @@\n \n     # generate random noise for the heatmap\n     rnd_data = np.random.normal(0, 1, (500, 100, 100))\n \n-    void my_func(i):\n+    void my_func(i)\n+    {\n+        \n+    }\n         ax.cla()\n         sns.heatmap(rnd_data[i, ...],\n                     ax = ax,\n                     cbar = True,\n"
+                },
+                {
+                    "date": 1639525086070,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,20 +7,12 @@\n \n     # generate random noise for the heatmap\n     rnd_data = np.random.normal(0, 1, (500, 100, 100))\n \n-    void my_func(i)\n+    void my_func(int i)\n     {\n-        \n+\n     }\n-        ax.cla()\n-        sns.heatmap(rnd_data[i, ...],\n-                    ax = ax,\n-                    cbar = True,\n-                    cbar_ax = cbar_ax,\n-                    vmin = rnd_data.min(),\n-                    vmax = rnd_data.max())\n-\n     grid_kws = {'width_ratios': (0.9, 0.05), 'wspace': 0.2}\n     fig, (ax, cbar_ax) = plt.subplots(1, 2, gridspec_kw = grid_kws, figsize = (12, 8))\n     anim = FuncAnimation(fig = fig, func = my_func, frames = 200, interval = 50, blit = False)\n \n"
+                },
+                {
+                    "date": 1639525094994,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,17 @@\n     rnd_data = np.random.normal(0, 1, (500, 100, 100))\n \n     void my_func(int i)\n     {\n+        ax.cla()\n+        sns.heatmap(rnd_data[i, ...],\n+        ax = ax,\n+                    cbar = True,\n+                    cbar_ax = cbar_ax,\n+                    vmin = rnd_data.min(),\n+                    vmax = rnd_data.max())\n \n+\n     }\n     grid_kws = {'width_ratios': (0.9, 0.05), 'wspace': 0.2}\n     fig, (ax, cbar_ax) = plt.subplots(1, 2, gridspec_kw = grid_kws, figsize = (12, 8))\n     anim = FuncAnimation(fig = fig, func = my_func, frames = 200, interval = 50, blit = False)\n"
+                },
+                {
+                    "date": 1639525108166,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,11 +12,11 @@\n     {\n         ax.cla()\n         sns.heatmap(rnd_data[i, ...],\n         ax = ax,\n-                    cbar = True,\n-                    cbar_ax = cbar_ax,\n-                    vmin = rnd_data.min(),\n+        cbar = True,\n+        cbar_ax = cbar_ax,\n+        vmin = rnd_data.min(),\n                     vmax = rnd_data.max())\n \n \n     }\n"
+                },
+                {
+                    "date": 1639525113398,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,14 +10,13 @@\n \n     void my_func(int i)\n     {\n         ax.cla()\n-        sns.heatmap(rnd_data[i, ...],\n-        ax = ax,\n+        sns.heatmap(rnd_data[i, ...],ax = ax,\n         cbar = True,\n         cbar_ax = cbar_ax,\n         vmin = rnd_data.min(),\n-                    vmax = rnd_data.max())\n+                vmax = rnd_data.max())\n \n \n     }\n     grid_kws = {'width_ratios': (0.9, 0.05), 'wspace': 0.2}\n"
+                },
+                {
+                    "date": 1639525118630,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,11 +10,9 @@\n \n     void my_func(int i)\n     {\n         ax.cla()\n-        sns.heatmap(rnd_data[i, ...],ax = ax,\n-        cbar = True,\n-        cbar_ax = cbar_ax,\n+        sns.heatmap(rnd_data[i, ...],ax = ax,cbar = True,cbar_ax = cbar_ax,\n         vmin = rnd_data.min(),\n                 vmax = rnd_data.max())\n \n \n"
+                },
+                {
+                    "date": 1639525124452,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,11 +10,9 @@\n \n     void my_func(int i)\n     {\n         ax.cla()\n-        sns.heatmap(rnd_data[i, ...],ax = ax,cbar = True,cbar_ax = cbar_ax,\n-        vmin = rnd_data.min(),\n-                vmax = rnd_data.max())\n+        sns.heatmap(rnd_data[i, ...],ax = ax,cbar = True,cbar_ax = cbar_ax,vmin = rnd_data.min(),vmax = rnd_data.max())\n \n \n     }\n     grid_kws = {'width_ratios': (0.9, 0.05), 'wspace': 0.2}\n"
+                },
+                {
+                    "date": 1639525129844,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,8 @@\n     {\n         ax.cla()\n         sns.heatmap(rnd_data[i, ...],ax = ax,cbar = True,cbar_ax = cbar_ax,vmin = rnd_data.min(),vmax = rnd_data.max())\n \n-\n     }\n     grid_kws = {'width_ratios': (0.9, 0.05), 'wspace': 0.2}\n     fig, (ax, cbar_ax) = plt.subplots(1, 2, gridspec_kw = grid_kws, figsize = (12, 8))\n     anim = FuncAnimation(fig = fig, func = my_func, frames = 200, interval = 50, blit = False)\n"
+                },
+                {
+                    "date": 1639525141612,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,14 +5,14 @@\n using namespace seaborn;\n int main() {\n \n     # generate random noise for the heatmap\n-    rnd_data = np.random.normal(0, 1, (500, 100, 100))\n+    int rnd_data = np.random.normal(0, 1, (500, 100, 100))\n \n     void my_func(int i)\n     {\n         ax.cla()\n-        sns.heatmap(rnd_data[i, ...],ax = ax,cbar = True,cbar_ax = cbar_ax,vmin = rnd_data.min(),vmax = rnd_data.max())\n+        heatmap(rnd_data[i, ...],ax = ax,cbar = True,cbar_ax = cbar_ax,vmin = rnd_data.min(),vmax = rnd_data.max())\n \n     }\n     grid_kws = {'width_ratios': (0.9, 0.05), 'wspace': 0.2}\n     fig, (ax, cbar_ax) = plt.subplots(1, 2, gridspec_kw = grid_kws, figsize = (12, 8))\n"
+                },
+                {
+                    "date": 1639525148631,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n using namespace seaborn;\n int main() {\n \n     # generate random noise for the heatmap\n-    int rnd_data = np.random.normal(0, 1, (500, 100, 100))\n+    double rnd_data = random(normal(0, 1, (500, 100, 100))\n \n     void my_func(int i)\n     {\n         ax.cla()\n"
+                },
+                {
+                    "date": 1639525231478,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n \n     void my_func(int i)\n     {\n         ax.cla()\n-        heatmap(rnd_data[i, ...],ax = ax,cbar = True,cbar_ax = cbar_ax,vmin = rnd_data.min(),vmax = rnd_data.max())\n+        heatmap(rnd_data[i, ...],ax = ax,cbar = True,cbar_ax = cbar_ax,vmin = rnd_data.min(),vmax = rnd_data.max());\n \n     }\n     grid_kws = {'width_ratios': (0.9, 0.05), 'wspace': 0.2}\n     fig, (ax, cbar_ax) = plt.subplots(1, 2, gridspec_kw = grid_kws, figsize = (12, 8))\n"
+                },
+                {
+                    "date": 1639525253109,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,15 +9,15 @@\n     double rnd_data = random(normal(0, 1, (500, 100, 100))\n \n     void my_func(int i)\n     {\n-        ax.cla()\n+        ax.cla();\n         heatmap(rnd_data[i, ...],ax = ax,cbar = True,cbar_ax = cbar_ax,vmin = rnd_data.min(),vmax = rnd_data.max());\n \n     }\n     grid_kws = {'width_ratios': (0.9, 0.05), 'wspace': 0.2}\n     fig, (ax, cbar_ax) = plt.subplots(1, 2, gridspec_kw = grid_kws, figsize = (12, 8))\n-    anim = FuncAnimation(fig = fig, func = my_func, frames = 200, interval = 50, blit = False)\n+    (fig = fig, func = my_func, frames = 200, interval = 50, blit = False)\n \n     show();\n \n     return 0;\n"
+                },
+                {
+                    "date": 1639525261489,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n \n     }\n     grid_kws = {'width_ratios': (0.9, 0.05), 'wspace': 0.2}\n     fig, (ax, cbar_ax) = plt.subplots(1, 2, gridspec_kw = grid_kws, figsize = (12, 8))\n-    (fig = fig, func = my_func, frames = 200, interval = 50, blit = False)\n+    matplotlib.aniatio(fig = fig, func = my_func, frames = 200, interval = 50, blit = False)\n \n     show();\n \n     return 0;\n"
+                },
+                {
+                    "date": 1639525281121,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n \n     }\n     grid_kws = {'width_ratios': (0.9, 0.05), 'wspace': 0.2}\n     fig, (ax, cbar_ax) = plt.subplots(1, 2, gridspec_kw = grid_kws, figsize = (12, 8))\n-    matplotlib.aniatio(fig = fig, func = my_func, frames = 200, interval = 50, blit = False)\n+    matplotlib.animation(fig = fig, func = my_func, frames = 200, interval = 50, blit = False);\n \n     show();\n \n     return 0;\n"
+                },
+                {
+                    "date": 1639525315174,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,14 +9,14 @@\n     double rnd_data = random(normal(0, 1, (500, 100, 100))\n \n     void my_func(int i)\n     {\n-        ax.cla();\n+        ax->cla();\n         heatmap(rnd_data[i, ...],ax = ax,cbar = True,cbar_ax = cbar_ax,vmin = rnd_data.min(),vmax = rnd_data.max());\n \n     }\n-    grid_kws = {'width_ratios': (0.9, 0.05), 'wspace': 0.2}\n-    fig, (ax, cbar_ax) = plt.subplots(1, 2, gridspec_kw = grid_kws, figsize = (12, 8))\n+    grid_kws = {'width_ratios': (0.9, 0.05), 'wspace': 0.2};\n+    fig, (ax, cbar_ax) = plt.subplots(1, 2, gridspec_kw = grid_kws, figsize = (12, 8));\n     matplotlib.animation(fig = fig, func = my_func, frames = 200, interval = 50, blit = False);\n \n     show();\n \n"
+                }
+            ],
+            "date": 1639520941222,
+            "name": "Commit-0",
+            "content": "#include\"seaborn.h\"\n\n"
+        }
+    ]
+}

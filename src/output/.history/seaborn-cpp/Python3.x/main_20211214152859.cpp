@@ -1,0 +1,51 @@
+#include"seaborn.h"
+#include <matplot/matplot.h>
+
+int main() {
+    using namespace matplotlib;
+    using namespace seaborn;
+
+    # generate random noise for the heatmap
+    rnd_data = np.random.normal(0, 1, (500, 100, 100))
+
+    def my_func(i):
+        ax.cla()
+        sns.heatmap(rnd_data[i, ...],
+                    ax = ax,
+                    cbar = True,
+                    cbar_ax = cbar_ax,
+                    vmin = rnd_data.min(),
+                    vmax = rnd_data.max())
+
+    grid_kws = {'width_ratios': (0.9, 0.05), 'wspace': 0.2}
+    fig, (ax, cbar_ax) = plt.subplots(1, 2, gridspec_kw = grid_kws, figsize = (12, 8))
+    anim = FuncAnimation(fig = fig, func = my_func, frames = 200, interval = 50, blit = False)
+
+    plt.show()
+
+
+
+    std::vector<std::vector<double>> data_;
+
+    heatmap(data)->normalization(matrix::color_normalization::columns);
+
+    title("");
+    auto ax = gca();
+    ax->x_axis().ticklabels(
+        {""});
+    ax->y_axis().ticklabels(
+        {""});
+    xlabel(ax, "");
+    ylabel(ax, "");
+    float w = ax->width();
+    ax->width(w * 0.85f);
+    ax->x_origin(ax->x_origin() + w * 0.1f);
+
+        anim = FuncAnimation(fig = fig, func = my_func, frames = 200, interval = 50, blit = False)
+
+
+    show();
+    return 0;
+}
+
+

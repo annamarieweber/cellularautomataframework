@@ -1,0 +1,46 @@
+{
+    "sourceFile": "main.cpp",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 7,
+            "patches": [
+                {
+                    "date": 1639520447409,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1639520454415,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,1 @@\n-#include<seaborn-cpp\n+#include<\"\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1639520463227,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,1 @@\n-#include<\"\n\\ No newline at end of file\n+#include\"seaborn-cpp/seaborn.h\"\n"
+                },
+                {
+                    "date": 1639520469265,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,1 @@\n-#include\"seaborn-cpp/seaborn.h\"\n+#include\"seaborn-cpp/project/seaborn.h\"\n"
+                },
+                {
+                    "date": 1639520509982,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,1 @@\n-#include\"seaborn-cpp/project/seaborn.h\"\n+#include\"seaborn-cpp/Pproject/seaborn.h\"\n"
+                },
+                {
+                    "date": 1639520516660,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,1 @@\n-#include\"seaborn-cpp/Pproject/seaborn.h\"\n+#include\"seaborn-cpp/Python3.x/project/seaborn.h\"\n"
+                },
+                {
+                    "date": 1639520539311,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,1 @@\n-#include\"seaborn-cpp/Python3.x/project/seaborn.h\"\n+#include\"seaborn-cpp/Python3.x/seaborn.h\"\n"
+                },
+                {
+                    "date": 1639520576571,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,1 @@\n-#include\"seaborn-cpp/Python3.x/seaborn.h\"\n+#include\"seaborn.h\"\n"
+                }
+            ],
+            "date": 1639520447409,
+            "name": "Commit-0",
+            "content": "#include<seaborn-cpp\n"
+        }
+    ]
+}
