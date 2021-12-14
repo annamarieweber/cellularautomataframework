@@ -14,6 +14,9 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       
+    - name: Set Up Directories
+      run: mkdir bin; mkdir lib
+      
     - name: Install dependencies
       run: make
       
