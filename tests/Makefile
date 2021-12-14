@@ -28,6 +28,11 @@ test_CA_input: $(INC_DIR)/myutils.h $(INC_DIR)/CellularAutomata.h
 
 all: $(EXECUTABLES)
 
+test: $(EXECUTABLES)
+	echo Testing Input Functionality
+	$(BIN_DIR)/test_CA_input
+	echo Testing Compute Functionality
+	$(BIN_DIR)/test_CA_compute
+
 cleanall:
 	cd $(BIN_DIR); rm $(EXECUTABLES)
-
