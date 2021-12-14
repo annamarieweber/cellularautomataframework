@@ -18,6 +18,9 @@ class CellularAutomata
         // Holds the legend information of the Cellular Automata as well as densities for each state. Where the string is the name of the state, the pair contains the value for that state (integer) and density (float, from 0.0-1.0).
         std::map<std::string, std::pair<int, float> > _legend_density;
 
+        // Holds the number of possible states a cell can be in
+        int _num_states;
+        
         // Number of rows in the cellular automata, or its height.
         int _rows;
 

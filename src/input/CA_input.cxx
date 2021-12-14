@@ -12,6 +12,7 @@ CellularAutomata::CellularAutomata(int rows, int columns, std::map<std::string, 
     _columns = columns;
     _data = data;
     _size = rows*columns;
+    _num_states = legend.size();
     _legend = legend;
     _product = product;
     _reactor = reactor;
@@ -24,6 +25,7 @@ CellularAutomata::CellularAutomata(int rows, int columns, std::map<std::string, 
     _rows = rows;
     _columns = columns;
     _size = rows*columns;
+    _num_states = legend.size();
     _legend = legend;
     _product = product;
     _reactor = reactor;
@@ -40,6 +42,7 @@ CellularAutomata::CellularAutomata(int rows, int columns, std::map<std::string, 
     _rows = rows;
     _columns = columns;
     _size = rows*columns;
+    _num_states = legend.size();
     _legend_density = legend;
     _product = product;
     _reactor = reactor;
@@ -240,10 +243,10 @@ int CellularAutomata::purity_rule(int x, int y, std::vector<int> neighborhood){
   int sum = 0;
   int current_val = _data[x][y];
   for(int i = 0; i < neighborhood.size(); i++){
-    sum += (current_val+neighborhood[i])%_legend.size();
+    sum += (current_val+neighborhood[i]);
   }
 
-  return round((double)sum/neighborhood.size());
+  return sum % _num_states;
 }
 
 // Temporary print that is being used to test if the Initialize function is working as intended.

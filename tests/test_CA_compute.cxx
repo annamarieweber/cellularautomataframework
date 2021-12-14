@@ -6,23 +6,18 @@
 
 int main(void)
 {
-    // Testing the creation of a cellular automata when data is directly passed in
-    std::cout << "Creating Cellular Automata given data: " << std::endl;
-    std::vector<std::vector<int> > test = {{3, 2, 1, 2}, {1,3, 3, 1}, {0, 3, 1, 1},{3,0, 2, 0}};
-    std::map<std::string, int> test_legend{{"empty", 0}, {"tree", 1}, {"fire", 2}, {"char", 3}};
-    
-    CellularAutomata Test1(4, 4, test_legend, test, "char", "fire", (std::pair<int, int>) {2, 2});
-    Test1.print();   
-
+    std::cout << "Creating Cellular Automata using Density: " << std::endl;
+    std::map<std::string, std::pair<int, float>> test_legend_density{{"empty", {0, 0.1}}, {"tree", {1, 0.04}}, {"fire", {2, 0.7}}, {"char", {3, 0.16}}};
+    CellularAutomata Test1(10, 10, test_legend_density, "char", "fire", std::pair<int, int> {5, 5});
     //3 steps with majority rule and moore neighborhood;
-    Test1.run(3,1,1); 
+    Test1.run(30,1,1); 
 
     // Testing the creation of a cellular automata when data is directly passed in
-    CellularAutomata Test2(4, 4, test_legend, test, "char", "fire", (std::pair<int, int>) {2, 2});
+    CellularAutomata Test2(10, 10, test_legend_density, "char", "fire", (std::pair<int, int>) {5, 5});
     Test2.print();   
 
     //3 steps with purity rule and moore neighborhood;
-    Test2.run(3,2,1); 
+    Test2.run(30,2,1); 
 
 
 }
