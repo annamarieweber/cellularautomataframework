@@ -10,7 +10,7 @@
 CXX         = g++      
 
 # compiler flags -g debug, -O3 optimized version -c create a library object
-CXXFLAGS    = -O3 -o
+CXXFLAGS    = -std=c++11 -O3 -o
 
 # The directory where the include files needed to create the library objects are
 INC_DIR = ../include
@@ -20,11 +20,15 @@ LIB_DIR     = ../lib
 BIN_DIR     = ../bin
 
 # The next line contains the list of utility objects created by this Makefile.
-EXECUTABLES = test_CA_input
+EXECUTABLES = test_CA_input test_CA_compute
 
 test_CA_input: $(INC_DIR)/myutils.h $(INC_DIR)/CellularAutomata.h
 	$(CXX) $(CXXFLAGS) test_CA_input test_CA_input.cxx -I$(INC_DIR) $(LIB_DIR)/utils.o $(LIB_DIR)/CA_input.o
 	mv test_CA_input $(BIN_DIR)
+
+test_CA_compute: $(INC_DIR)/myutils.h $(INC_DIR)/CellularAutomata.h
+	$(CXX) $(CXXFLAGS) test_CA_compute test_CA_compute.cxx -I$(INC_DIR) $(LIB_DIR)/utils.o $(LIB_DIR)/CA_input.o
+	mv test_CA_compute $(BIN_DIR)
 
 all: $(EXECUTABLES)
 

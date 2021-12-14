@@ -1,16 +1,18 @@
 #include <iostream>
 #include <utility>
+#include <math.h> 
 #include "CellularAutomata.h"
 #include "myutils.h"
 
 // Constructor with data being passed in from the user.
-CellularAutomata::CellularAutomata(int rows, int columns, std::map<std::string, int> legend, std::vector<std::vector<int>> data, std::string product, std::string reactor, std::pair<int, int> starting_position)
+CellularAutomata::CellularAutomata(int rows, int columns, std::map<std::string, int> legend, std::vector<std::vector<int> > data, std::string product, std::string reactor, std::pair<int, int> starting_position)
 {
     // Will need to ensure that the integers in the legend cover the data that is input, if not it should throw an error.
     _rows = rows;
     _columns = columns;
     _data = data;
     _size = rows*columns;
+    _num_states = legend.size();
     _legend = legend;
     _product = product;
     _reactor = reactor;
@@ -23,6 +25,7 @@ CellularAutomata::CellularAutomata(int rows, int columns, std::map<std::string, 
     _rows = rows;
     _columns = columns;
     _size = rows*columns;
+    _num_states = legend.size();
     _legend = legend;
     _product = product;
     _reactor = reactor;
@@ -34,11 +37,12 @@ CellularAutomata::CellularAutomata(int rows, int columns, std::map<std::string, 
 }
 
 // Constructor with no data, and data is built using density values passed in.
-CellularAutomata::CellularAutomata(int rows, int columns, std::map<std::string, std::pair<int, float>> legend, std::string product, std::string reactor, std::pair<int, int> starting_position)
+CellularAutomata::CellularAutomata(int rows, int columns, std::map<std::string, std::pair<int, float> > legend, std::string product, std::string reactor, std::pair<int, int> starting_position)
 {
     _rows = rows;
     _columns = columns;
     _size = rows*columns;
+    _num_states = legend.size();
     _legend_density = legend;
     _product = product;
     _reactor = reactor;
@@ -129,21 +133,28 @@ void CellularAutomata::Initialize_Density()
 
 
 // Code to evaluate von neumman neighborhood where r = 1 with periodic bounds.
-void CellularAutomata::vn_neighborhood(int row, int column)
+std::vector<int> CellularAutomata::vn_neighborhood(int row, int column)
 {
+    std::vector<int> neighborhood;
     int north = _data[(_rows + ((row-1) % _rows) ) % _rows][column];
-    int east = _data[row][(_columns + ((column + 1) % _columns)) % _columns];
-    int south = _data[(_rows + ((row+1) % _rows) ) % _rows][column];
+    neighborhood.push_back(north);
     int west = _data[row][(_columns + ((column - 1) % _columns)) % _columns];
+    neighborhood.push_back(west);
+    int east = _data[row][(_columns + ((column + 1) % _columns)) % _columns];
+    neighborhood.push_back(east);
+    int south = _data[(_rows + ((row+1) % _rows) ) % _rows][column];
+    neighborhood.push_back(south);
 
-    std::cout << "North neighbour is: " << north << std::endl;
-    std::cout << "East neighbour is: " << east << std::endl;
-    std::cout << "South neighbour is: " << south << std::endl;
-    std::cout << "West neighbour is: " << west << std::endl;
+    // std::cout << "North neighbour is: " << north << std::endl;
+    // std::cout << "East neighbour is: " << east << std::endl;
+    // std::cout << "South neighbour is: " << south << std::endl;
+    // std::cout << "West neighbour is: " << west << std::endl;
+
+    return neighborhood;
 }
 
 // Code to evaluate moore neighborhood where r = 1 with periodic bounds.
-void CellularAutomata::moore_neighborhood(int row, int column)
+std::vector<int> CellularAutomata::moore_neighborhood(int row, int column)
 {
     int north = _data[(_rows + ((row-1) % _rows) ) % _rows][column];
     int north_east = _data[(_rows + ((row-1) % _rows) ) % _rows][(_columns + ((column + 1) % _columns)) % _columns];
@@ -154,33 +165,89 @@ void CellularAutomata::moore_neighborhood(int row, int column)
     int west = _data[row][(_columns + ((column - 1) % _columns)) % _columns];
     int north_west = _data[(_rows + ((row-1) % _rows) ) % _rows][(_columns + ((column - 1) % _columns)) % _columns];
 
-    std::cout << "North neighbour is: " << north << std::endl;
-    std::cout << "North East neighbour is: " << north_east << std::endl;
-    std::cout << "East neighbour is: " << east << std::endl;
-    std::cout << "South East neighbour is: " << south_east << std::endl;    
-    std::cout << "South neighbour is: " << south << std::endl;
-    std::cout << "South West neighbour is: " << south_west << std::endl;
-    std::cout << "West neighbour is: " << west << std::endl;
-    std::cout << "North West neighbour is: " << north_west << std::endl;
+    std::vector<int> neighborhood;
+    neighborhood.push_back(north_west);
+    neighborhood.push_back(north);
+    neighborhood.push_back(north_east);
+    neighborhood.push_back(west);
+    neighborhood.push_back(east);
+    neighborhood.push_back(south_west);
+    neighborhood.push_back(south);
+    neighborhood.push_back(south_east);
 
+    // std::cout << "North neighbour is: " << north << std::endl;
+    // std::cout << "North East neighbour is: " << north_east << std::endl;
+    // std::cout << "East neighbour is: " << east << std::endl;
+    // std::cout << "South East neighbour is: " << south_east << std::endl;    
+    // std::cout << "South neighbour is: " << south << std::endl;
+    // std::cout << "South West neighbour is: " << south_west << std::endl;
+    // std::cout << "West neighbour is: " << west << std::endl;
+    // std::cout << "North West neighbour is: " << north_west << std::endl;
+
+    return neighborhood;
 }
 
-void CellularAutomata::run(int num_steps, int rule_num){
-  for(int i=0; i < num_steps; i++){
-    step(int rule_num);
+std::vector<int> CellularAutomata::get_neighborhood(int x, int y,int neighborhood_num){
+  switch(neighborhood_num) {
+    case 1:
+      return moore_neighborhood(x,y);
+    case 2:
+      return vn_neighborhood(x,y);
+    default:
+      return moore_neighborhood(x,y);
   }
 }
 
-void CellularAutomata::step(int rule_num){
-  if(rule_num == 0){
-    for(int x = 0; x < _columns; x++){
-      for(int y = 0; y < _rows; y++){
+void CellularAutomata::run(int num_steps, int rule_num, int neighborhood_num){
+  for(int i=0; i < num_steps; i++){
+    step(rule_num, neighborhood_num);
+    std::cout << "Step " << i << ": " << std::endl;
+    print();
+  }
+}
 
-      }
+//logic for taking a single step of the CA simluation todo: document the funciton
+void CellularAutomata::step(int rule_num, int neighborhood_num){
+  for(int x = 0; x < _columns; x++){
+    for(int y = 0; y < _rows; y++){
+      std::vector<int> neighborhood = get_neighborhood(x,y,neighborhood_num);
+      _data[x][y] = transition_function(x,y,rule_num,neighborhood);
     }
   }
 }
 
+
+int CellularAutomata::transition_function(int x, int y, int rule_num, std::vector<int> neighborhood){
+  switch(rule_num) {
+    case 1:
+      return majority_rule(x, y, neighborhood);
+    case 2:
+      return purity_rule(x,y,neighborhood);
+    default:
+      return _data[x][y];
+  }
+}
+
+// logic for the majority rule todo:  add additional function documentation
+int CellularAutomata::majority_rule(int x, int y, std::vector<int> neighborhood){
+  int sum = 0;
+  for(int i = 0; i < neighborhood.size(); i++){
+    sum += neighborhood[i];
+  }
+
+  return round((double)sum/neighborhood.size());
+}
+
+// logic for the purity rule todo:  add additional function documentation
+int CellularAutomata::purity_rule(int x, int y, std::vector<int> neighborhood){
+  int sum = 0;
+  int current_val = _data[x][y];
+  for(int i = 0; i < neighborhood.size(); i++){
+    sum += (current_val+neighborhood[i]);
+  }
+
+  return sum % _num_states;
+}
 
 // Temporary print that is being used to test if the Initialize function is working as intended.
 // Print the formatted matrix out to the terminal using std::cout. Each row is printed with the first element of the Cellular Automata following an opening square bracket and all elements being seperated by commas. The last element of the Cellular Automata is also followed by a closing square bracket.
