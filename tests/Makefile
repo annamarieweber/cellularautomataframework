@@ -34,4 +34,3 @@ all: $(EXECUTABLES)
 
 cleanall:
 	cd $(BIN_DIR); rm $(EXECUTABLES)
-
