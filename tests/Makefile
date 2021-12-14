@@ -23,7 +23,7 @@ BIN_DIR     = ../bin
 EXECUTABLES = test_CA_input
 
 test_CA_input: $(INC_DIR)/myutils.h $(INC_DIR)/CellularAutomata.h
-	$(CXX) $(CXXFLAGS) test_CA_input test_CA_input.cxx -I$(INC_DIR) $(LIB_DIR)/utils.o $(LIB_DIR)/CA_input.o
+	$(CXX) $(CXXFLAGS) test_CA_input test_CA_input.cxx -I$(INC_DIR) $(LIB_DIR)/utils.o $(LIB_DIR)/CA_input.o $(LIB_DIR)/CA_output.o
 	mv test_CA_input $(BIN_DIR)
 
 all: $(EXECUTABLES)

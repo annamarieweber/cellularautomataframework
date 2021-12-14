@@ -53,7 +53,17 @@ class CellularAutomata
         void vn_neighborhood(int row, int column);
 
         // Code to evaluate moore neighborhood where r=1.
-        void moore_neighborhood(int row, int column); 
+        void moore_neighborhood(int row, int column);
+
+        // Getter function to retrieve the data of the Cellular Automata.
+        std::vector<std::vector<int>> get_data();
+
+        // Gives information on the stats of the states in the Cellular Automata. 
+        void get_stats();
+
+        void step(int rule_num);
+
+        void run(int num_steps, int rule_num);
 
         // Function to print out the Cellular Automata.
         void print();

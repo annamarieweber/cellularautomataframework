@@ -31,9 +31,13 @@ int main(void)
     Test_2.print();
     // Testing von neumaan neighborhood analysis
     std::cout << "Testing Von Neumaan Neighborhood funtionality around 5, 5:" << std::endl;
-    Test_2.vn_neighborhood(5,5);
+    Test_2.vn_neighborhood(5,5);   
     std::cout << std::endl;
     std::cout << std::endl;
+    Test_2.get_stats();
+    std::cout << std::endl;
+    std::cout << std::endl;
+
 
     std::cout << "Creating Cellular Automata using Density: " << std::endl;
     std::map<std::string, std::pair<int, float>> test_legend_density{{"empty", {0, 0.5}}, {"tree", {1, 0.5}}, {"fire", {2, 0.0}}, {"char", {3, 0.0}}};
@@ -46,4 +50,8 @@ int main(void)
     Test_3.moore_neighborhood(0,5);
     std::cout << std::endl;
     std::cout << std::endl;
+    Test_3.get_stats();
+    std::cout << std::endl;
+    std::cout << std::endl;
+
 }

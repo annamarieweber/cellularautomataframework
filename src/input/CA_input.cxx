@@ -127,7 +127,6 @@ void CellularAutomata::Initialize_Density()
     _data[_starting_position.first][_starting_position.second] = _legend_density[_reactor].first; 
 }
 
-
 // Code to evaluate von neumman neighborhood where r = 1 with periodic bounds.
 void CellularAutomata::vn_neighborhood(int row, int column)
 {
@@ -165,9 +164,11 @@ void CellularAutomata::moore_neighborhood(int row, int column)
 
 }
 
-void CellularAutomata::run(int num_steps, int rule_num){
-  for(int i=0; i < num_steps; i++){
-    step(int rule_num);
+void CellularAutomata::run(int num_steps, int rule_num)
+{
+  for(int i=0; i < num_steps; i++)
+  {
+    step(rule_num);
   }
 }
 
@@ -180,7 +181,6 @@ void CellularAutomata::step(int rule_num){
     }
   }
 }
-
 
 // Temporary print that is being used to test if the Initialize function is working as intended.
 // Print the formatted matrix out to the terminal using std::cout. Each row is printed with the first element of the Cellular Automata following an opening square bracket and all elements being seperated by commas. The last element of the Cellular Automata is also followed by a closing square bracket.
