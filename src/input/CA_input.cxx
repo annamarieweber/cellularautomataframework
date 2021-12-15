@@ -187,66 +187,61 @@ std::vector<int> CellularAutomata::moore_neighborhood(int row, int column)
     return neighborhood;
 }
 
-std::vector<int> CellularAutomata::get_neighborhood(int x, int y,int neighborhood_num){
-  switch(neighborhood_num) {
-    case 1:
-      return moore_neighborhood(x,y);
-    case 2:
-      return vn_neighborhood(x,y);
-    default:
-      return moore_neighborhood(x,y);
-  }
+/**
+ * @brief Update the value in the cell at x,y with the value n
+ * 
+ * @param x the x position of the cell
+ * @param y the y position of the cell
+ * @param n the value change the cell to
+ */
+void CellularAutomata::update_cell(int x, int y, int n){
+  _data[x][y] = n;
 }
 
-void CellularAutomata::run(int num_steps, int rule_num, int neighborhood_num){
-  for(int i=0; i < num_steps; i++){
-    step(rule_num, neighborhood_num);
-    std::cout << "Step " << i << ": " << std::endl;
-    print();
-  }
+/**
+ * @brief gets the value of the cell at x, y
+ * 
+ * @param x the x position of the cell
+ * @param y the y position of the cell
+ * @return int the value of the cell
+ */
+int CellularAutomata::get_cell(int x, int y){
+  return _data[x][y];
+}
+/**
+ * @brief Get the number of rows in the CA
+ * 
+ * @return int number of rows
+ */
+int CellularAutomata::get_rows(){
+  return _rows;
 }
 
-//logic for taking a single step of the CA simluation todo: document the funciton
-void CellularAutomata::step(int rule_num, int neighborhood_num){
-  for(int x = 0; x < _columns; x++){
-    for(int y = 0; y < _rows; y++){
-      std::vector<int> neighborhood = get_neighborhood(x,y,neighborhood_num);
-      _data[x][y] = transition_function(x,y,rule_num,neighborhood);
-    }
-  }
+/**
+ * @brief Get the number of columns in the CA
+ * 
+ * @return int number of columns 
+ */
+int CellularAutomata::get_columns(){
+  return _columns;
 }
 
-
-int CellularAutomata::transition_function(int x, int y, int rule_num, std::vector<int> neighborhood){
-  switch(rule_num) {
-    case 1:
-      return majority_rule(x, y, neighborhood);
-    case 2:
-      return purity_rule(x,y,neighborhood);
-    default:
-      return _data[x][y];
-  }
+/**
+ * @brief Get the total number of cells in the CA
+ * 
+ * @return int number of cells
+ */
+int CellularAutomata::get_size(){
+  return _size;
 }
 
-// logic for the majority rule todo:  add additional function documentation
-int CellularAutomata::majority_rule(int x, int y, std::vector<int> neighborhood){
-  int sum = 0;
-  for(int i = 0; i < neighborhood.size(); i++){
-    sum += neighborhood[i];
-  }
-
-  return round((double)sum/neighborhood.size());
-}
-
-// logic for the purity rule todo:  add additional function documentation
-int CellularAutomata::purity_rule(int x, int y, std::vector<int> neighborhood){
-  int sum = 0;
-  int current_val = _data[x][y];
-  for(int i = 0; i < neighborhood.size(); i++){
-    sum += (current_val+neighborhood[i]);
-  }
-
-  return sum % _num_states;
+/**
+ * @brief Get the number of possible states for a cell in the CA
+ * 
+ * @return int the number of possible states
+ */
+int CellularAutomata::get_num_states(){
+  return _num_states;
 }
 
 // Temporary print that is being used to test if the Initialize function is working as intended.

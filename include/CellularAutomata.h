@@ -76,6 +76,24 @@ class CellularAutomata
         // logic for the purity rule todo:  add additional function documentation
         int purity_rule(int x, int y, std::vector<int> neighborhood);
 
+        // logic to update the value of a cell
+        void update_cell(int x, int y, int n);
+
+        // logic to get the value of a cell
+        int get_cell(int x, int y);
+
+        // logic to get number of rows
+        int get_rows();
+
+        // logic to get number of columns
+        int get_columns();
+
+        // logic to get number of cells
+        int get_size();
+
+        // logic to get the number of states
+        int get_num_states();
+
         // Function to print out the Cellular Automata.
         void print();
 };
