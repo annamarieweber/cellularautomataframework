@@ -1,5 +1,5 @@
 # Cellular Automata Framework 
-
+[![Makefile CI](https://github.com/annamarieweber/cellularautomataframework/actions/workflows/makefile.yml/badge.svg?branch=main)](https://github.com/annamarieweber/cellularautomataframework/actions/workflows/makefile.yml)
 ## Documentation
 
 [Documentation](https://linktodocumentation)
