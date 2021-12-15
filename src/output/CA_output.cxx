@@ -3,7 +3,7 @@
 #include "CellularAutomata.h"
 #include "myutils.h"
 
-// Getter function to retreive the vector 
+// Getter function to retreive the vector  with Cellular Automata Data.
 std::vector<std::vector<int>> CellularAutomata::get_data()
 {
     std::vector<std::vector<int>> return_data;
@@ -56,5 +56,29 @@ void CellularAutomata::get_stats()
             }
             std::cout << "The state: " << it2.first << " occupied " << counter2 << " cells" << std::endl;
         }
+    }
+}
+
+// Print the formatted matrix out to the terminal using std::cout. Each row is printed with the first element of the Cellular Automata following an opening square bracket and all elements being seperated by commas. The last element of the Cellular Automata is also followed by a closing square bracket.
+void CellularAutomata::print()
+{
+    for(int i = 0; i < _rows; i++)
+    {
+        for(int j = 0; j < _columns; j++)
+        {
+            if ((i == _rows-1) && (j == _columns-1))
+            {
+                std::cout << _data[i][j] << "]";
+            }
+            else if ((i == 0) && (j == 0))
+            {
+                std::cout << "[" << _data[i][j] << ", ";
+            }
+            else
+            {
+                std::cout << _data[i][j] << ", ";
+            }
+        }
+        std::cout << std::endl;
     }
 }
