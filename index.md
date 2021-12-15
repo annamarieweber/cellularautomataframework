@@ -28,5 +28,4 @@ To run Examples, run the following command
 ```
 
 ## Support
-
 For support, create an issue with the label [![support](https://img.shields.io/github/labels/annamarieweber/cellularautomataframework/support?style=flat)](https://github.com/annamarieweber/cellularautomataframework/issues/new?assignees=annamarieweber&labels=support&template=support-template.md)
