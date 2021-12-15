@@ -39,10 +39,15 @@ all: $(EXECUTABLES)
 test: $(EXECUTABLES)
 	echo Testing Input Functionality
 	$(BIN_DIR)/test_CA_input
+	
 	echo Testing Compute Functionality
 	$(BIN_DIR)/test_CA_compute
+	
 	echo Testing Output Functionality
 	$(BIN_DIR)/test_CA_output
+
+	echo Politics Example
+	$(BIN_DIR)/politics_example
 
 cleanall:
 	cd $(BIN_DIR); rm $(EXECUTABLES)
