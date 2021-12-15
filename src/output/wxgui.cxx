@@ -8,6 +8,7 @@ wxIMPLEMENT_APP(cApp);
 
 cMain::cMain(int rows, int columns) : wxFrame(nullptr, wxID_ANY, "Cellular Automata", wxPoint(30, 30), wxSize(1700, 1000))
 {
+    // This is still very early development, do not merge into the repo
     // Sets up the grid
     grid = new wxGrid( this, -1, wxPoint( 0, 0 ));
 
