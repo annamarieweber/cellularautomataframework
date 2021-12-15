@@ -16,4 +16,4 @@ source:
 
 # Add build_config label to any Makefiles changes
 build_config:
-  all: ['**/Makefile']
+  all: ['Makefile']
