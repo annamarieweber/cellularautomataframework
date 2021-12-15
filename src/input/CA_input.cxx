@@ -66,7 +66,6 @@ void CellularAutomata::Initialize_Rand()
 {   
     // Grabs the max element in the legend map.
     // Grabs the max element in the legend map, leaving out the reactor and product values (The reactor will be placed specifically by the user and the product will be placed after the compute steps).
-    std::cout << "In intialize" << std::endl;
     int max = 0;
     for(const auto &it : _legend)
     {
@@ -131,7 +130,6 @@ void CellularAutomata::Initialize_Density()
     _data[_starting_position.first][_starting_position.second] = _legend_density[_reactor].first; 
 }
 
-
 // Code to evaluate von neumman neighborhood where r = 1 with periodic bounds.
 std::vector<int> CellularAutomata::vn_neighborhood(int row, int column)
 {
@@ -145,6 +143,7 @@ std::vector<int> CellularAutomata::vn_neighborhood(int row, int column)
     int south = _data[(_rows + ((row+1) % _rows) ) % _rows][column];
     neighborhood.push_back(south);
 
+    // Trouble shooting help.
     // std::cout << "North neighbour is: " << north << std::endl;
     // std::cout << "East neighbour is: " << east << std::endl;
     // std::cout << "South neighbour is: " << south << std::endl;
@@ -175,6 +174,7 @@ std::vector<int> CellularAutomata::moore_neighborhood(int row, int column)
     neighborhood.push_back(south);
     neighborhood.push_back(south_east);
 
+    // Trouble shooting help.
     // std::cout << "North neighbour is: " << north << std::endl;
     // std::cout << "North East neighbour is: " << north_east << std::endl;
     // std::cout << "East neighbour is: " << east << std::endl;
@@ -215,7 +215,6 @@ void CellularAutomata::step(int rule_num, int neighborhood_num){
     }
   }
 }
-
 
 int CellularAutomata::transition_function(int x, int y, int rule_num, std::vector<int> neighborhood){
   switch(rule_num) {
