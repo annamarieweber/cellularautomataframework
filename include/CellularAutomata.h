@@ -10,7 +10,7 @@ class CellularAutomata
         int _size;
 
         // Holds the data for the Cellular Automata as a vector of vectors.
-        std::vector<std::vector<int> > _data;
+        std::vector<std::vector<int>> _data;
 
         // Holds the legend information for the Cellular Automata. Where the string passed in is the name of the state, and the integer is the value for that state.
         std::map<std::string, int> _legend;
@@ -93,6 +93,12 @@ class CellularAutomata
 
         // logic to get the number of states
         int get_num_states();
+        
+        // Getter function to retrieve the data of the Cellular Automata.
+        std::vector<std::vector<int>> get_data();
+
+        // Displays statistics of the Cellular Automata, count for each state.
+        void get_stats();
 
         // Function to print out the Cellular Automata.
         void print();

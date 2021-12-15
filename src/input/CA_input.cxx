@@ -66,7 +66,6 @@ void CellularAutomata::Initialize_Rand()
 {   
     // Grabs the max element in the legend map.
     // Grabs the max element in the legend map, leaving out the reactor and product values (The reactor will be placed specifically by the user and the product will be placed after the compute steps).
-    std::cout << "In intialize" << std::endl;
     int max = 0;
     for(const auto &it : _legend)
     {
@@ -131,7 +130,6 @@ void CellularAutomata::Initialize_Density()
     _data[_starting_position.first][_starting_position.second] = _legend_density[_reactor].first; 
 }
 
-
 // Code to evaluate von neumman neighborhood where r = 1 with periodic bounds.
 std::vector<int> CellularAutomata::vn_neighborhood(int row, int column)
 {
@@ -145,6 +143,7 @@ std::vector<int> CellularAutomata::vn_neighborhood(int row, int column)
     int south = _data[(_rows + ((row+1) % _rows) ) % _rows][column];
     neighborhood.push_back(south);
 
+    // Trouble shooting help.
     // std::cout << "North neighbour is: " << north << std::endl;
     // std::cout << "East neighbour is: " << east << std::endl;
     // std::cout << "South neighbour is: " << south << std::endl;
@@ -175,6 +174,7 @@ std::vector<int> CellularAutomata::moore_neighborhood(int row, int column)
     neighborhood.push_back(south);
     neighborhood.push_back(south_east);
 
+    // Trouble shooting help.
     // std::cout << "North neighbour is: " << north << std::endl;
     // std::cout << "North East neighbour is: " << north_east << std::endl;
     // std::cout << "East neighbour is: " << east << std::endl;
@@ -218,53 +218,10 @@ int CellularAutomata::get_rows(){
 }
 
 /**
- * @brief Get the number of columns in the CA
- * 
- * @return int number of columns 
- */
-int CellularAutomata::get_columns(){
-  return _columns;
-}
-
-/**
  * @brief Get the total number of cells in the CA
  * 
  * @return int number of cells
  */
 int CellularAutomata::get_size(){
   return _size;
-}
-
-/**
- * @brief Get the number of possible states for a cell in the CA
- * 
- * @return int the number of possible states
- */
-int CellularAutomata::get_num_states(){
-  return _num_states;
-}
-
-// Temporary print that is being used to test if the Initialize function is working as intended.
-// Print the formatted matrix out to the terminal using std::cout. Each row is printed with the first element of the Cellular Automata following an opening square bracket and all elements being seperated by commas. The last element of the Cellular Automata is also followed by a closing square bracket.
-void CellularAutomata::print()
-{
-    for(int i = 0; i < _rows; i++)
-    {
-        for(int j = 0; j < _columns; j++)
-        {
-            if ((i == _rows-1) && (j == _columns-1))
-            {
-                std::cout << _data[i][j] << "]";
-            }
-            else if ((i == 0) && (j == 0))
-            {
-                std::cout << "[" << _data[i][j] << ", ";
-            }
-            else
-            {
-                std::cout << _data[i][j] << ", ";
-            }
-        }
-        std::cout << std::endl;
-    }
 }
