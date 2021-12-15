@@ -45,6 +45,9 @@ class CellularAutomata
 
         // Another constructor for the class, calls the initialization to set up the Cellular Automata using density values passed in.
         CellularAutomata(int rows, int columns, std::map<std::string, std::pair<int, float> > legend, std::string product, std::string reactor, std::pair<int, int> starting_position);
+        
+        // Copy constructor fot the class
+        CellularAutomata(const CellularAutomata& ca);
 
         // Intiatlize function to create a cellular automata randomly.
         void Initialize_Rand();
@@ -93,7 +96,7 @@ class CellularAutomata
 
         // logic to get the number of states
         int get_num_states();
-        
+
         // Getter function to retrieve the data of the Cellular Automata.
         std::vector<std::vector<int>> get_data();
 

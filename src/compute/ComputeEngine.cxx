@@ -16,7 +16,7 @@
  * @param steps the number of steps to run the simulation for
  * @param ca the cellular automata to run the simulation on
  */
-ComputeEngine::ComputeEngine(int neighborhood_type, int rule_type, int steps, CellularAutomata ca ){
+ComputeEngine::ComputeEngine(int neighborhood_type, int rule_type, int steps, CellularAutomata ca){
   _neighborhood_type = neighborhood_type;
   _rule_type = rule_type;
   _num_steps = steps;

@@ -61,6 +61,18 @@ CellularAutomata::CellularAutomata(int rows, int columns, std::map<std::string, 
     CellularAutomata::Initialize_Density();
 }
 
+CellularAutomata::CellularAutomata(const CellularAutomata& ca){
+    _rows = ca._rows;
+    _columns = ca._columns;
+    _data = ca._data;
+    _size = _rows*_columns;
+    _num_states = ca._legend.size();
+    _legend = ca._legend;
+    _product = ca._product;
+    _reactor = ca._reactor;
+    _starting_position = ca._starting_position;
+}
+
 // Function to initialize cellular automata data randomly.
 void CellularAutomata::Initialize_Rand()
 {   
