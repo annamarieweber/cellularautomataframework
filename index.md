@@ -1,37 +1,32 @@
-## Welcome to GitHub Pages
+# Cellular Automata Framework 
 
-You can use the [editor on GitHub](https://github.com/annamarieweber/cellularautomataframework/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+[![Makefile CI](https://github.com/annamarieweber/cellularautomataframework/actions/workflows/makefile.yml/badge.svg?branch=main)](https://github.com/annamarieweber/cellularautomataframework/actions/workflows/makefile.yml)
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## Authors
+[![@annaweber](https://img.shields.io/badge/@annaweber-0gg?style=plastic&logo=github&logoColor=white)](https://github.com/annamarieweber)
+[![portfolio](https://img.shields.io/badge/-000?style=plastic&logo=ko-fi&logoColor=white)](https://annaweb.dev/)
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=plastic&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/anna-weber-7273b0137)
 
-### Markdown
+[![@joycekim](https://img.shields.io/badge/@joycekim-0gg?style=plastic&logo=github&logoColor=white)](https://github.com/kimjoyce)
+[![portfolio](https://img.shields.io/badge/-000?style=plastic&logo=ko-fi&logoColor=white)](joyce_kim1@berkeley.edu)
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=plastic&logo=linkedin&logoColor=white)](https://www.linkedin.com/)
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+[![@usmanjamshed](https://img.shields.io/badge/@usmanjamshed-0gg?style=plastic&logo=github&logoColor=white)](https://github.com/usmanjamshed)
+[![portfolio](https://img.shields.io/badge/-000?style=plastic&logo=ko-fi&logoColor=white)](jamshedu@mcmaster.ca)
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=plastic&logo=linkedin&logoColor=white)](https://www.linkedin.com/)
 
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+## Getting Started
+### Running Tests
+To run tests, run the following command
+```bash
+  make testall
+```
+### Running Examples
+To run Examples, run the following command
+```bash
+  make runexamples
 ```
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+## Support
 
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/annamarieweber/cellularautomataframework/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+For support, create an issue with the label [![support](https://img.shields.io/github/labels/annamarieweber/cellularautomataframework/support?style=flat)](https://github.com/annamarieweber/cellularautomataframework/issues/new?assignees=annamarieweber&labels=support&template=support-template.md)
