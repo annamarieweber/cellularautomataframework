@@ -1,0 +1,19 @@
+# Add 'devops' label to any .github file changes
+devops:
+- '.github/*'
+
+# Add output label to any output services files
+output:
+- src/output/*
+
+# Add 'test' label to any change tests
+test:
+- tests/*
+
+# Add 'source' label to any change to src files within the source dir EXCEPT for Makefiles
+source:
+- any: ['src/**/*', '!src/**/Makefile']
+
+# Add build_config label to any Makefiles changes
+build_config:
+  all: ['**/Makefile']
