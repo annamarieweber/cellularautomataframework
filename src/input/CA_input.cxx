@@ -22,6 +22,9 @@ CellularAutomata::CellularAutomata(int rows, int columns, std::map<std::string, 
     _product = product;
     _reactor = reactor;
     _starting_position = starting_position;
+
+    // Generates the starting position for the reactor variable which will cause changes throughout the Cellular Automata.
+    _data[_starting_position.first][_starting_position.second] = _legend[_reactor];
 }
 
 // Constructor with no data, but data is built randomly.
@@ -95,7 +98,6 @@ void CellularAutomata::Initialize_Rand()
     // Grabs the min element in the legend map.
     // Grabs the min element in the legend map, leaving out the reactor and product values (The reactor will be placed specifically by the user and the product will be placed after the compute steps).
     int min = 2147483647;
-    for(auto it = _legend.begin(); it != _legend.end(); ++it )
     for(const auto &it2 : _legend)
     {
         if (it2.second < min && it2.first != _product && it2.first != _reactor) 
@@ -113,8 +115,11 @@ void CellularAutomata::Initialize_Rand()
         }
     }
 
-    // Generates the starting position for the reactor variable which will cause changes throughout the Cellular Automata. Acceses using row major
-    _data[_starting_position.first][_starting_position.second] = _legend[_reactor]; 
+    // Generates the starting position for the reactor variable which will cause changes throughout the Cellular Automata.
+    if (_legend.find(_reactor) != _legend.end())
+    {
+        _data[_starting_position.first][_starting_position.second] = _legend[_reactor]; 
+    }
 }
 
 // Function to initialize cellular automata data using density.
@@ -143,8 +148,11 @@ void CellularAutomata::Initialize_Density()
         }
     }
 
-    // Generates the starting position for the reactor variable which will cause changes throughout the Cellular Automata. Acceses using row major
+    // Generates the starting position for the reactor variable which will cause changes throughout the Cellular Automata.
+    if (_legend_density.find(_reactor) != _legend_density.end())
+    {
     _data[_starting_position.first][_starting_position.second] = _legend_density[_reactor].first; 
+    }
 }
 
 // Code to evaluate von neumman neighborhood where r = 1 with periodic bounds.
