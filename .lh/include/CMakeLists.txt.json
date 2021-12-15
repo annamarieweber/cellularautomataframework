@@ -1,0 +1,38 @@
+{
+    "sourceFile": "include/CMakeLists.txt",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 5,
+            "patches": [
+                {
+                    "date": 1639602123034,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1639602130285,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,4 @@\n-find_package(Matplot++ REQUIRED)\n\\ No newline at end of file\n+find_package(Matplot++ REQUIRED)\n+\n+add_executable(my_target main.cpp)\n+target_link_libraries(my_target PUBLIC Matplot++::matplot)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1639602145555,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,4 @@\n find_package(Matplot++ REQUIRED)\n \n-add_executable(my_target main.cpp)\n+add_executable(my_target text.cpp)\n target_link_libraries(my_target PUBLIC Matplot++::matplot)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1639602153203,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,4 @@\n find_package(Matplot++ REQUIRED)\n \n-add_executable(my_target text.cpp)\n+add_executable(my_target test_CA_output.cpp)\n target_link_libraries(my_target PUBLIC Matplot++::matplot)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1639602158790,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,4 @@\n find_package(Matplot++ REQUIRED)\n \n-add_executable(my_target test_CA_output.cpp)\n+add_executable(my_target ../test_CA_output.cxx)\n target_link_libraries(my_target PUBLIC Matplot++::matplot)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1639602175672,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,4 @@\n find_package(Matplot++ REQUIRED)\n \n-add_executable(my_target ../test_CA_output.cxx)\n+add_executable(my_target ../output/test_CA_output.cxx)\n target_link_libraries(my_target PUBLIC Matplot++::matplot)\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1639602123034,
+            "name": "Commit-0",
+            "content": "find_package(Matplot++ REQUIRED)"
+        }
+    ]
+}

@@ -1,0 +1,246 @@
+{
+    "sourceFile": "test.cpp",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 57,
+            "patches": [
+                {
+                    "date": 1639599151299,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1639599162068,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,9 @@\n+#include <iostream>\n+#include <vector>\n+#include <random>\n+#include <iomanip>\n+\n int main() {\n     std::random_device rd; \n     std::mt19937 gen(rd());\n     std::uniform_int_distribution<> dis(1, 100);\n"
+                },
+                {
+                    "date": 1639599277495,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n int main() {\n     std::random_device rd; \n     std::mt19937 gen(rd());\n     std::uniform_int_distribution<> dis(1, 100);\n-    std::vector<std::vector<int>> Matrix(5, std::vector<int>(7, 0));\n+    std::vector<std::vector<int>> Matrix(5, std::vector<int>(, 0));\n \n     for (auto it1 = Matrix.begin(); it1 != Matrix.end(); it1++) {\n         for (auto it2 = it1->begin(); it2 != it1->end(); it2++) {\n             *it2 = dis(gen); // dereference iterator, set the value\n"
+                },
+                {
+                    "date": 1639599292989,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n int main() {\n     std::random_device rd; \n     std::mt19937 gen(rd());\n     std::uniform_int_distribution<> dis(1, 100);\n-    std::vector<std::vector<int>> Matrix(5, std::vector<int>(, 0));\n+    std::vector<std::vector<int>> Matrix(5, std::vector<int>(7,));\n \n     for (auto it1 = Matrix.begin(); it1 != Matrix.end(); it1++) {\n         for (auto it2 = it1->begin(); it2 != it1->end(); it2++) {\n             *it2 = dis(gen); // dereference iterator, set the value\n"
+                },
+                {
+                    "date": 1639599304739,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n int main() {\n     std::random_device rd; \n     std::mt19937 gen(rd());\n     std::uniform_int_distribution<> dis(1, 100);\n-    std::vector<std::vector<int>> Matrix(5, std::vector<int>(7,));\n+    std::vector<std::vector<int>> Matrix(5, std::vector<int>(7,0));\n \n     for (auto it1 = Matrix.begin(); it1 != Matrix.end(); it1++) {\n         for (auto it2 = it1->begin(); it2 != it1->end(); it2++) {\n             *it2 = dis(gen); // dereference iterator, set the value\n"
+                },
+                {
+                    "date": 1639599325614,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,8 +3,10 @@\n #include <random>\n #include <iomanip>\n \n int main() {\n+    _rows = 5;\n+    \n     std::random_device rd; \n     std::mt19937 gen(rd());\n     std::uniform_int_distribution<> dis(1, 100);\n     std::vector<std::vector<int>> Matrix(5, std::vector<int>(7,0));\n"
+                },
+                {
+                    "date": 1639599335904,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,10 +3,11 @@\n #include <random>\n #include <iomanip>\n \n int main() {\n-    _rows = 5;\n-    \n+    int _rows = 5;\n+    int _columns = \n+\n     std::random_device rd; \n     std::mt19937 gen(rd());\n     std::uniform_int_distribution<> dis(1, 100);\n     std::vector<std::vector<int>> Matrix(5, std::vector<int>(7,0));\n"
+                },
+                {
+                    "date": 1639599342314,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,14 +4,14 @@\n #include <iomanip>\n \n int main() {\n     int _rows = 5;\n-    int _columns = \n+    int _columns = 7;\n \n     std::random_device rd; \n     std::mt19937 gen(rd());\n     std::uniform_int_distribution<> dis(1, 100);\n-    std::vector<std::vector<int>> Matrix(5, std::vector<int>(7,0));\n+    std::vector<std::vector<int>> Matrix(5, std::vector<int>(_columns,0));\n \n     for (auto it1 = Matrix.begin(); it1 != Matrix.end(); it1++) {\n         for (auto it2 = it1->begin(); it2 != it1->end(); it2++) {\n             *it2 = dis(gen); // dereference iterator, set the value\n"
+                },
+                {
+                    "date": 1639599395700,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,14 +4,14 @@\n #include <iomanip>\n \n int main() {\n     int _rows = 5;\n-    int _columns = 7;\n+    int _columns = 75\n \n     std::random_device rd; \n     std::mt19937 gen(rd());\n     std::uniform_int_distribution<> dis(1, 100);\n-    std::vector<std::vector<int>> Matrix(5, std::vector<int>(_columns,0));\n+    std::vector<std::vector<int>> Matrix(_rows, std::vector<int>(_columns,0));\n \n     for (auto it1 = Matrix.begin(); it1 != Matrix.end(); it1++) {\n         for (auto it2 = it1->begin(); it2 != it1->end(); it2++) {\n             *it2 = dis(gen); // dereference iterator, set the value\n"
+                },
+                {
+                    "date": 1639600104455,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n #include <iomanip>\n \n int main() {\n     int _rows = 5;\n-    int _columns = 75\n+    int _columns = 5;\n \n     std::random_device rd; \n     std::mt19937 gen(rd());\n     std::uniform_int_distribution<> dis(1, 100);\n@@ -18,5 +18,24 @@\n             std::cout << std::setw(4) << *it2;\n         }\n         std::cout << '\\n';\n     }\n+\n+\n+    heatmap(data)->normalization(matrix::color_normalization::rows);\n+\n+    title(\"Count of Cause vs. Region\");\n+    auto ax = gca();\n+    ax->x_axis().ticklabels(\n+        {\"MidWest\", \"NorthEast\", \"SouthEast\", \"SouthWest\", \"West\"});\n+    ax->y_axis().ticklabels(\n+        {\"Attack\", \"Earthquake\", \"Energy emergency\", \"Equipment fault\", \"Fire\",\n+         \"Severe Storm\", \"Thunder Storm\", \"Unknown\", \"Wind\", \"Winter Storm\"});\n+    xlabel(ax, \"Region\");\n+    ylabel(ax, \"Cause\");\n+    float w = ax->width();\n+    ax->width(w * 0.85f);\n+    ax->x_origin(ax->x_origin() + w * 0.1f);\n+\n+    show();\n+    return 0;\n }\n"
+                },
+                {
+                    "date": 1639600114940,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n \n     std::random_device rd; \n     std::mt19937 gen(rd());\n     std::uniform_int_distribution<> dis(1, 100);\n-    std::vector<std::vector<int>> Matrix(_rows, std::vector<int>(_columns,0));\n+    std::vector<std::vector<int>> data(_rows, std::vector<int>(_columns,0));\n \n     for (auto it1 = Matrix.begin(); it1 != Matrix.end(); it1++) {\n         for (auto it2 = it1->begin(); it2 != it1->end(); it2++) {\n             *it2 = dis(gen); // dereference iterator, set the value\n"
+                },
+                {
+                    "date": 1639600121579,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n \n     std::random_device rd; \n     std::mt19937 gen(rd());\n     std::uniform_int_distribution<> dis(1, 100);\n-    std::vector<std::vector<int>> data(_rows, std::vector<int>(_columns,0));\n+    std::vector<std::vector<int>> Matrix(_rows, std::vector<int>(_columns,0));\n \n     for (auto it1 = Matrix.begin(); it1 != Matrix.end(); it1++) {\n         for (auto it2 = it1->begin(); it2 != it1->end(); it2++) {\n             *it2 = dis(gen); // dereference iterator, set the value\n"
+                },
+                {
+                    "date": 1639600126813,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n \n     std::random_device rd; \n     std::mt19937 gen(rd());\n     std::uniform_int_distribution<> dis(1, 100);\n-    std::vector<std::vector<int>> Matrix(_rows, std::vector<int>(_columns,0));\n+    std::vector<std::vector<int>> data_(_rows, std::vector<int>(_columns,0));\n \n     for (auto it1 = Matrix.begin(); it1 != Matrix.end(); it1++) {\n         for (auto it2 = it1->begin(); it2 != it1->end(); it2++) {\n             *it2 = dis(gen); // dereference iterator, set the value\n"
+                },
+                {
+                    "date": 1639600134931,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,11 +9,11 @@\n \n     std::random_device rd; \n     std::mt19937 gen(rd());\n     std::uniform_int_distribution<> dis(1, 100);\n-    std::vector<std::vector<int>> data_(_rows, std::vector<int>(_columns,0));\n+    std::vector<std::vector<int>> _data(_rows, std::vector<int>(_columns,0));\n \n-    for (auto it1 = Matrix.begin(); it1 != Matrix.end(); it1++) {\n+    for (auto it1 = _data.begin(); it1 != Matrix.end(); it1++) {\n         for (auto it2 = it1->begin(); it2 != it1->end(); it2++) {\n             *it2 = dis(gen); // dereference iterator, set the value\n             std::cout << std::setw(4) << *it2;\n         }\n"
+                },
+                {
+                    "date": 1639600146080,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,18 +11,18 @@\n     std::mt19937 gen(rd());\n     std::uniform_int_distribution<> dis(1, 100);\n     std::vector<std::vector<int>> _data(_rows, std::vector<int>(_columns,0));\n \n-    for (auto it1 = _data.begin(); it1 != Matrix.end(); it1++) {\n+    for (auto it1 = _data.begin(); it1 != _data.end(); it1++) {\n         for (auto it2 = it1->begin(); it2 != it1->end(); it2++) {\n             *it2 = dis(gen); // dereference iterator, set the value\n             std::cout << std::setw(4) << *it2;\n         }\n         std::cout << '\\n';\n     }\n \n \n-    heatmap(data)->normalization(matrix::color_normalization::rows);\n+    heatmap(_data)->normalization(matrix::color_normalization::rows);\n \n     title(\"Count of Cause vs. Region\");\n     auto ax = gca();\n     ax->x_axis().ticklabels(\n"
+                },
+                {
+                    "date": 1639600165112,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,10 @@\n #include <vector>\n #include <random>\n #include <iomanip>\n \n+    using namespace matplot;\n+\n int main() {\n     int _rows = 5;\n     int _columns = 5;\n \n"
+                },
+                {
+                    "date": 1639600254990,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n #include <vector>\n #include <random>\n #include <iomanip>\n \n-    using namespace matplot;\n+using namespace matplot;\n \n int main() {\n     int _rows = 5;\n     int _columns = 5;\n@@ -36,8 +36,9 @@\n     ylabel(ax, \"Cause\");\n     float w = ax->width();\n     ax->width(w * 0.85f);\n     ax->x_origin(ax->x_origin() + w * 0.1f);\n+     FuncAnimation(fig = fig, func = my_func, frames = 200, interval = 50, blit = False)\n \n     show();\n     return 0;\n }\n"
+                },
+                {
+                    "date": 1639600504171,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,15 @@\n     ylabel(ax, \"Cause\");\n     float w = ax->width();\n     ax->width(w * 0.85f);\n     ax->x_origin(ax->x_origin() + w * 0.1f);\n-     FuncAnimation(fig = fig, func = my_func, frames = 200, interval = 50, blit = False)\n \n+\n+grid_kws = {'width_ratios': (0.9, 0.05), 'wspace': 0.2}\n+fig, (ax, cbar_ax) = plt.subplots(1, 2, gridspec_kw = grid_kws, figsize = (12, 8))\n+anim = FuncAnimation(fig = fig, func = my_func, frames = 200, interval = 50, blit = False)\n+\n+    FuncAnimation(fig = fig, func = my_func, frames = 200, interval = 50, blit = False);\n+\n     show();\n     return 0;\n }\n"
+                },
+                {
+                    "date": 1639600510250,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,11 +38,11 @@\n     ax->width(w * 0.85f);\n     ax->x_origin(ax->x_origin() + w * 0.1f);\n \n \n-grid_kws = {'width_ratios': (0.9, 0.05), 'wspace': 0.2}\n-fig, (ax, cbar_ax) = plt.subplots(1, 2, gridspec_kw = grid_kws, figsize = (12, 8))\n-anim = FuncAnimation(fig = fig, func = my_func, frames = 200, interval = 50, blit = False)\n+    grid_kws = {'width_ratios': (0.9, 0.05), 'wspace': 0.2};\n+    fig, (ax, cbar_ax) = plt.subplots(1, 2, gridspec_kw = grid_kws, figsize = (12, 8));\n+    anim = FuncAnimation(fig = fig, func = my_func, frames = 200, interval = 50, blit = False);\n \n     FuncAnimation(fig = fig, func = my_func, frames = 200, interval = 50, blit = False);\n \n     show();\n"
+                },
+                {
+                    "date": 1639600521596,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,10 +40,9 @@\n \n \n     grid_kws = {'width_ratios': (0.9, 0.05), 'wspace': 0.2};\n     fig, (ax, cbar_ax) = plt.subplots(1, 2, gridspec_kw = grid_kws, figsize = (12, 8));\n-    anim = FuncAnimation(fig = fig, func = my_func, frames = 200, interval = 50, blit = False);\n-\n+    \n     FuncAnimation(fig = fig, func = my_func, frames = 200, interval = 50, blit = False);\n \n     show();\n     return 0;\n"
+                },
+                {
+                    "date": 1639600534669,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,9 +39,9 @@\n     ax->x_origin(ax->x_origin() + w * 0.1f);\n \n \n     grid_kws = {'width_ratios': (0.9, 0.05), 'wspace': 0.2};\n-    fig, (ax, cbar_ax) = plt.subplots(1, 2, gridspec_kw = grid_kws, figsize = (12, 8));\n+    fig, (ax, cbar_ax) = subplots(1, 2, gridspec_kw = grid_kws, figsize = (12, 8));\n     \n     FuncAnimation(fig = fig, func = my_func, frames = 200, interval = 50, blit = False);\n \n     show();\n"
+                },
+                {
+                    "date": 1639600557101,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,9 +40,8 @@\n \n \n     grid_kws = {'width_ratios': (0.9, 0.05), 'wspace': 0.2};\n     fig, (ax, cbar_ax) = subplots(1, 2, gridspec_kw = grid_kws, figsize = (12, 8));\n-    \n     FuncAnimation(fig = fig, func = my_func, frames = 200, interval = 50, blit = False);\n \n     show();\n     return 0;\n"
+                },
+                {
+                    "date": 1639600604661,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n \n     title(\"Count of Cause vs. Region\");\n     auto ax = gca();\n     ax->x_axis().ticklabels(\n-        {\"MidWest\", \"NorthEast\", \"SouthEast\", \"SouthWest\", \"West\"});\n+        {{\"empty\", 0}, {\"tree\", 1}, {\"fire\", 2}, {\"char\", 3}});\n     ax->y_axis().ticklabels(\n         {\"Attack\", \"Earthquake\", \"Energy emergency\", \"Equipment fault\", \"Fire\",\n          \"Severe Storm\", \"Thunder Storm\", \"Unknown\", \"Wind\", \"Winter Storm\"});\n     xlabel(ax, \"Region\");\n"
+                },
+                {
+                    "date": 1639600613199,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n     auto ax = gca();\n     ax->x_axis().ticklabels(\n         {{\"empty\", 0}, {\"tree\", 1}, {\"fire\", 2}, {\"char\", 3}});\n     ax->y_axis().ticklabels(\n-        {\"Attack\", \"Earthquake\", \"Energy emergency\", \"Equipment fault\", \"Fire\",\n+        {\"empty\", \"Earthquake\", \"Energy emergency\", \"Equipment fault\", \"Fire\",\n          \"Severe Storm\", \"Thunder Storm\", \"Unknown\", \"Wind\", \"Winter Storm\"});\n     xlabel(ax, \"Region\");\n     ylabel(ax, \"Cause\");\n     float w = ax->width();\n"
+                },
+                {
+                    "date": 1639600623905,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n     auto ax = gca();\n     ax->x_axis().ticklabels(\n         {{\"empty\", 0}, {\"tree\", 1}, {\"fire\", 2}, {\"char\", 3}});\n     ax->y_axis().ticklabels(\n-        {\"empty\", \"Earthquake\", \"Energy emergency\", \"Equipment fault\", \"Fire\",\n+        {\"empty\", \"tree\", \"fire\", \"Equipment fault\", \"Fire\",\n          \"Severe Storm\", \"Thunder Storm\", \"Unknown\", \"Wind\", \"Winter Storm\"});\n     xlabel(ax, \"Region\");\n     ylabel(ax, \"Cause\");\n     float w = ax->width();\n"
+                },
+                {
+                    "date": 1639600633646,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n     auto ax = gca();\n     ax->x_axis().ticklabels(\n         {{\"empty\", 0}, {\"tree\", 1}, {\"fire\", 2}, {\"char\", 3}});\n     ax->y_axis().ticklabels(\n-        {\"empty\", \"tree\", \"fire\", \"Equipment fault\", \"Fire\",\n+        {\"empty\", \"tree\", \"fire\", \"char\", \"Fire\",\n          \"Severe Storm\", \"Thunder Storm\", \"Unknown\", \"Wind\", \"Winter Storm\"});\n     xlabel(ax, \"Region\");\n     ylabel(ax, \"Cause\");\n     float w = ax->width();\n"
+                },
+                {
+                    "date": 1639600641693,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,10 +29,9 @@\n     auto ax = gca();\n     ax->x_axis().ticklabels(\n         {{\"empty\", 0}, {\"tree\", 1}, {\"fire\", 2}, {\"char\", 3}});\n     ax->y_axis().ticklabels(\n-        {\"empty\", \"tree\", \"fire\", \"char\", \"Fire\",\n-         \"Severe Storm\", \"Thunder Storm\", \"Unknown\", \"Wind\", \"Winter Storm\"});\n+        {\"empty\", \"tree\", \"fire\", \"char\"});\n     xlabel(ax, \"Region\");\n     ylabel(ax, \"Cause\");\n     float w = ax->width();\n     ax->width(w * 0.85f);\n"
+                },
+                {
+                    "date": 1639600647625,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n \n     title(\"Count of Cause vs. Region\");\n     auto ax = gca();\n     ax->x_axis().ticklabels(\n-        {{\"empty\", 0}, {\"tree\", 1}, {\"fire\", 2}, {\"char\", 3}});\n+        { 0, {\"tree\", 1}, {\"fire\", 2}, {\"char\", 3}});\n     ax->y_axis().ticklabels(\n         {\"empty\", \"tree\", \"fire\", \"char\"});\n     xlabel(ax, \"Region\");\n     ylabel(ax, \"Cause\");\n"
+                },
+                {
+                    "date": 1639600653031,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n \n     title(\"Count of Cause vs. Region\");\n     auto ax = gca();\n     ax->x_axis().ticklabels(\n-        { 0, {\"tree\", 1}, {\"fire\", 2}, {\"char\", 3}});\n+        { 0, , 1, 2}, {\"char\", 3}});\n     ax->y_axis().ticklabels(\n         {\"empty\", \"tree\", \"fire\", \"char\"});\n     xlabel(ax, \"Region\");\n     ylabel(ax, \"Cause\");\n"
+                },
+                {
+                    "date": 1639600659554,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n \n     title(\"Count of Cause vs. Region\");\n     auto ax = gca();\n     ax->x_axis().ticklabels(\n-        { 0, , 1, 2}, {\"char\", 3}});\n+        { 0, , 1, 2, 3}});\n     ax->y_axis().ticklabels(\n         {\"empty\", \"tree\", \"fire\", \"char\"});\n     xlabel(ax, \"Region\");\n     ylabel(ax, \"Cause\");\n"
+                },
+                {
+                    "date": 1639600665309,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n \n     title(\"Count of Cause vs. Region\");\n     auto ax = gca();\n     ax->x_axis().ticklabels(\n-        { 0, , 1, 2, 3}});\n+        { 0, 1, 2, 3});\n     ax->y_axis().ticklabels(\n         {\"empty\", \"tree\", \"fire\", \"char\"});\n     xlabel(ax, \"Region\");\n     ylabel(ax, \"Cause\");\n"
+                },
+                {
+                    "date": 1639600678199,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n     ax->x_axis().ticklabels(\n         { 0, 1, 2, 3});\n     ax->y_axis().ticklabels(\n         {\"empty\", \"tree\", \"fire\", \"char\"});\n-    xlabel(ax, \"Region\");\n+    xlabel(ax, \"\");\n     ylabel(ax, \"Cause\");\n     float w = ax->width();\n     ax->width(w * 0.85f);\n     ax->x_origin(ax->x_origin() + w * 0.1f);\n"
+                },
+                {
+                    "date": 1639600685060,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,9 @@\n         { 0, 1, 2, 3});\n     ax->y_axis().ticklabels(\n         {\"empty\", \"tree\", \"fire\", \"char\"});\n     xlabel(ax, \"\");\n-    ylabel(ax, \"Cause\");\n+    ylabel(ax, \"States\");\n     float w = ax->width();\n     ax->width(w * 0.85f);\n     ax->x_origin(ax->x_origin() + w * 0.1f);\n \n"
+                },
+                {
+                    "date": 1639600691586,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n     ax->x_axis().ticklabels(\n         { 0, 1, 2, 3});\n     ax->y_axis().ticklabels(\n         {\"empty\", \"tree\", \"fire\", \"char\"});\n-    xlabel(ax, \"\");\n+    xlabel(ax, \"String States\");\n     ylabel(ax, \"States\");\n     float w = ax->width();\n     ax->width(w * 0.85f);\n     ax->x_origin(ax->x_origin() + w * 0.1f);\n"
+                },
+                {
+                    "date": 1639600703503,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,8 +8,9 @@\n int main() {\n     int _rows = 5;\n     int _columns = 5;\n \n+//\n     std::random_device rd; \n     std::mt19937 gen(rd());\n     std::uniform_int_distribution<> dis(1, 100);\n     std::vector<std::vector<int>> _data(_rows, std::vector<int>(_columns,0));\n@@ -31,9 +32,9 @@\n         { 0, 1, 2, 3});\n     ax->y_axis().ticklabels(\n         {\"empty\", \"tree\", \"fire\", \"char\"});\n     xlabel(ax, \"String States\");\n-    ylabel(ax, \"States\");\n+    ylabel(ax, \"Num States\");\n     float w = ax->width();\n     ax->width(w * 0.85f);\n     ax->x_origin(ax->x_origin() + w * 0.1f);\n \n"
+                },
+                {
+                    "date": 1639600718884,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n int main() {\n     int _rows = 5;\n     int _columns = 5;\n \n-//\n+//2d array randomly generated with the rows and columns predetermined \n     std::random_device rd; \n     std::mt19937 gen(rd());\n     std::uniform_int_distribution<> dis(1, 100);\n     std::vector<std::vector<int>> _data(_rows, std::vector<int>(_columns,0));\n"
+                },
+                {
+                    "date": 1639600727303,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,13 +7,14 @@\n \n int main() {\n     int _rows = 5;\n     int _columns = 5;\n+    int _num\n \n //2d array randomly generated with the rows and columns predetermined \n     std::random_device rd; \n     std::mt19937 gen(rd());\n-    std::uniform_int_distribution<> dis(1, 100);\n+    std::uniform_int_distribution<> dis(1,30);\n     std::vector<std::vector<int>> _data(_rows, std::vector<int>(_columns,0));\n \n     for (auto it1 = _data.begin(); it1 != _data.end(); it1++) {\n         for (auto it2 = it1->begin(); it2 != it1->end(); it2++) {\n"
+                },
+                {
+                    "date": 1639600736908,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,14 +7,14 @@\n \n int main() {\n     int _rows = 5;\n     int _columns = 5;\n-    int _num\n+    int _num_states = 10;\n \n //2d array randomly generated with the rows and columns predetermined \n     std::random_device rd; \n     std::mt19937 gen(rd());\n-    std::uniform_int_distribution<> dis(1,30);\n+    std::uniform_int_distribution<> dis(1,_num_states);\n     std::vector<std::vector<int>> _data(_rows, std::vector<int>(_columns,0));\n \n     for (auto it1 = _data.begin(); it1 != _data.end(); it1++) {\n         for (auto it2 = it1->begin(); it2 != it1->end(); it2++) {\n"
+                },
+                {
+                    "date": 1639600748991,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,11 +7,11 @@\n \n int main() {\n     int _rows = 5;\n     int _columns = 5;\n-    int _num_states = 10;\n+    int _num_states = 30;\n \n-//2d array randomly generated with the rows and columns predetermined \n+//2d array randomly generated with the rows, number of state and columns predetermined \n     std::random_device rd; \n     std::mt19937 gen(rd());\n     std::uniform_int_distribution<> dis(1,_num_states);\n     std::vector<std::vector<int>> _data(_rows, std::vector<int>(_columns,0));\n"
+                },
+                {
+                    "date": 1639600762886,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n         }\n         std::cout << '\\n';\n     }\n \n-\n+//2d heatmap generation w/legend \n     heatmap(_data)->normalization(matrix::color_normalization::rows);\n \n     title(\"Count of Cause vs. Region\");\n     auto ax = gca();\n"
+                },
+                {
+                    "date": 1639600771975,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n         }\n         std::cout << '\\n';\n     }\n \n-//2d heatmap generation w/legend \n+//2d heatmap generation w/legend data and \n     heatmap(_data)->normalization(matrix::color_normalization::rows);\n \n     title(\"Count of Cause vs. Region\");\n     auto ax = gca();\n"
+                },
+                {
+                    "date": 1639600778084,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n         }\n         std::cout << '\\n';\n     }\n \n-//2d heatmap generation w/legend data and \n+//2d heatmap generation w/legend data and 2d vector data \n     heatmap(_data)->normalization(matrix::color_normalization::rows);\n \n     title(\"Count of Cause vs. Region\");\n     auto ax = gca();\n"
+                },
+                {
+                    "date": 1639600784745,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,9 +38,9 @@\n     float w = ax->width();\n     ax->width(w * 0.85f);\n     ax->x_origin(ax->x_origin() + w * 0.1f);\n \n-\n+//rendering \n     grid_kws = {'width_ratios': (0.9, 0.05), 'wspace': 0.2};\n     fig, (ax, cbar_ax) = subplots(1, 2, gridspec_kw = grid_kws, figsize = (12, 8));\n     FuncAnimation(fig = fig, func = my_func, frames = 200, interval = 50, blit = False);\n \n"
+                },
+                {
+                    "date": 1639600838441,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,8 +24,9 @@\n         std::cout << '\\n';\n     }\n \n //2d heatmap generation w/legend data and 2d vector data \n+\n     heatmap(_data)->normalization(matrix::color_normalization::rows);\n \n     title(\"Count of Cause vs. Region\");\n     auto ax = gca();\n@@ -38,9 +39,9 @@\n     float w = ax->width();\n     ax->width(w * 0.85f);\n     ax->x_origin(ax->x_origin() + w * 0.1f);\n \n-//rendering \n+//rendering for animation \n     grid_kws = {'width_ratios': (0.9, 0.05), 'wspace': 0.2};\n     fig, (ax, cbar_ax) = subplots(1, 2, gridspec_kw = grid_kws, figsize = (12, 8));\n     FuncAnimation(fig = fig, func = my_func, frames = 200, interval = 50, blit = False);\n \n"
+                },
+                {
+                    "date": 1639600843710,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,9 @@\n         std::cout << '\\n';\n     }\n \n //2d heatmap generation w/legend data and 2d vector data \n-\n+void my_func()\n     heatmap(_data)->normalization(matrix::color_normalization::rows);\n \n     title(\"Count of Cause vs. Region\");\n     auto ax = gca();\n"
+                },
+                {
+                    "date": 1639600852635,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,22 +25,13 @@\n     }\n \n //2d heatmap generation w/legend data and 2d vector data \n void my_func()\n-    heatmap(_data)->normalization(matrix::color_normalization::rows);\n \n-    title(\"Count of Cause vs. Region\");\n-    auto ax = gca();\n-    ax->x_axis().ticklabels(\n-        { 0, 1, 2, 3});\n-    ax->y_axis().ticklabels(\n-        {\"empty\", \"tree\", \"fire\", \"char\"});\n-    xlabel(ax, \"String States\");\n-    ylabel(ax, \"Num States\");\n-    float w = ax->width();\n-    ax->width(w * 0.85f);\n-    ax->x_origin(ax->x_origin() + w * 0.1f);\n+{\n \n+}\n+\n //rendering for animation \n     grid_kws = {'width_ratios': (0.9, 0.05), 'wspace': 0.2};\n     fig, (ax, cbar_ax) = subplots(1, 2, gridspec_kw = grid_kws, figsize = (12, 8));\n     FuncAnimation(fig = fig, func = my_func, frames = 200, interval = 50, blit = False);\n"
+                },
+                {
+                    "date": 1639600859294,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,11 +25,23 @@\n     }\n \n //2d heatmap generation w/legend data and 2d vector data \n void my_func()\n-\n {\n \n+    heatmap(_data)->normalization(matrix::color_normalization::rows);\n+    title(\"Count of Cause vs. Region\");\n+    auto ax = gca();\n+    ax->x_axis().ticklabels(\n+        { 0, 1, 2, 3});\n+    ax->y_axis().ticklabels(\n+        {\"empty\", \"tree\", \"fire\", \"char\"});\n+    xlabel(ax, \"String States\");\n+    ylabel(ax, \"Num States\");\n+    float w = ax->width();\n+    ax->width(w * 0.85f);\n+    ax->x_origin(ax->x_origin() + w * 0.1f);\n+\n }\n \n //rendering for animation \n     grid_kws = {'width_ratios': (0.9, 0.05), 'wspace': 0.2};\n"
+                },
+                {
+                    "date": 1639600960454,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,11 +24,10 @@\n         std::cout << '\\n';\n     }\n \n //2d heatmap generation w/legend data and 2d vector data \n-void my_func()\n+void my_func(i)\n {\n-\n     heatmap(_data)->normalization(matrix::color_normalization::rows);\n     title(\"Count of Cause vs. Region\");\n     auto ax = gca();\n     ax->x_axis().ticklabels(\n"
+                },
+                {
+                    "date": 1639600978595,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n \n //2d heatmap generation w/legend data and 2d vector data \n void my_func(i)\n {\n-    heatmap(_data)->normalization(matrix::color_normalization::rows);\n+    heatmap(_data)->normalization(matrix::color_normalization::i);\n     title(\"Count of Cause vs. Region\");\n     auto ax = gca();\n     ax->x_axis().ticklabels(\n         { 0, 1, 2, 3});\n"
+                },
+                {
+                    "date": 1639601002143,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,18 @@\n #include <vector>\n #include <random>\n #include <iomanip>\n \n+\n+\n+\n+\n+\n+\n+\n+\n+\n+\n using namespace matplot;\n \n int main() {\n     int _rows = 5;\n@@ -24,9 +34,9 @@\n         std::cout << '\\n';\n     }\n \n //2d heatmap generation w/legend data and 2d vector data \n-void my_func(i)\n+void my_func(int i)\n {\n     heatmap(_data)->normalization(matrix::color_normalization::i);\n     title(\"Count of Cause vs. Region\");\n     auto ax = gca();\n"
+                },
+                {
+                    "date": 1639601010535,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,8 +13,9 @@\n \n \n \n using namespace matplot;\n+using namespace Seaborn;\n \n int main() {\n     int _rows = 5;\n     int _columns = 5;\n"
+                },
+                {
+                    "date": 1639601016779,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,9 @@\n #include <iostream>\n #include <vector>\n #include <random>\n #include <iomanip>\n+#include \"\"\n \n \n \n \n@@ -11,9 +12,8 @@\n \n \n \n \n-\n using namespace matplot;\n using namespace Seaborn;\n \n int main() {\n"
+                },
+                {
+                    "date": 1639601023531,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n #include <iostream>\n #include <vector>\n #include <random>\n #include <iomanip>\n-#include \"\"\n+#include \"Seaborn.h\"\n \n \n \n \n"
+                },
+                {
+                    "date": 1639601667353,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,25 +34,25 @@\n         }\n         std::cout << '\\n';\n     }\n \n-//2d heatmap generation w/legend data and 2d vector data \n-void my_func(int i)\n-{\n-    heatmap(_data)->normalization(matrix::color_normalization::i);\n-    title(\"Count of Cause vs. Region\");\n-    auto ax = gca();\n-    ax->x_axis().ticklabels(\n-        { 0, 1, 2, 3});\n-    ax->y_axis().ticklabels(\n-        {\"empty\", \"tree\", \"fire\", \"char\"});\n-    xlabel(ax, \"String States\");\n-    ylabel(ax, \"Num States\");\n-    float w = ax->width();\n-    ax->width(w * 0.85f);\n-    ax->x_origin(ax->x_origin() + w * 0.1f);\n+    //2d heatmap generation w/legend data and 2d vector data \n+    void my_func(int i)\n+    {\n+        heatmap(_data)->normalization(matrix::color_normalization::i);\n+        title(\"Count of Cause vs. Region\");\n+        auto ax = gca();\n+        ax->x_axis().ticklabels(\n+            { 0, 1, 2, 3});\n+        ax->y_axis().ticklabels(\n+            {\"empty\", \"tree\", \"fire\", \"char\"});\n+        xlabel(ax, \"String States\");\n+        ylabel(ax, \"Num States\");\n+        float w = ax->width();\n+        ax->width(w * 0.85f);\n+        ax->x_origin(ax->x_origin() + w * 0.1f);\n \n-}\n+    }\n \n //rendering for animation \n     grid_kws = {'width_ratios': (0.9, 0.05), 'wspace': 0.2};\n     fig, (ax, cbar_ax) = subplots(1, 2, gridspec_kw = grid_kws, figsize = (12, 8));\n"
+                },
+                {
+                    "date": 1639601674002,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,16 +4,8 @@\n #include <iomanip>\n #include \"Seaborn.h\"\n \n \n-\n-\n-\n-\n-\n-\n-\n-\n using namespace matplot;\n using namespace Seaborn;\n \n int main() {\n"
+                },
+                {
+                    "date": 1639601683778,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,10 +2,10 @@\n #include <vector>\n #include <random>\n #include <iomanip>\n #include \"Seaborn.h\"\n+#include \"\"\n \n-\n using namespace matplot;\n using namespace Seaborn;\n \n int main() {\n"
+                },
+                {
+                    "date": 1639601693579,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n #include <vector>\n #include <random>\n #include <iomanip>\n #include \"Seaborn.h\"\n-#include \"\"\n+#include \"matplotlibplusplus\"\n \n using namespace matplot;\n using namespace Seaborn;\n \n"
+                },
+                {
+                    "date": 1639601779250,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,10 +2,9 @@\n #include <vector>\n #include <random>\n #include <iomanip>\n #include \"Seaborn.h\"\n-#include \"matplotlibplusplus\"\n-\n+#include <matplot/matplot.h>\n using namespace matplot;\n using namespace Seaborn;\n \n int main() {\n"
+                }
+            ],
+            "date": 1639599151299,
+            "name": "Commit-0",
+            "content": "int main() {\n    std::random_device rd; \n    std::mt19937 gen(rd());\n    std::uniform_int_distribution<> dis(1, 100);\n    std::vector<std::vector<int>> Matrix(5, std::vector<int>(7, 0));\n\n    for (auto it1 = Matrix.begin(); it1 != Matrix.end(); it1++) {\n        for (auto it2 = it1->begin(); it2 != it1->end(); it2++) {\n            *it2 = dis(gen); // dereference iterator, set the value\n            std::cout << std::setw(4) << *it2;\n        }\n        std::cout << '\\n';\n    }\n}\n"
+        }
+    ]
+}

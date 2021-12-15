@@ -1,0 +1,22 @@
+{
+    "sourceFile": "utils/utils.cxx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1639548334931,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1639548349104,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,8 @@\n   to get time points, calculate elapsed time and generate random integers.\n   \n */\n \n-#include \"myutils.h\"\n #include <iostream>\n #include <chrono>\n #include <random>\n /*\n@@ -19,18 +18,35 @@\n */\n \n \n \n+/*   \n+     TIMING ROUTINES\n+     These functions and routines get the system's wall-clock time \n+*/\n+#include <chrono>\n+#include <string>\n+using namespace std;\n \n+/* get_wallclock (): returns the current time based on chronos high_resolution_clock*/\n+std::chrono::high_resolution_clock::time_point get_wallclock();\n \n+/* get_elapsedtime (t1, t2): prints the taken between the start and end of get_wallclock\n+in seconds and microseconds to the terminal */\n+void get_elapsedtime(std::chrono::high_resolution_clock::time_point t1, std::chrono::high_resolution_clock::time_point t2);\n \n+/* generate_rand_int (max): generates a random integer from 1 to max and returns it. */\n+int generate_rand_int(int min, int max);\n \n \n \n \n \n \n \n+\n+\n+\n std::chrono::high_resolution_clock::time_point get_wallclock()\n {\n   return std::chrono::high_resolution_clock::now();\n }\n"
+                }
+            ],
+            "date": 1639548334931,
+            "name": "Commit-0",
+            "content": "/*\n  UC Berkeley - MSSE Program\n  Chem 279-B  Introduction to Software Engineering\n  Fall 2021\n  This file, utils.cxx, contains the functions and routines\n  to get time points, calculate elapsed time and generate random integers.\n  \n*/\n\n#include \"myutils.h\"\n#include <iostream>\n#include <chrono>\n#include <random>\n/*\nget_wallclock()\n  returns the current wall clock time as a std::chrono::time_point using chronos high_resolution_clock function.\n  input: nothing\n  output: nothing\n*/\n\n\n\n\n\n\n\n\n\n\n\n\n\nstd::chrono::high_resolution_clock::time_point get_wallclock()\n{\n  return std::chrono::high_resolution_clock::now();\n}\n\n/*\nget_elapsedtime()\n  returns nothing.\n  input: t1 - the starting time for the code block as a std::chrono::time_point\n  t2 - the ending time for the code block as a std::chrono::time_point\n  output: prints a sentence which contains the time taken in seconds and microseconds\n  to the terminal.\n*/\nvoid get_elapsedtime(std::chrono::high_resolution_clock::time_point t1, std::chrono::high_resolution_clock::time_point t2)\n{\n  std::chrono::duration<double> elapsed = (t2-t1);\n  long long microseconds = std::chrono::duration_cast<std::chrono::microseconds>(elapsed).count();\n  std::cout << \"The code block took \" << elapsed.count() << \" s or \" << microseconds << \" μs to run.\" << std::endl;\n}\n/*\ngenerate_rand_int()\n  returns a random integer.\n  input: max - the largest number you want to accept. The random number will be between 1 and the maximum you set.\n  output: nothing.\n*/\nint generate_rand_int(int min, int max)\n{\n    std::random_device                  rand_dev;\n    std::mt19937                        generator(rand_dev());\n    std::uniform_int_distribution<int>  distr(min, max);\n    int n = distr(generator);\n    return n;\n}\n"
+        }
+    ]
+}

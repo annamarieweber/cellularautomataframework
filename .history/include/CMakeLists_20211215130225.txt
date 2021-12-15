@@ -1,0 +1,4 @@
+find_package(Matplot++ REQUIRED)
+
+add_executable(my_target text.cpp)
+target_link_libraries(my_target PUBLIC Matplot++::matplot)

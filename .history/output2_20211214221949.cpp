@@ -1,0 +1,197 @@
+  6 #include <iostream>
+  7 #include <iomanip>
+  8 #include <fstream>
+  9 #include <stdlib.h>
+ 10 #include <unistd.h>
+ 11 #include <time.h>
+ 12 #include "ansi.h"
+ 13
+ 14 using namespace std;
+ 15
+ 16 #define GRID_WIDTH 80
+ 17 #define GRID_HEIGHT 24
+ 18 #define DELAY 500000
+ 19
+ 20 void initGrid(bool grid[][GRID_WIDTH]);
+ 21 void initGrid(const char* fileName, bool [][GRID_WIDTH]);
+ 22 void renderGrid(bool [][GRID_WIDTH]);
+ 23 void nextGeneration(bool cur[][GRID_WIDTH], bool next[][GRID_WIDTH]);
+ 24
+ 25 int main(int argc, char **argv)
+ 26 {
+ 27   bool grid1[GRID_HEIGHT][GRID_WIDTH];
+ 28   bool grid2[GRID_HEIGHT][GRID_WIDTH];
+ 29   int generation = 1;
+ 30
+ 31   //initialize the grid
+ 32   if(argc==2)
+ 33   {
+ 34      initGrid(argv[1], grid1);
+ 35   }
+ 36   else
+ 37   {
+ 38      initGrid(grid1);
+ 39   }
+ 40  
+ 41   //run the generations, until the user presses ctrl+c
+ 42   while(true)
+ 43   {
+ 44     //show the appropriate grid, and generate the next population
+ 45     if(generation++ % 2)
+ 46     {
+ 47       //odd numbered generation
+ 48       renderGrid(grid1);
+ 49       nextGeneration(grid1, grid2);
+ 50     }
+ 51     else
+ 52     {
+ 53       //even numbered generation
+ 54       renderGrid(grid2);
+ 55       nextGeneration(grid2, grid1);
+ 56     }
+ 57
+ 58     //wait awhile before doing it again
+ 59     usleep(DELAY);
+ 60   }
+ 61
+ 62   return 0;
+ 63 }
+ 64
+ 65 //initialize the grid with random cells
+ 66 void initGrid(bool grid[][GRID_WIDTH])
+ 67 {
+ 68   //get the random number seeded with our present time
+ 69   srand(time(0));
+ 70
+ 71   //loop through each row
+ 72   for(int y=0; y < GRID_HEIGHT; y++)
+ 73   {
+ 74     //loop through each column
+ 75     for(int x=0; x < GRID_WIDTH; x++)
+ 76     {
+ 77       //1/3 of the cells are alive
+ 78       grid[y][x] = (rand() % 3) == 1;
+ 79     }
+ 80   }
+ 81 }
+ 82
+ 83 //initialize the grid from a file
+ 84 void initGrid(const char* fileName, bool grid[][GRID_WIDTH])
+ 85 {
+ 86   ifstream file;
+ 87   char c;
+ 88
+ 89   file.open(fileName);
+ 90
+ 91   //we are just going to assume that the file is valid
+ 92   //this is bad but in the interest of time, its okay
+ 93   for(int y=0; y < GRID_HEIGHT; y++)
+ 94   {
+ 95     for(int x=0; x < GRID_WIDTH; x++)
+ 96     {
+ 97       c=file.get();
+ 98
+ 99       if(c=='\n')
+100       {
+101         c=file.get();
+102       }
+103
+104       grid[y][x]= c =='*';
+105     }
+106   }
+107
+108   file.close();
+109 }
+110
+111 //render the grid
+112 void renderGrid(bool grid[][GRID_WIDTH])
+113 {
+114   //loop through the grid, rendering as we go
+115   for(int y=0; y < GRID_HEIGHT; y++)
+116   {
+117     for(int x=0; x < GRID_WIDTH; x++)
+118     {
+119       //go to the position
+120       cout << cursorPosition(x+1, y+1);
+121
+122       //print the ' ' or '*'
+123       cout << (grid[y][x] ? '*' : ' ');
+124     }
+125   }
+126 }
+127
+128 //create the next generation. The cur grid generates the next grid
+129 void nextGeneration(bool cur[][GRID_WIDTH], bool next[][GRID_WIDTH])
+130 {
+131
+132   int count;
+133
+134
+135   for(int y=0; y < GRID_HEIGHT; y++)
+136   {
+137     for(int x=0; x < GRID_WIDTH; x++)
+138     {
+139       count = 0;
+140
+141       //checks grid for asteriks
+142       if((cur[y - 1][x]) == '*')
+143       {
+144         count = count + 1;
+145       }
+146       else if((cur[y + 1][x]) == '*')
+147       {
+148         count = count + 1;
+149       }
+150       else if((cur[y - 1][x - 1]) == '*')
+151       {
+152         count = count + 1;
+153       }
+154       else if((cur[y + 1][x + 1]) == '*')
+155       {
+156         count = count + 1;
+157       }
+158       else if((cur[y][x - 1]) == '*')
+159       {
+160         count = count + 1;
+161       }
+162       else if((cur[y][x + 1]) == '*')
+163       {
+164         count = count + 1;
+165       }
+166       else if((cur[y - 1][x + 1]) == '*')
+167       {
+168         count = count + 1;
+169       }
+170       else if((cur[y + 1][x - 1]) == '*')
+171       {
+172         count = count + 1;
+173       }
+174
+175       //less than 2 living neighbors - cell dies: starvation
+176       if((cur[y][x]) == '*' && (count < 2))
+177       {
+178         next[y][x] = ' ';
+179         cout << "h" << "\n";
+180       }
+181       //more than 3 living neighbors - cell dies: overcrowding
+182       else if((cur[y][x]) == '*' && (count > 3))
+183       {
+184         next[y][x] = ' ';
+185         cout << "i" << "\n";
+186       }
+187       //2 or 3 living neighbors - cell stays alive: stability
+188       else if((cur[y][x]) == '*' && count == 2 || count == 3)
+189       {
+190         next[y][x] = '*';
+         cout << "j" << "\n";
+       }
+       //dead cell with exactly 3 neighbors - cell is reborn: reproduction
+       else if((cur[y][x]) == ' ' && count == 3)
+       {
+         next[y][x] = '*';
+         cout << "j" << "\n";
+       }
+
+     }
+   }
+ }

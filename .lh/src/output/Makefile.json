@@ -1,0 +1,54 @@
+{
+    "sourceFile": "src/output/Makefile",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 9,
+            "patches": [
+                {
+                    "date": 1639601959421,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1639601976238,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n # The directory where all object files are going to moved afer creation\n LIB_DIR     = ../../lib\n \n # targets this makefile builds\n-OUTPUT_OBJS=test\n+OUTPUT_OBJS=test_CA_compute\n \n all: $(OUTPUT_OBJS)\n \n cleanall:\n"
+                },
+                {
+                    "date": 1639601983169,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n # The directory where all object files are going to moved afer creation\n LIB_DIR     = ../../lib\n \n # targets this makefile builds\n-OUTPUT_OBJS=test_CA_compute\n+OUTPUT_OBJS=test_CA_output\n \n all: $(OUTPUT_OBJS)\n \n cleanall:\n"
+                },
+                {
+                    "date": 1639602009111,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,10 +19,11 @@\n # The directory where all object files are going to moved afer creation\n LIB_DIR     = ../../lib\n \n # targets this makefile builds\n-OUTPUT_OBJS=test_CA_output\n+OUTPUT_OBJS=test_CA_output.object\n \n+\n all: $(OUTPUT_OBJS)\n \n cleanall:\n \tcd $(LIB_DIR); rm $(OUTPUT_OBJS)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1639602018558,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,8 +22,14 @@\n # targets this makefile builds\n OUTPUT_OBJS=test_CA_output.object\n \n \n+est_CA_output.object: $(INC_DIR)/myutils.h $(INC_DIR)/CellularAutomata.h\n+\t$(CXX) $(CXXFLAGS) CA_input.cxx -I$(INC_DIR)\n+\tmv CA_input.o $(LIB_DIR)\n+\n+\n+\n all: $(OUTPUT_OBJS)\n \n cleanall:\n \tcd $(LIB_DIR); rm $(OUTPUT_OBJS)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1639602025174,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,12 +19,12 @@\n # The directory where all object files are going to moved afer creation\n LIB_DIR     = ../../lib\n \n # targets this makefile builds\n-OUTPUT_OBJS=test_CA_output.object\n+OUTPUT_OBJS=test_CA_output.o\n \n \n-est_CA_output.object: $(INC_DIR)/myutils.h $(INC_DIR)/CellularAutomata.h\n+test_CA_output.o: $(INC_DIR)/myutils.h $(INC_DIR)/CellularAutomata.h\n \t$(CXX) $(CXXFLAGS) CA_input.cxx -I$(INC_DIR)\n \tmv CA_input.o $(LIB_DIR)\n \n \n"
+                },
+                {
+                    "date": 1639602039371,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n # targets this makefile builds\n OUTPUT_OBJS=test_CA_output.o\n \n \n-test_CA_output.o: $(INC_DIR)/myutils.h $(INC_DIR)/CellularAutomata.h\n+test_CA_output.o: $(INC_DIR)/matplot.h $(INC_DIR)/CellularAutomata.h\n \t$(CXX) $(CXXFLAGS) CA_input.cxx -I$(INC_DIR)\n \tmv CA_input.o $(LIB_DIR)\n \n \n"
+                },
+                {
+                    "date": 1639602047881,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n # targets this makefile builds\n OUTPUT_OBJS=test_CA_output.o\n \n \n-test_CA_output.o: $(INC_DIR)/matplot.h $(INC_DIR)/CellularAutomata.h\n+test_CA_output.o: $(INC_DIR)/matplotlib/matplotlib.h $(INC_DIR)/CellularAutomata.h\n \t$(CXX) $(CXXFLAGS) CA_input.cxx -I$(INC_DIR)\n \tmv CA_input.o $(LIB_DIR)\n \n \n"
+                },
+                {
+                    "date": 1639602066072,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,11 +22,11 @@\n # targets this makefile builds\n OUTPUT_OBJS=test_CA_output.o\n \n \n-test_CA_output.o: $(INC_DIR)/matplotlib/matplotlib.h $(INC_DIR)/CellularAutomata.h\n+test_CA_output.o: $(INC_DIR)/matplotlib/matplotlib.h $(INC_DIR)/Seaborn.h\n \t$(CXX) $(CXXFLAGS) CA_input.cxx -I$(INC_DIR)\n-\tmv CA_input.o $(LIB_DIR)\n+\tmv test_CA_output.o.o $(LIB_DIR)\n \n \n \n all: $(OUTPUT_OBJS)\n"
+                },
+                {
+                    "date": 1639602072173,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,10 +23,10 @@\n OUTPUT_OBJS=test_CA_output.o\n \n \n test_CA_output.o: $(INC_DIR)/matplotlib/matplotlib.h $(INC_DIR)/Seaborn.h\n-\t$(CXX) $(CXXFLAGS) CA_input.cxx -I$(INC_DIR)\n-\tmv test_CA_output.o.o $(LIB_DIR)\n+\t$(CXX) $(CXXFLAGS) test_CA_output.cxx -I$(INC_DIR)\n+\tmv test_CA_output.o $(LIB_DIR)\n \n \n \n all: $(OUTPUT_OBJS)\n"
+                }
+            ],
+            "date": 1639601959421,
+            "name": "Commit-0",
+            "content": "# for MSSE Chem 274B - Fall Semester\n# University of California, Berkeley\n# \n# Creator:  Anna Weber\n# Date Created: Nov 08, 2021\n#\n# This makefile creates output processing objects in C++\n# after creation the objects are relocated to the ../lib directory\n\n# GNU C++ Compiler\nCXX         = g++      \n\n# compiler flags -g debug, -O3 optimized version -c create a library object\nCXXFLAGS    = -O3 -c    \n\n# The directory where the include files needed to create the library objects are\nINC_DIR = ../../include\n\n# The directory where all object files are going to moved afer creation\nLIB_DIR     = ../../lib\n\n# targets this makefile builds\nOUTPUT_OBJS=test\n\nall: $(OUTPUT_OBJS)\n\ncleanall:\n\tcd $(LIB_DIR); rm $(OUTPUT_OBJS)"
+        }
+    ]
+}

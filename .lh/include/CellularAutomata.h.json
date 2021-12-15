@@ -1,0 +1,34 @@
+{
+    "sourceFile": "include/CellularAutomata.h",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 4,
+            "patches": [
+                {
+                    "date": 1639586609423,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1639586615831,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,10 +3,18 @@\n #include <map>\n #include <utility>\n \n \n-rnd_data = np.random.normal(0, 1, (500, 100, 100))\n+rnd_data = np.random.normal(0, 1, (500, 100, 100));\n \n+\n+\n+\n+\n+\n+\n+\n+\n class CellularAutomata\n {\n     private:\n         // Holds the dimensions of the Cellular Automata.\n"
+                },
+                {
+                    "date": 1639586677781,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,16 +5,23 @@\n \n \n rnd_data = np.random.normal(0, 1, (500, 100, 100));\n \n+fig, ax = plt.subplots(figsize=(12,10))\n \n+def my_func(i):\n+    sns.heatmap(rnd_data[i])\n \n+anim = matplotlib.animation.FuncAnimation(fig=fig, func=my_func, frames=200, interval=500, blit=False)\n+plt.show()\n \n \n \n \n \n \n+\n+\n class CellularAutomata\n {\n     private:\n         // Holds the dimensions of the Cellular Automata.\n"
+                },
+                {
+                    "date": 1639586776362,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n #include <map>\n #include <utility>\n \n \n-rnd_data = np.random.normal(_rows, 1, (500, 100, 100));\n+rnd_data = np.random.normal(__throw_system_error, 1, (500, 100, 100));\n \n fig, ax = plt.subplots(figsize=(12,10))\n \n def my_func(i):\n"
+                },
+                {
+                    "date": 1639586859843,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n \n \n rnd_data = np.random.normal(_rows, _columns, (500, 100, 100));\n \n-fig, ax = plt.subplots(figsize=(12,10))\n+_data = fig, ax = plt.subplots(figsize=(12,10))\n \n def my_func(i):\n     sns.heatmap(rnd_data[i])\n \n"
+                }
+            ],
+            "date": 1639586609423,
+            "name": "Commit-0",
+            "content": "#include <iostream>\n#include <vector>\n#include <map>\n#include <utility>\n\n\nrnd_data = np.random.normal(0, 1, (500, 100, 100))\n\nclass CellularAutomata\n{\n    private:\n        // Holds the dimensions of the Cellular Automata.\n        int _size;\n\n        // Holds the data for the Cellular Automata as a vector of vectors.\n        std::vector<std::vector<int> > _data;\n\n        // Holds the legend information for the Cellular Automata. Where the string passed in is the name of the state, and the integer is the value for that state.\n        std::map<std::string, int> _legend;\n\n        // Holds the legend information of the Cellular Automata as well as densities for each state. Where the string is the name of the state, the pair contains the value for that state (integer) and density (float, from 0.0-1.0).\n        std::map<std::string, std::pair<int, float> > _legend_density;\n\n        // Holds the number of possible states a cell can be in\n        int _num_states;\n        \n        // Number of rows in the cellular automata, or its height.\n        int _rows;\n\n        // Number of columns in the cellular automata, or its width.\n        int _columns;\n\n        // The name of the state which is a product of any rules (ex. a tree burns to become charred, so charred would be the product).\n        std::string _product;\n\n        // The name of the state which is reacting with others to change them (ex. fire burns a tree so it becomes charred, so fire would be the reactor).\n        std::string _reactor;\n\n        // A pair of integers which signify the starting position to place the reactor state.\n        std::pair<int, int> _starting_position;\n        \n    public:\n        // Constructor for the class, requires all data for the Cellular Automata to be passed in.\n        CellularAutomata(int rows, int columns, std::map<std::string, int> legend, std::vector<std::vector<int> > data, std::string product, std::string reactor, std::pair<int, int> starting_position);\n\n        // Another constructor for the class, calls the initialization to set up the Cellular Automata randomly.\n        CellularAutomata(int rows, int columns, std::map<std::string, int> legend, std::string product, std::string reactor, std::pair<int, int> starting_position);\n\n        // Another constructor for the class, calls the initialization to set up the Cellular Automata using density values passed in.\n        CellularAutomata(int rows, int columns, std::map<std::string, std::pair<int, float> > legend, std::string product, std::string reactor, std::pair<int, int> starting_position);\n\n        // Intiatlize function to create a cellular automata randomly.\n        void Initialize_Rand();\n\n        // Intialize function to create a cellular automata using density values.\n        void Initialize_Density();\n\n        // Code to evaluate von neumaan neighborhood where r=1.\n        std::vector<int> vn_neighborhood(int row, int column);\n\n        // Code to evaluate moore neighborhood where r=1.\n        std::vector<int> moore_neighborhood(int row, int column); \n        \n        //code to get the appropriate neighborhood\n        std::vector<int> get_neighborhood(int x, int y,int neighborhood_num);\n        \n        // Code to run Cellular Automata Simulation\n        void run(int num_steps, int rule_num, int neighborhood_num);\n        \n        //logic for taking a single step of the CA simluation todo: document the funciton\n        void step(int rule_num, int neighborhood_num);\n        \n        // code to apply transition rule using neighborhood data\n        int transition_function(int x, int y, int rule_num, std::vector<int> neighborhood);\n\n        // logic for the majority rule todo:  add additional function documentation\n        int majority_rule(int x, int y, std::vector<int> neighborhood);\n        \n        // logic for the purity rule todo:  add additional function documentation\n        int purity_rule(int x, int y, std::vector<int> neighborhood);\n\n        // Function to print out the Cellular Automata.\n        void print();\n};\n"
+        }
+    ]
+}

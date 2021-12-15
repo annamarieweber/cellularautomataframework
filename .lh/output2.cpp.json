@@ -1,0 +1,326 @@
+{
+    "sourceFile": "output2.cpp",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 77,
+            "patches": [
+                {
+                    "date": 1639549096955,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1639549103779,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -193,5 +193,5 @@\n 198       }\n 199\n 200     }\n 201   }\n-202 }\n\\ No newline at end of file\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1639549128696,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -191,7 +191,7 @@\n 196         next[y][x] = '*';\n 197         cout << \"j\" << \"\\n\";\n 198       }\n 199\n-200     }\n-201   }\n+     }\n+   }\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1639549139724,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -190,8 +190,7 @@\n 195       {\n 196         next[y][x] = '*';\n 197         cout << \"j\" << \"\\n\";\n 198       }\n-199\n      }\n    }\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1639549145884,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -188,9 +188,10 @@\n 193       //dead cell with exactly 3 neighbors - cell is reborn: reproduction\n 194       else if((cur[y][x]) == ' ' && count == 3)\n 195       {\n 196         next[y][x] = '*';\n-197         cout << \"j\" << \"\\n\";\n-198       }\n+         cout << \"j\" << \"\\n\";\n+       }\n+\n      }\n    }\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1639549160628,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -188,10 +188,10 @@\n 193       //dead cell with exactly 3 neighbors - cell is reborn: reproduction\n 194       else if((cur[y][x]) == ' ' && count == 3)\n 195       {\n 196         next[y][x] = '*';\n-         cout << \"j\" << \"\\n\";\n-       }\n-\n-     }\n-   }\n-}\n\\ No newline at end of file\n+197         cout << \"j\" << \"\\n\";\n+198       }\n+199\n+200     }\n+201   }\n+202 }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1639549166742,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -192,6 +192,6 @@\n 197         cout << \"j\" << \"\\n\";\n 198       }\n 199\n 200     }\n-201   }\n-202 }\n\\ No newline at end of file\n+   }\n+ }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1639549173183,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -189,9 +189,9 @@\n 194       else if((cur[y][x]) == ' ' && count == 3)\n 195       {\n 196         next[y][x] = '*';\n 197         cout << \"j\" << \"\\n\";\n-198       }\n-199\n-200     }\n+       }\n+\n+     }\n    }\n  }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1639549180131,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -186,11 +186,11 @@\n 191         cout << \"j\" << \"\\n\";\n 192       }\n 193       //dead cell with exactly 3 neighbors - cell is reborn: reproduction\n 194       else if((cur[y][x]) == ' ' && count == 3)\n-195       {\n-196         next[y][x] = '*';\n-197         cout << \"j\" << \"\\n\";\n+       {\n+         next[y][x] = '*';\n+         cout << \"j\" << \"\\n\";\n        }\n \n      }\n    }\n"
+                },
+                {
+                    "date": 1639549186270,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -183,11 +183,11 @@\n 188       else if((cur[y][x]) == '*' && count == 2 || count == 3)\n 189       {\n 190         next[y][x] = '*';\n 191         cout << \"j\" << \"\\n\";\n-192       }\n-193       //dead cell with exactly 3 neighbors - cell is reborn: reproduction\n-194       else if((cur[y][x]) == ' ' && count == 3)\n+       }\n+       //dead cell with exactly 3 neighbors - cell is reborn: reproduction\n+       else if((cur[y][x]) == ' ' && count == 3)\n        {\n          next[y][x] = '*';\n          cout << \"j\" << \"\\n\";\n        }\n"
+                },
+                {
+                    "date": 1639549193201,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -180,11 +180,11 @@\n 185         cout << \"i\" << \"\\n\";\n 186       }\n 187       //2 or 3 living neighbors - cell stays alive: stability\n 188       else if((cur[y][x]) == '*' && count == 2 || count == 3)\n-189       {\n-190         next[y][x] = '*';\n-191         cout << \"j\" << \"\\n\";\n+       {\n+         next[y][x] = '*';\n+         cout << \"j\" << \"\\n\";\n        }\n        //dead cell with exactly 3 neighbors - cell is reborn: reproduction\n        else if((cur[y][x]) == ' ' && count == 3)\n        {\n"
+                },
+                {
+                    "date": 1639549200648,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -177,11 +177,11 @@\n 182       else if((cur[y][x]) == '*' && (count > 3))\n 183       {\n 184         next[y][x] = ' ';\n 185         cout << \"i\" << \"\\n\";\n-186       }\n-187       //2 or 3 living neighbors - cell stays alive: stability\n-188       else if((cur[y][x]) == '*' && count == 2 || count == 3)\n+       }\n+       //2 or 3 living neighbors - cell stays alive: stability\n+       else if((cur[y][x]) == '*' && count == 2 || count == 3)\n        {\n          next[y][x] = '*';\n          cout << \"j\" << \"\\n\";\n        }\n"
+                },
+                {
+                    "date": 1639549206836,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -174,11 +174,11 @@\n 179         cout << \"h\" << \"\\n\";\n 180       }\n 181       //more than 3 living neighbors - cell dies: overcrowding\n 182       else if((cur[y][x]) == '*' && (count > 3))\n-183       {\n-184         next[y][x] = ' ';\n-185         cout << \"i\" << \"\\n\";\n+       {\n+         next[y][x] = ' ';\n+         cout << \"i\" << \"\\n\";\n        }\n        //2 or 3 living neighbors - cell stays alive: stability\n        else if((cur[y][x]) == '*' && count == 2 || count == 3)\n        {\n"
+                },
+                {
+                    "date": 1639549213775,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -171,11 +171,11 @@\n 176       if((cur[y][x]) == '*' && (count < 2))\n 177       {\n 178         next[y][x] = ' ';\n 179         cout << \"h\" << \"\\n\";\n-180       }\n-181       //more than 3 living neighbors - cell dies: overcrowding\n-182       else if((cur[y][x]) == '*' && (count > 3))\n+       }\n+       //more than 3 living neighbors - cell dies: overcrowding\n+       else if((cur[y][x]) == '*' && (count > 3))\n        {\n          next[y][x] = ' ';\n          cout << \"i\" << \"\\n\";\n        }\n"
+                },
+                {
+                    "date": 1639549219857,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -169,10 +169,10 @@\n 174\n 175       //less than 2 living neighbors - cell dies: starvation\n 176       if((cur[y][x]) == '*' && (count < 2))\n 177       {\n-178         next[y][x] = ' ';\n-179         cout << \"h\" << \"\\n\";\n+         next[y][x] = ' ';\n+         cout << \"h\" << \"\\n\";\n        }\n        //more than 3 living neighbors - cell dies: overcrowding\n        else if((cur[y][x]) == '*' && (count > 3))\n        {\n"
+                },
+                {
+                    "date": 1639549225595,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -167,10 +167,10 @@\n 172         count = count + 1;\n 173       }\n 174\n 175       //less than 2 living neighbors - cell dies: starvation\n-176       if((cur[y][x]) == '*' && (count < 2))\n-177       {\n+       if((cur[y][x]) == '*' && (count < 2))\n+       {\n          next[y][x] = ' ';\n          cout << \"h\" << \"\\n\";\n        }\n        //more than 3 living neighbors - cell dies: overcrowding\n"
+                },
+                {
+                    "date": 1639549234621,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -164,11 +164,11 @@\n 169       }\n 170       else if((cur[y + 1][x - 1]) == '*')\n 171       {\n 172         count = count + 1;\n-173       }\n-174\n-175       //less than 2 living neighbors - cell dies: starvation\n+       }\n+\n+       //less than 2 living neighbors - cell dies: starvation\n        if((cur[y][x]) == '*' && (count < 2))\n        {\n          next[y][x] = ' ';\n          cout << \"h\" << \"\\n\";\n"
+                },
+                {
+                    "date": 1639549242273,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -161,11 +161,11 @@\n 166       else if((cur[y - 1][x + 1]) == '*')\n 167       {\n 168         count = count + 1;\n 169       }\n-170       else if((cur[y + 1][x - 1]) == '*')\n-171       {\n-172         count = count + 1;\n+       else if((cur[y + 1][x - 1]) == '*')\n+       {\n+         count = count + 1;\n        }\n \n        //less than 2 living neighbors - cell dies: starvation\n        if((cur[y][x]) == '*' && (count < 2))\n"
+                },
+                {
+                    "date": 1639549248234,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -158,11 +158,11 @@\n 163       {\n 164         count = count + 1;\n 165       }\n 166       else if((cur[y - 1][x + 1]) == '*')\n-167       {\n-168         count = count + 1;\n-169       }\n+       {\n+         count = count + 1;\n+       }\n        else if((cur[y + 1][x - 1]) == '*')\n        {\n          count = count + 1;\n        }\n"
+                },
+                {
+                    "date": 1639549253319,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -156,10 +156,10 @@\n 161       }\n 162       else if((cur[y][x + 1]) == '*')\n 163       {\n 164         count = count + 1;\n-165       }\n-166       else if((cur[y - 1][x + 1]) == '*')\n+       }\n+       else if((cur[y - 1][x + 1]) == '*')\n        {\n          count = count + 1;\n        }\n        else if((cur[y + 1][x - 1]) == '*')\n"
+                },
+                {
+                    "date": 1639549259289,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -153,11 +153,11 @@\n 158       else if((cur[y][x - 1]) == '*')\n 159       {\n 160         count = count + 1;\n 161       }\n-162       else if((cur[y][x + 1]) == '*')\n-163       {\n-164         count = count + 1;\n+       else if((cur[y][x + 1]) == '*')\n+       {\n+         count = count + 1;\n        }\n        else if((cur[y - 1][x + 1]) == '*')\n        {\n          count = count + 1;\n"
+                },
+                {
+                    "date": 1639549265674,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -150,11 +150,11 @@\n 155       {\n 156         count = count + 1;\n 157       }\n 158       else if((cur[y][x - 1]) == '*')\n-159       {\n-160         count = count + 1;\n-161       }\n+       {\n+         count = count + 1;\n+       }\n        else if((cur[y][x + 1]) == '*')\n        {\n          count = count + 1;\n        }\n"
+                },
+                {
+                    "date": 1639549272283,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -147,11 +147,11 @@\n 152         count = count + 1;\n 153       }\n 154       else if((cur[y + 1][x + 1]) == '*')\n 155       {\n-156         count = count + 1;\n-157       }\n-158       else if((cur[y][x - 1]) == '*')\n+         count = count + 1;\n+       }\n+       else if((cur[y][x - 1]) == '*')\n        {\n          count = count + 1;\n        }\n        else if((cur[y][x + 1]) == '*')\n"
+                },
+                {
+                    "date": 1639549294795,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -144,11 +144,11 @@\n 149       }\n 150       else if((cur[y - 1][x - 1]) == '*')\n 151       {\n 152         count = count + 1;\n-153       }\n-154       else if((cur[y + 1][x + 1]) == '*')\n-155       {\n+       }\n+       else if((cur[y + 1][x + 1]) == '*')\n+       {\n          count = count + 1;\n        }\n        else if((cur[y][x - 1]) == '*')\n        {\n"
+                },
+                {
+                    "date": 1639549300718,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -141,11 +141,11 @@\n 146       else if((cur[y + 1][x]) == '*')\n 147       {\n 148         count = count + 1;\n 149       }\n-150       else if((cur[y - 1][x - 1]) == '*')\n-151       {\n-152         count = count + 1;\n+       else if((cur[y - 1][x - 1]) == '*')\n+       {\n+         count = count + 1;\n        }\n        else if((cur[y + 1][x + 1]) == '*')\n        {\n          count = count + 1;\n"
+                },
+                {
+                    "date": 1639549306578,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -139,10 +139,10 @@\n 144         count = count + 1;\n 145       }\n 146       else if((cur[y + 1][x]) == '*')\n 147       {\n-148         count = count + 1;\n-149       }\n+         count = count + 1;\n+       }\n        else if((cur[y - 1][x - 1]) == '*')\n        {\n          count = count + 1;\n        }\n"
+                },
+                {
+                    "date": 1639549314960,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -136,11 +136,11 @@\n 141       //checks grid for asteriks\n 142       if((cur[y - 1][x]) == '*')\n 143       {\n 144         count = count + 1;\n-145       }\n-146       else if((cur[y + 1][x]) == '*')\n-147       {\n+       }\n+       else if((cur[y + 1][x]) == '*')\n+       {\n          count = count + 1;\n        }\n        else if((cur[y - 1][x - 1]) == '*')\n        {\n"
+                },
+                {
+                    "date": 1639549320117,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -134,10 +134,10 @@\n 139       count = 0;\n 140\n 141       //checks grid for asteriks\n 142       if((cur[y - 1][x]) == '*')\n-143       {\n-144         count = count + 1;\n+       {\n+         count = count + 1;\n        }\n        else if((cur[y + 1][x]) == '*')\n        {\n          count = count + 1;\n"
+                },
+                {
+                    "date": 1639549326795,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -131,11 +131,11 @@\n 136   {\n 137     for(int x=0; x < GRID_WIDTH; x++)\n 138     {\n 139       count = 0;\n-140\n-141       //checks grid for asteriks\n-142       if((cur[y - 1][x]) == '*')\n+\n+       //checks grid for asteriks\n+       if((cur[y - 1][x]) == '*')\n        {\n          count = count + 1;\n        }\n        else if((cur[y + 1][x]) == '*')\n"
+                },
+                {
+                    "date": 1639549332978,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -128,11 +128,11 @@\n 133\n 134\n 135   for(int y=0; y < GRID_HEIGHT; y++)\n 136   {\n-137     for(int x=0; x < GRID_WIDTH; x++)\n-138     {\n-139       count = 0;\n+     for(int x=0; x < GRID_WIDTH; x++)\n+     {\n+       count = 0;\n \n        //checks grid for asteriks\n        if((cur[y - 1][x]) == '*')\n        {\n"
+                },
+                {
+                    "date": 1639549339828,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -125,11 +125,11 @@\n 130 {\n 131\n 132   int count;\n 133\n-134\n-135   for(int y=0; y < GRID_HEIGHT; y++)\n-136   {\n+\n+   for(int y=0; y < GRID_HEIGHT; y++)\n+   {\n      for(int x=0; x < GRID_WIDTH; x++)\n      {\n        count = 0;\n \n"
+                },
+                {
+                    "date": 1639549346086,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -122,12 +122,12 @@\n 127\n 128 //create the next generation. The cur grid generates the next grid\n 129 void nextGeneration(bool cur[][GRID_WIDTH], bool next[][GRID_WIDTH])\n 130 {\n-131\n-132   int count;\n-133\n \n+   int count;\n+\n+\n    for(int y=0; y < GRID_HEIGHT; y++)\n    {\n      for(int x=0; x < GRID_WIDTH; x++)\n      {\n"
+                },
+                {
+                    "date": 1639549351526,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -120,10 +120,10 @@\n 125   }\n 126 }\n 127\n 128 //create the next generation. The cur grid generates the next grid\n-129 void nextGeneration(bool cur[][GRID_WIDTH], bool next[][GRID_WIDTH])\n-130 {\n+ void nextGeneration(bool cur[][GRID_WIDTH], bool next[][GRID_WIDTH])\n+ {\n \n    int count;\n \n \n"
+                },
+                {
+                    "date": 1639549356972,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -118,10 +118,10 @@\n 123       cout << (grid[y][x] ? '*' : ' ');\n 124     }\n 125   }\n 126 }\n-127\n-128 //create the next generation. The cur grid generates the next grid\n+\n+ //create the next generation. The cur grid generates the next grid\n  void nextGeneration(bool cur[][GRID_WIDTH], bool next[][GRID_WIDTH])\n  {\n \n    int count;\n"
+                },
+                {
+                    "date": 1639549363556,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -115,11 +115,11 @@\n 120       cout << cursorPosition(x+1, y+1);\n 121\n 122       //print the ' ' or '*'\n 123       cout << (grid[y][x] ? '*' : ' ');\n-124     }\n-125   }\n-126 }\n+     }\n+   }\n+ }\n \n  //create the next generation. The cur grid generates the next grid\n  void nextGeneration(bool cur[][GRID_WIDTH], bool next[][GRID_WIDTH])\n  {\n"
+                },
+                {
+                    "date": 1639549368723,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -113,10 +113,10 @@\n 118     {\n 119       //go to the position\n 120       cout << cursorPosition(x+1, y+1);\n 121\n-122       //print the ' ' or '*'\n-123       cout << (grid[y][x] ? '*' : ' ');\n+       //print the ' ' or '*'\n+       cout << (grid[y][x] ? '*' : ' ');\n      }\n    }\n  }\n \n"
+                },
+                {
+                    "date": 1639549374091,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -111,10 +111,10 @@\n 116   {\n 117     for(int x=0; x < GRID_WIDTH; x++)\n 118     {\n 119       //go to the position\n-120       cout << cursorPosition(x+1, y+1);\n-121\n+       cout << cursorPosition(x+1, y+1);\n+\n        //print the ' ' or '*'\n        cout << (grid[y][x] ? '*' : ' ');\n      }\n    }\n"
+                },
+                {
+                    "date": 1639549379238,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -109,10 +109,10 @@\n 114   //loop through the grid, rendering as we go\n 115   for(int y=0; y < GRID_HEIGHT; y++)\n 116   {\n 117     for(int x=0; x < GRID_WIDTH; x++)\n-118     {\n-119       //go to the position\n+     {\n+       //go to the position\n        cout << cursorPosition(x+1, y+1);\n \n        //print the ' ' or '*'\n        cout << (grid[y][x] ? '*' : ' ');\n"
+                },
+                {
+                    "date": 1639549384454,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -107,10 +107,10 @@\n 112 void renderGrid(bool grid[][GRID_WIDTH])\n 113 {\n 114   //loop through the grid, rendering as we go\n 115   for(int y=0; y < GRID_HEIGHT; y++)\n-116   {\n-117     for(int x=0; x < GRID_WIDTH; x++)\n+   {\n+     for(int x=0; x < GRID_WIDTH; x++)\n      {\n        //go to the position\n        cout << cursorPosition(x+1, y+1);\n \n"
+                },
+                {
+                    "date": 1639549391178,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -104,11 +104,11 @@\n 109 }\n 110\n 111 //render the grid\n 112 void renderGrid(bool grid[][GRID_WIDTH])\n-113 {\n-114   //loop through the grid, rendering as we go\n-115   for(int y=0; y < GRID_HEIGHT; y++)\n+ {\n+   //loop through the grid, rendering as we go\n+   for(int y=0; y < GRID_HEIGHT; y++)\n    {\n      for(int x=0; x < GRID_WIDTH; x++)\n      {\n        //go to the position\n"
+                },
+                {
+                    "date": 1639549399100,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -101,11 +101,11 @@\n 106   }\n 107\n 108   file.close();\n 109 }\n-110\n-111 //render the grid\n-112 void renderGrid(bool grid[][GRID_WIDTH])\n+\n+ //render the grid\n+ void renderGrid(bool grid[][GRID_WIDTH])\n  {\n    //loop through the grid, rendering as we go\n    for(int y=0; y < GRID_HEIGHT; y++)\n    {\n"
+                },
+                {
+                    "date": 1639549406234,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -98,12 +98,12 @@\n 103\n 104       grid[y][x]= c =='*';\n 105     }\n 106   }\n-107\n-108   file.close();\n-109 }\n \n+   file.close();\n+ }\n+\n  //render the grid\n  void renderGrid(bool grid[][GRID_WIDTH])\n  {\n    //loop through the grid, rendering as we go\n"
+                },
+                {
+                    "date": 1639549414344,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -95,11 +95,11 @@\n 100       {\n 101         c=file.get();\n 102       }\n 103\n-104       grid[y][x]= c =='*';\n-105     }\n-106   }\n+       grid[y][x]= c =='*';\n+     }\n+   }\n \n    file.close();\n  }\n \n"
+                },
+                {
+                    "date": 1639549420732,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -92,11 +92,11 @@\n  97       c=file.get();\n  98\n  99       if(c=='\\n')\n 100       {\n-101         c=file.get();\n-102       }\n-103\n+         c=file.get();\n+       }\n+\n        grid[y][x]= c =='*';\n      }\n    }\n \n"
+                },
+                {
+                    "date": 1639549426265,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -90,10 +90,10 @@\n  95     for(int x=0; x < GRID_WIDTH; x++)\n  96     {\n  97       c=file.get();\n  98\n- 99       if(c=='\\n')\n-100       {\n+       if(c=='\\n')\n+       {\n          c=file.get();\n        }\n \n        grid[y][x]= c =='*';\n"
+                },
+                {
+                    "date": 1639549432965,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -88,10 +88,10 @@\n  93   for(int y=0; y < GRID_HEIGHT; y++)\n  94   {\n  95     for(int x=0; x < GRID_WIDTH; x++)\n  96     {\n- 97       c=file.get();\n- 98\n+       c=file.get();\n+\n        if(c=='\\n')\n        {\n          c=file.get();\n        }\n"
+                },
+                {
+                    "date": 1639549440554,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -85,11 +85,11 @@\n  90\n  91   //we are just going to assume that the file is valid\n  92   //this is bad but in the interest of time, its okay\n  93   for(int y=0; y < GRID_HEIGHT; y++)\n- 94   {\n- 95     for(int x=0; x < GRID_WIDTH; x++)\n- 96     {\n+   {\n+     for(int x=0; x < GRID_WIDTH; x++)\n+     {\n        c=file.get();\n \n        if(c=='\\n')\n        {\n"
+                },
+                {
+                    "date": 1639549445617,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -83,10 +83,10 @@\n  88\n  89   file.open(fileName);\n  90\n  91   //we are just going to assume that the file is valid\n- 92   //this is bad but in the interest of time, its okay\n- 93   for(int y=0; y < GRID_HEIGHT; y++)\n+   //this is bad but in the interest of time, its okay\n+   for(int y=0; y < GRID_HEIGHT; y++)\n    {\n      for(int x=0; x < GRID_WIDTH; x++)\n      {\n        c=file.get();\n"
+                },
+                {
+                    "date": 1639549455931,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -81,10 +81,10 @@\n  86   ifstream file;\n  87   char c;\n  88\n  89   file.open(fileName);\n- 90\n- 91   //we are just going to assume that the file is valid\n+\n+   //we are just going to assume that the file is valid\n    //this is bad but in the interest of time, its okay\n    for(int y=0; y < GRID_HEIGHT; y++)\n    {\n      for(int x=0; x < GRID_WIDTH; x++)\n"
+                },
+                {
+                    "date": 1639549463694,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -78,12 +78,12 @@\n  83 //initialize the grid from a file\n  84 void initGrid(const char* fileName, bool grid[][GRID_WIDTH])\n  85 {\n  86   ifstream file;\n- 87   char c;\n- 88\n- 89   file.open(fileName);\n+   char c;\n \n+   file.open(fileName);\n+\n    //we are just going to assume that the file is valid\n    //this is bad but in the interest of time, its okay\n    for(int y=0; y < GRID_HEIGHT; y++)\n    {\n"
+                },
+                {
+                    "date": 1639549469171,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -76,10 +76,10 @@\n  81 }\n  82\n  83 //initialize the grid from a file\n  84 void initGrid(const char* fileName, bool grid[][GRID_WIDTH])\n- 85 {\n- 86   ifstream file;\n+ {\n+   ifstream file;\n    char c;\n \n    file.open(fileName);\n \n"
+                },
+                {
+                    "date": 1639549475394,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -73,11 +73,11 @@\n  78       grid[y][x] = (rand() % 3) == 1;\n  79     }\n  80   }\n  81 }\n- 82\n- 83 //initialize the grid from a file\n- 84 void initGrid(const char* fileName, bool grid[][GRID_WIDTH])\n+\n+ //initialize the grid from a file\n+ void initGrid(const char* fileName, bool grid[][GRID_WIDTH])\n  {\n    ifstream file;\n    char c;\n \n"
+                },
+                {
+                    "date": 1639549481811,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -70,11 +70,11 @@\n  75     for(int x=0; x < GRID_WIDTH; x++)\n  76     {\n  77       //1/3 of the cells are alive\n  78       grid[y][x] = (rand() % 3) == 1;\n- 79     }\n- 80   }\n- 81 }\n+     }\n+   }\n+}\n \n  //initialize the grid from a file\n  void initGrid(const char* fileName, bool grid[][GRID_WIDTH])\n  {\n"
+                },
+                {
+                    "date": 1639549488582,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -67,11 +67,11 @@\n  72   for(int y=0; y < GRID_HEIGHT; y++)\n  73   {\n  74     //loop through each column\n  75     for(int x=0; x < GRID_WIDTH; x++)\n- 76     {\n- 77       //1/3 of the cells are alive\n- 78       grid[y][x] = (rand() % 3) == 1;\n+     {\n+       //1/3 of the cells are alive\n+       grid[y][x] = (rand() % 3) == 1;\n      }\n    }\n }\n \n"
+                },
+                {
+                    "date": 1639549494656,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -64,11 +64,11 @@\n  69   srand(time(0));\n  70\n  71   //loop through each row\n  72   for(int y=0; y < GRID_HEIGHT; y++)\n- 73   {\n- 74     //loop through each column\n- 75     for(int x=0; x < GRID_WIDTH; x++)\n+   {\n+     //loop through each column\n+     for(int x=0; x < GRID_WIDTH; x++)\n      {\n        //1/3 of the cells are alive\n        grid[y][x] = (rand() % 3) == 1;\n      }\n"
+                },
+                {
+                    "date": 1639549501088,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -61,11 +61,11 @@\n  66 void initGrid(bool grid[][GRID_WIDTH])\n  67 {\n  68   //get the random number seeded with our present time\n  69   srand(time(0));\n- 70\n- 71   //loop through each row\n- 72   for(int y=0; y < GRID_HEIGHT; y++)\n+\n+   //loop through each row\n+   for(int y=0; y < GRID_HEIGHT; y++)\n    {\n      //loop through each column\n      for(int x=0; x < GRID_WIDTH; x++)\n      {\n"
+                },
+                {
+                    "date": 1639549508097,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -58,11 +58,11 @@\n  63 }\n  64\n  65 //initialize the grid with random cells\n  66 void initGrid(bool grid[][GRID_WIDTH])\n- 67 {\n- 68   //get the random number seeded with our present time\n- 69   srand(time(0));\n+ {\n+   //get the random number seeded with our present time\n+   srand(time(0));\n \n    //loop through each row\n    for(int y=0; y < GRID_HEIGHT; y++)\n    {\n"
+                },
+                {
+                    "date": 1639549514426,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -55,11 +55,11 @@\n  60   }\n  61\n  62   return 0;\n  63 }\n- 64\n- 65 //initialize the grid with random cells\n- 66 void initGrid(bool grid[][GRID_WIDTH])\n+\n+ //initialize the grid with random cells\n+ void initGrid(bool grid[][GRID_WIDTH])\n  {\n    //get the random number seeded with our present time\n    srand(time(0));\n \n"
+                },
+                {
+                    "date": 1639549519668,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -53,10 +53,10 @@\n  58     //wait awhile before doing it again\n  59     usleep(DELAY);\n  60   }\n  61\n- 62   return 0;\n- 63 }\n+   return 0;\n+ }\n \n  //initialize the grid with random cells\n  void initGrid(bool grid[][GRID_WIDTH])\n  {\n"
+                },
+                {
+                    "date": 1639549526041,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -50,11 +50,11 @@\n  55       nextGeneration(grid2, grid1);\n  56     }\n  57\n  58     //wait awhile before doing it again\n- 59     usleep(DELAY);\n- 60   }\n- 61\n+     usleep(DELAY);\n+   }\n+\n    return 0;\n  }\n \n  //initialize the grid with random cells\n"
+                },
+                {
+                    "date": 1639549533784,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,11 +47,11 @@\n  52     {\n  53       //even numbered generation\n  54       renderGrid(grid2);\n  55       nextGeneration(grid2, grid1);\n- 56     }\n- 57\n- 58     //wait awhile before doing it again\n+     }\n+\n+     //wait awhile before doing it again\n      usleep(DELAY);\n    }\n \n    return 0;\n"
+                },
+                {
+                    "date": 1639549539061,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,11 +44,11 @@\n  49       nextGeneration(grid1, grid2);\n  50     }\n  51     else\n  52     {\n- 53       //even numbered generation\n- 54       renderGrid(grid2);\n- 55       nextGeneration(grid2, grid1);\n+       //even numbered generation\n+       renderGrid(grid2);\n+       nextGeneration(grid2, grid1);\n      }\n \n      //wait awhile before doing it again\n      usleep(DELAY);\n"
+                },
+                {
+                    "date": 1639549545142,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,11 +41,11 @@\n  46     {\n  47       //odd numbered generation\n  48       renderGrid(grid1);\n  49       nextGeneration(grid1, grid2);\n- 50     }\n- 51     else\n- 52     {\n+     }\n+     else\n+     {\n        //even numbered generation\n        renderGrid(grid2);\n        nextGeneration(grid2, grid1);\n      }\n"
+                },
+                {
+                    "date": 1639549550796,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,11 +38,11 @@\n  43   {\n  44     //show the appropriate grid, and generate the next population\n  45     if(generation++ % 2)\n  46     {\n- 47       //odd numbered generation\n- 48       renderGrid(grid1);\n- 49       nextGeneration(grid1, grid2);\n+       //odd numbered generation\n+       renderGrid(grid1);\n+       nextGeneration(grid1, grid2);\n      }\n      else\n      {\n        //even numbered generation\n"
+                },
+                {
+                    "date": 1639549556412,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,10 +36,10 @@\n  41   //run the generations, until the user presses ctrl+c\n  42   while(true)\n  43   {\n  44     //show the appropriate grid, and generate the next population\n- 45     if(generation++ % 2)\n- 46     {\n+     if(generation++ % 2)\n+     {\n        //odd numbered generation\n        renderGrid(grid1);\n        nextGeneration(grid1, grid2);\n      }\n"
+                },
+                {
+                    "date": 1639549563110,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,11 +33,11 @@\n  38      initGrid(grid1);\n  39   }\n  40  \n  41   //run the generations, until the user presses ctrl+c\n- 42   while(true)\n- 43   {\n- 44     //show the appropriate grid, and generate the next population\n+   while(true)\n+   {\n+     //show the appropriate grid, and generate the next population\n      if(generation++ % 2)\n      {\n        //odd numbered generation\n        renderGrid(grid1);\n"
+                },
+                {
+                    "date": 1639549570283,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,11 +30,11 @@\n  35   }\n  36   else\n  37   {\n  38      initGrid(grid1);\n- 39   }\n- 40  \n- 41   //run the generations, until the user presses ctrl+c\n+   }\n+  \n+   //run the generations, until the user presses ctrl+c\n    while(true)\n    {\n      //show the appropriate grid, and generate the next population\n      if(generation++ % 2)\n"
+                },
+                {
+                    "date": 1639549576522,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,11 +27,11 @@\n  32   if(argc==2)\n  33   {\n  34      initGrid(argv[1], grid1);\n  35   }\n- 36   else\n- 37   {\n- 38      initGrid(grid1);\n+   else\n+   {\n+      initGrid(grid1);\n    }\n   \n    //run the generations, until the user presses ctrl+c\n    while(true)\n"
+                },
+                {
+                    "date": 1639549582516,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,11 +24,11 @@\n  29   int generation = 1;\n  30\n  31   //initialize the grid\n  32   if(argc==2)\n- 33   {\n- 34      initGrid(argv[1], grid1);\n- 35   }\n+   {\n+      initGrid(argv[1], grid1);\n+   }\n    else\n    {\n       initGrid(grid1);\n    }\n"
+                },
+                {
+                    "date": 1639549588906,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,11 +21,11 @@\n  26 {\n  27   bool grid1[GRID_HEIGHT][GRID_WIDTH];\n  28   bool grid2[GRID_HEIGHT][GRID_WIDTH];\n  29   int generation = 1;\n- 30\n- 31   //initialize the grid\n- 32   if(argc==2)\n+\n+   //initialize the grid\n+   if(argc==2)\n    {\n       initGrid(argv[1], grid1);\n    }\n    else\n"
+                },
+                {
+                    "date": 1639549595588,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,11 +18,11 @@\n  23 void nextGeneration(bool cur[][GRID_WIDTH], bool next[][GRID_WIDTH]);\n  24\n  25 int main(int argc, char **argv)\n  26 {\n- 27   bool grid1[GRID_HEIGHT][GRID_WIDTH];\n- 28   bool grid2[GRID_HEIGHT][GRID_WIDTH];\n- 29   int generation = 1;\n+   bool grid1[GRID_HEIGHT][GRID_WIDTH];\n+   bool grid2[GRID_HEIGHT][GRID_WIDTH];\n+   int generation = 1;\n \n    //initialize the grid\n    if(argc==2)\n    {\n"
+                },
+                {
+                    "date": 1639549602305,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,11 +15,11 @@\n  20 void initGrid(bool grid[][GRID_WIDTH]);\n  21 void initGrid(const char* fileName, bool [][GRID_WIDTH]);\n  22 void renderGrid(bool [][GRID_WIDTH]);\n  23 void nextGeneration(bool cur[][GRID_WIDTH], bool next[][GRID_WIDTH]);\n- 24\n- 25 int main(int argc, char **argv)\n- 26 {\n+\n+ int main(int argc, char **argv)\n+ {\n    bool grid1[GRID_HEIGHT][GRID_WIDTH];\n    bool grid2[GRID_HEIGHT][GRID_WIDTH];\n    int generation = 1;\n \n"
+                },
+                {
+                    "date": 1639549609103,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,11 +12,11 @@\n  17 #define GRID_HEIGHT 24\n  18 #define DELAY 500000\n  19\n  20 void initGrid(bool grid[][GRID_WIDTH]);\n- 21 void initGrid(const char* fileName, bool [][GRID_WIDTH]);\n- 22 void renderGrid(bool [][GRID_WIDTH]);\n- 23 void nextGeneration(bool cur[][GRID_WIDTH], bool next[][GRID_WIDTH]);\n+ void initGrid(const char* fileName, bool [][GRID_WIDTH]);\n+ void renderGrid(bool [][GRID_WIDTH]);\n+ void nextGeneration(bool cur[][GRID_WIDTH], bool next[][GRID_WIDTH]);\n \n  int main(int argc, char **argv)\n  {\n    bool grid1[GRID_HEIGHT][GRID_WIDTH];\n"
+                },
+                {
+                    "date": 1639549616387,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,11 +9,11 @@\n  14 using namespace std;\n  15\n  16 #define GRID_WIDTH 80\n  17 #define GRID_HEIGHT 24\n- 18 #define DELAY 500000\n- 19\n- 20 void initGrid(bool grid[][GRID_WIDTH]);\n+ #define DELAY 500000\n+\n+ void initGrid(bool grid[][GRID_WIDTH]);\n  void initGrid(const char* fileName, bool [][GRID_WIDTH]);\n  void renderGrid(bool [][GRID_WIDTH]);\n  void nextGeneration(bool cur[][GRID_WIDTH], bool next[][GRID_WIDTH]);\n \n"
+                },
+                {
+                    "date": 1639549622428,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,11 +7,11 @@\n  12 #include \"ansi.h\"\n  13\n  14 using namespace std;\n  15\n- 16 #define GRID_WIDTH 80\n- 17 #define GRID_HEIGHT 24\n- #define DELAY 500000\n+#define GRID_WIDTH 80\n+#define GRID_HEIGHT 24\n+#define DELAY 500000\n \n  void initGrid(bool grid[][GRID_WIDTH]);\n  void initGrid(const char* fileName, bool [][GRID_WIDTH]);\n  void renderGrid(bool [][GRID_WIDTH]);\n"
+                },
+                {
+                    "date": 1639549627726,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,11 +4,11 @@\n   9 #include <stdlib.h>\n  10 #include <unistd.h>\n  11 #include <time.h>\n  12 #include \"ansi.h\"\n- 13\n- 14 using namespace std;\n- 15\n+\n+using namespace std;\n+\n #define GRID_WIDTH 80\n #define GRID_HEIGHT 24\n #define DELAY 500000\n \n"
+                },
+                {
+                    "date": 1639549632867,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,11 @@\n   6 #include <iostream>\n   7 #include <iomanip>\n   8 #include <fstream>\n   9 #include <stdlib.h>\n- 10 #include <unistd.h>\n- 11 #include <time.h>\n- 12 #include \"ansi.h\"\n+ #include <unistd.h>\n+#include <time.h>\n+#include \"ansi.h\"\n \n using namespace std;\n \n #define GRID_WIDTH 80\n"
+                },
+                {
+                    "date": 1639549666983,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,4 @@\n-  6 #include <iostream>\n-  7 #include <iomanip>\n-  8 #include <fstream>\n-  9 #include <stdlib.h>\n- #include <unistd.h>\n-#include <time.h>\n-#include \"ansi.h\"\n \n using namespace std;\n \n #define GRID_WIDTH 80\n"
+                }
+            ],
+            "date": 1639549096955,
+            "name": "Commit-0",
+            "content": "  6 #include <iostream>\n  7 #include <iomanip>\n  8 #include <fstream>\n  9 #include <stdlib.h>\n 10 #include <unistd.h>\n 11 #include <time.h>\n 12 #include \"ansi.h\"\n 13\n 14 using namespace std;\n 15\n 16 #define GRID_WIDTH 80\n 17 #define GRID_HEIGHT 24\n 18 #define DELAY 500000\n 19\n 20 void initGrid(bool grid[][GRID_WIDTH]);\n 21 void initGrid(const char* fileName, bool [][GRID_WIDTH]);\n 22 void renderGrid(bool [][GRID_WIDTH]);\n 23 void nextGeneration(bool cur[][GRID_WIDTH], bool next[][GRID_WIDTH]);\n 24\n 25 int main(int argc, char **argv)\n 26 {\n 27   bool grid1[GRID_HEIGHT][GRID_WIDTH];\n 28   bool grid2[GRID_HEIGHT][GRID_WIDTH];\n 29   int generation = 1;\n 30\n 31   //initialize the grid\n 32   if(argc==2)\n 33   {\n 34      initGrid(argv[1], grid1);\n 35   }\n 36   else\n 37   {\n 38      initGrid(grid1);\n 39   }\n 40  \n 41   //run the generations, until the user presses ctrl+c\n 42   while(true)\n 43   {\n 44     //show the appropriate grid, and generate the next population\n 45     if(generation++ % 2)\n 46     {\n 47       //odd numbered generation\n 48       renderGrid(grid1);\n 49       nextGeneration(grid1, grid2);\n 50     }\n 51     else\n 52     {\n 53       //even numbered generation\n 54       renderGrid(grid2);\n 55       nextGeneration(grid2, grid1);\n 56     }\n 57\n 58     //wait awhile before doing it again\n 59     usleep(DELAY);\n 60   }\n 61\n 62   return 0;\n 63 }\n 64\n 65 //initialize the grid with random cells\n 66 void initGrid(bool grid[][GRID_WIDTH])\n 67 {\n 68   //get the random number seeded with our present time\n 69   srand(time(0));\n 70\n 71   //loop through each row\n 72   for(int y=0; y < GRID_HEIGHT; y++)\n 73   {\n 74     //loop through each column\n 75     for(int x=0; x < GRID_WIDTH; x++)\n 76     {\n 77       //1/3 of the cells are alive\n 78       grid[y][x] = (rand() % 3) == 1;\n 79     }\n 80   }\n 81 }\n 82\n 83 //initialize the grid from a file\n 84 void initGrid(const char* fileName, bool grid[][GRID_WIDTH])\n 85 {\n 86   ifstream file;\n 87   char c;\n 88\n 89   file.open(fileName);\n 90\n 91   //we are just going to assume that the file is valid\n 92   //this is bad but in the interest of time, its okay\n 93   for(int y=0; y < GRID_HEIGHT; y++)\n 94   {\n 95     for(int x=0; x < GRID_WIDTH; x++)\n 96     {\n 97       c=file.get();\n 98\n 99       if(c=='\\n')\n100       {\n101         c=file.get();\n102       }\n103\n104       grid[y][x]= c =='*';\n105     }\n106   }\n107\n108   file.close();\n109 }\n110\n111 //render the grid\n112 void renderGrid(bool grid[][GRID_WIDTH])\n113 {\n114   //loop through the grid, rendering as we go\n115   for(int y=0; y < GRID_HEIGHT; y++)\n116   {\n117     for(int x=0; x < GRID_WIDTH; x++)\n118     {\n119       //go to the position\n120       cout << cursorPosition(x+1, y+1);\n121\n122       //print the ' ' or '*'\n123       cout << (grid[y][x] ? '*' : ' ');\n124     }\n125   }\n126 }\n127\n128 //create the next generation. The cur grid generates the next grid\n129 void nextGeneration(bool cur[][GRID_WIDTH], bool next[][GRID_WIDTH])\n130 {\n131\n132   int count;\n133\n134\n135   for(int y=0; y < GRID_HEIGHT; y++)\n136   {\n137     for(int x=0; x < GRID_WIDTH; x++)\n138     {\n139       count = 0;\n140\n141       //checks grid for asteriks\n142       if((cur[y - 1][x]) == '*')\n143       {\n144         count = count + 1;\n145       }\n146       else if((cur[y + 1][x]) == '*')\n147       {\n148         count = count + 1;\n149       }\n150       else if((cur[y - 1][x - 1]) == '*')\n151       {\n152         count = count + 1;\n153       }\n154       else if((cur[y + 1][x + 1]) == '*')\n155       {\n156         count = count + 1;\n157       }\n158       else if((cur[y][x - 1]) == '*')\n159       {\n160         count = count + 1;\n161       }\n162       else if((cur[y][x + 1]) == '*')\n163       {\n164         count = count + 1;\n165       }\n166       else if((cur[y - 1][x + 1]) == '*')\n167       {\n168         count = count + 1;\n169       }\n170       else if((cur[y + 1][x - 1]) == '*')\n171       {\n172         count = count + 1;\n173       }\n174\n175       //less than 2 living neighbors - cell dies: starvation\n176       if((cur[y][x]) == '*' && (count < 2))\n177       {\n178         next[y][x] = ' ';\n179         cout << \"h\" << \"\\n\";\n180       }\n181       //more than 3 living neighbors - cell dies: overcrowding\n182       else if((cur[y][x]) == '*' && (count > 3))\n183       {\n184         next[y][x] = ' ';\n185         cout << \"i\" << \"\\n\";\n186       }\n187       //2 or 3 living neighbors - cell stays alive: stability\n188       else if((cur[y][x]) == '*' && count == 2 || count == 3)\n189       {\n190         next[y][x] = '*';\n191         cout << \"j\" << \"\\n\";\n192       }\n193       //dead cell with exactly 3 neighbors - cell is reborn: reproduction\n194       else if((cur[y][x]) == ' ' && count == 3)\n195       {\n196         next[y][x] = '*';\n197         cout << \"j\" << \"\\n\";\n198       }\n199\n200     }\n201   }\n202 }"
+        }
+    ]
+}

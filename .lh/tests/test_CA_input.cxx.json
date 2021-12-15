@@ -1,0 +1,22 @@
+{
+    "sourceFile": "tests/test_CA_input.cxx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1639548215216,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1639587384332,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,31 +10,8 @@\n \n \n \n \n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n int main(void)\n {\n     // Testing the creation of a cellular automata when data is directly passed in\n     std::cout << \"Creating Cellular Automata given data: \" << std::endl;\n"
+                }
+            ],
+            "date": 1639548215216,
+            "name": "Commit-0",
+            "content": "#include \"CellularAutomata.h\"\n#include \"myutils.h\"\n#include <iostream>\n#include <vector>\n#include <map>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nint main(void)\n{\n    // Testing the creation of a cellular automata when data is directly passed in\n    std::cout << \"Creating Cellular Automata given data: \" << std::endl;\n    std::vector<std::vector<int>> test = {{1, 1, 1}, {1, 0, 1}, {0, 1, 2}};\n    std::map<std::string, int> test_legend{{\"empty\", 0}, {\"tree\", 1}, {\"fire\", 2}, {\"char\", 3}};\n    CellularAutomata Test(3, 3, test_legend, test, \"char\", \"fire\", std::pair<int, int> {2, 2});\n    Test.print();    \n    // Testing von neumaan neighborhood analysis\n    std::cout << \"Testing Von Neumaan Neighborhood funtionality around 2,2:\" << std::endl;\n    Test.vn_neighborhood(2, 2);\n    std::cout << std::endl;\n    std::cout << \"Testing Von Neumaan Neighborhood funtionality and periodic bounds around 0,0:\" << std::endl;\n    Test.vn_neighborhood(0, 0);\n    std::cout << std::endl;\n    std::cout << \"Testing Moore Neighborhood funtionality around 5,5:\" << std::endl;\n    // Testing moore neighborhood analysis\n    Test.moore_neighborhood(1, 1);\n    std::cout << std::endl;\n    std::cout << std::endl;\n\n    // Testint the creation of a cellular automata when data is directly passed in\n    std::cout << \"Creating Cellular Automata Randomly: \" << std::endl;\n    CellularAutomata Test_2(10, 10, test_legend, \"char\", \"fire\", std::pair<int, int> {5, 5});\n    Test_2.print();\n    // Testing von neumaan neighborhood analysis\n    std::cout << \"Testing Von Neumaan Neighborhood funtionality around 5, 5:\" << std::endl;\n    Test_2.vn_neighborhood(5,5);\n    std::cout << std::endl;\n    std::cout << std::endl;\n\n    std::cout << \"Creating Cellular Automata using Density: \" << std::endl;\n    std::map<std::string, std::pair<int, float>> test_legend_density{{\"empty\", {0, 0.5}}, {\"tree\", {1, 0.5}}, {\"fire\", {2, 0.0}}, {\"char\", {3, 0.0}}};\n    CellularAutomata Test_3(10, 10, test_legend_density, \"char\", \"fire\", std::pair<int, int> {5, 5});\n    Test_3.print();\n    Test_3.vn_neighborhood(5,5);\n    std::cout << std::endl;\n    std::cout << \"Testing Moore Neighborhood funtionality and periodic bounds around 0,5:\" << std::endl;\n    // Testing moore neighborhood analysis\n    Test_3.moore_neighborhood(0,5);\n    std::cout << std::endl;\n    std::cout << std::endl;\n}"
+        }
+    ]
+}
