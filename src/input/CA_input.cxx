@@ -4,6 +4,11 @@
 #include "CellularAutomata.h"
 #include "myutils.h"
 
+//Default constructor
+CellularAutomata::CellularAutomata(){
+
+}
+
 // Constructor with data being passed in from the user.
 CellularAutomata::CellularAutomata(int rows, int columns, std::map<std::string, int> legend, std::vector<std::vector<int> > data, std::string product, std::string reactor, std::pair<int, int> starting_position)
 {
@@ -230,10 +235,28 @@ int CellularAutomata::get_rows(){
 }
 
 /**
+ * @brief Get the number of columns in the CA
+ * 
+ * @return int number of columns
+ */
+int CellularAutomata::get_columns(){
+  return _columns;
+}
+
+/**
  * @brief Get the total number of cells in the CA
  * 
  * @return int number of cells
  */
 int CellularAutomata::get_size(){
   return _size;
+}
+
+/**
+ * @brief Get the number of possible states for a cell in the CA
+ * 
+ * @return int number of possible states
+ */
+int CellularAutomata::get_num_states(){
+  return _num_states;
 }

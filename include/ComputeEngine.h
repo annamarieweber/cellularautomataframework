@@ -1,11 +1,14 @@
+#ifndef _CELLULAR_AUTOMATA_
 #include "CellularAutomata.h"
+#endif
+#include <vector>
 
 class ComputeEngine {
   private:
     int _neighborhood_type;
     int _rule_type;
     int _num_steps;
-    CellularAutomata _ca;
+    CellularAutomata* _ca;
 
     // logic for the majority rule todo:  add additional function documentation
     int majority_rule(int x, int y, std::vector<int> neighborhood);
@@ -17,7 +20,7 @@ class ComputeEngine {
     int transition_function(int x, int y, std::vector<int> neighborhood);
 
   public:
-    ComputeEngine(int neighborhood_type, int rule_type, int steps, CellularAutomata ca);
+    ComputeEngine(int neighborhood_type, int rule_type, int steps, CellularAutomata* ca);
     // Code to run Cellular Automata Simulation
     void run();
     //logic for taking a single step of the CA simluation todo: document the funciton

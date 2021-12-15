@@ -1,7 +1,6 @@
 #include <iostream>
 #include <utility>
 #include <math.h> 
-#include "CellularAutomata.h"
 #include "ComputeEngine.h"
 #include "myutils.h"
 
@@ -16,7 +15,7 @@
  * @param steps the number of steps to run the simulation for
  * @param ca the cellular automata to run the simulation on
  */
-ComputeEngine::ComputeEngine(int neighborhood_type, int rule_type, int steps, CellularAutomata ca){
+ComputeEngine::ComputeEngine(int neighborhood_type, int rule_type, int steps, CellularAutomata* ca){
   _neighborhood_type = neighborhood_type;
   _rule_type = rule_type;
   _num_steps = steps;
@@ -32,8 +31,6 @@ ComputeEngine::ComputeEngine(int neighborhood_type, int rule_type, int steps, Ce
 void ComputeEngine::run(){
    for(int i=0; i < _num_steps; i++){
     step();
-    std::cout << "Step " << i << ": " << std::endl;
-    _ca.print();
   }
 }
 
@@ -41,12 +38,12 @@ void ComputeEngine::run(){
  * @brief Runs a single step in the CA simulation using params provided to the compute engine
  */
 void ComputeEngine::step(){
-  for(int x = 0; x < _ca.get_columns(); x++){
-    for(int y = 0; y < _ca.get_rows(); y++){
+  for(int x = 0; x < (*_ca).get_columns(); x++){
+    for(int y = 0; y < (*_ca).get_rows(); y++){
       //get the vector representing the neighborhood for cell at x,y
       std::vector<int> neighborhood = get_neighborhood(x,y);
       //update CA cell with the value returned by the appropriate transition function
-      _ca.update_cell(x,y,transition_function(x,y,neighborhood));
+      (*_ca).update_cell(x,y,transition_function(x,y,neighborhood));
     }
   }
 }
@@ -63,11 +60,11 @@ void ComputeEngine::step(){
 std::vector<int> ComputeEngine::get_neighborhood(int x, int y){
   switch(_neighborhood_type) {
     case 1:
-      return _ca.moore_neighborhood(x,y);
+      return (*_ca).moore_neighborhood(x,y);
     case 2:
-      return _ca.vn_neighborhood(x,y);
+      return (*_ca).vn_neighborhood(x,y);
     default:
-      return _ca.moore_neighborhood(x,y);
+      return (*_ca).moore_neighborhood(x,y);
   }
 }
 
@@ -86,7 +83,7 @@ int ComputeEngine::transition_function(int x, int y, std::vector<int> neighborho
     case 2:
       return purity_rule(x,y,neighborhood);
     default:
-      return _ca.get_cell(x,y);
+      return (*_ca).get_cell(x,y);
   }
 }
 
@@ -101,7 +98,7 @@ int ComputeEngine::transition_function(int x, int y, std::vector<int> neighborho
  * @param neighborhood a vector of integers representing the cells neighborhood
  * @return int the next value for the cell
  */
-int CellularAutomata::majority_rule(int x, int y, std::vector<int> neighborhood){
+int ComputeEngine::majority_rule(int x, int y, std::vector<int> neighborhood){
   int sum = 0;
   for(int i = 0; i < neighborhood.size(); i++){
     sum += neighborhood[i];
@@ -118,13 +115,13 @@ int CellularAutomata::majority_rule(int x, int y, std::vector<int> neighborhood)
  * @param neighborhood a vector of integers representing the cells neighborhood
  * @return int the next value for the cell
  */
-int CellularAutomata::purity_rule(int x, int y, std::vector<int> neighborhood){
+int ComputeEngine::purity_rule(int x, int y, std::vector<int> neighborhood){
   int sum = 0;
-  int current_val = _data[x][y];
+  int current_val = (*_ca).get_cell(x,y);
   for(int i = 0; i < neighborhood.size(); i++){
     sum += (current_val+neighborhood[i]);
   }
 
-  return sum % _num_states;
+  return sum % (*_ca).get_num_states();
 }
 

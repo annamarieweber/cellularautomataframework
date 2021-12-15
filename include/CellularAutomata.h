@@ -1,3 +1,5 @@
+#ifndef CELLULAR_AUTOMATA
+#define CELLULAR_AUTOMATA
 #include <iostream>
 #include <vector>
 #include <map>
@@ -37,6 +39,9 @@ class CellularAutomata
         std::pair<int, int> _starting_position;
         
     public:
+        // Default Constructor
+        CellularAutomata();
+        
         // Constructor for the class, requires all data for the Cellular Automata to be passed in.
         CellularAutomata(int rows, int columns, std::map<std::string, int> legend, std::vector<std::vector<int> > data, std::string product, std::string reactor, std::pair<int, int> starting_position);
 
@@ -106,3 +111,4 @@ class CellularAutomata
         // Function to print out the Cellular Automata.
         void print();
 };
+#endif
