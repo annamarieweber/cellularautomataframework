@@ -10,23 +10,30 @@
 UTILS_DIR = utils/
 TEST_DIR = tests/
 SRC_INP = src/input
+SRC_COMP = src/compute
 SRC_OUT	= src/output
 EXAMPLES = examples
 
 all:
 	cd $(UTILS_DIR); make all
 	cd $(SRC_INP); make all
+	cd $(SRC_COMP); make all
 	cd $(SRC_OUT); make all
 	cd $(EXAMPLES); make all
 	cd $(TEST_DIR); make all
 
 
 testall:
+	make all
 	cd $(TEST_DIR); make test
+
+runexamples:
+	cd $(EXAMPLES); make examples
 
 cleanall:
 	cd $(UTILS_DIR); make cleanall
 	cd $(SRC_INP); make cleanall
+	cd $(SRC_COMP); make cleanall
 	cd $(SRC_OUT); make cleanall
 	cd $(EXAMPLES); make cleanall
 	cd $(TEST_DIR); make cleanall

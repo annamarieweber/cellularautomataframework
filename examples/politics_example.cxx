@@ -1,4 +1,5 @@
 #include "CellularAutomata.h"
+#include "ComputeEngine.h"
 #include "myutils.h"
 #include <iostream>
 #include <vector>
@@ -16,8 +17,11 @@ int main(void)
     // Get stats on the starting states
     politics_example.get_stats();
 
+    // create simulation
+    ComputeEngine simulation = ComputeEngine(3,1,2,&politics_example);
+
     // 3 steps with majority rule and Von Neumaan neighborhood
-    politics_example.run(3, 1, 2);
+    simulation.run();
 
     // Get stats after 3 steps
     politics_example.get_stats();

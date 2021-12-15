@@ -2,9 +2,9 @@
 # University of California, Berkeley
 # 
 # Creator:  Anna Weber
-# Date Created: Nov 08, 2021
+# Date Created: Dec 15, 2021
 #
-# This makefile creates output processing objects in C++
+# This makefile creates compute processing objects in C++
 # after creation the objects are relocated to the ../lib directory
 
 # GNU C++ Compiler
@@ -20,13 +20,13 @@ INC_DIR = ../../include
 LIB_DIR     = ../../lib
 
 # targets this makefile builds
-OUTPUT_OBJS = CA_output.o
+COMPUTE_OBJS = ComputeEngine.o
 
-CA_output.o: $(INC_DIR)/myutils.h $(INC_DIR)/CellularAutomata.h
-	$(CXX) $(CXXFLAGS) CA_output.cxx -I$(INC_DIR)
-	mv CA_output.o $(LIB_DIR)
-	
-all: $(OUTPUT_OBJS)
+ComputeEngine.o: $(INC_DIR)/myutils.h $(INC_DIR)/CellularAutomata.h $(INC_DIR)/ComputeEngine.h 
+	$(CXX) $(CXXFLAGS) ComputeEngine.cxx -I$(INC_DIR)
+	mv ComputeEngine.o $(LIB_DIR)
+
+all: $(COMPUTE_OBJS)
 
 cleanall:
-	cd $(LIB_DIR); rm $(OUTPUT_OBJS)
+	cd $(LIB_DIR); rm $(COMPUTE_OBJS)

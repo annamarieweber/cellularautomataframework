@@ -1,3 +1,5 @@
+#ifndef CELLULAR_AUTOMATA
+#define CELLULAR_AUTOMATA
 #include <iostream>
 #include <vector>
 #include <map>
@@ -37,6 +39,9 @@ class CellularAutomata
         std::pair<int, int> _starting_position;
         
     public:
+        // Default Constructor
+        CellularAutomata();
+        
         // Constructor for the class, requires all data for the Cellular Automata to be passed in.
         CellularAutomata(int rows, int columns, std::map<std::string, int> legend, std::vector<std::vector<int> > data, std::string product, std::string reactor, std::pair<int, int> starting_position);
 
@@ -45,6 +50,9 @@ class CellularAutomata
 
         // Another constructor for the class, calls the initialization to set up the Cellular Automata using density values passed in.
         CellularAutomata(int rows, int columns, std::map<std::string, std::pair<int, float> > legend, std::string product, std::string reactor, std::pair<int, int> starting_position);
+        
+        // Copy constructor fot the class
+        CellularAutomata(const CellularAutomata& ca);
 
         // Intiatlize function to create a cellular automata randomly.
         void Initialize_Rand();
@@ -76,6 +84,24 @@ class CellularAutomata
         // logic for the purity rule todo:  add additional function documentation
         int purity_rule(int x, int y, std::vector<int> neighborhood);
 
+        // logic to update the value of a cell
+        void update_cell(int x, int y, int n);
+
+        // logic to get the value of a cell
+        int get_cell(int x, int y);
+
+        // logic to get number of rows
+        int get_rows();
+
+        // logic to get number of columns
+        int get_columns();
+
+        // logic to get number of cells
+        int get_size();
+
+        // logic to get the number of states
+        int get_num_states();
+
         // Getter function to retrieve the data of the Cellular Automata.
         std::vector<std::vector<int>> get_data();
 
@@ -85,3 +111,4 @@ class CellularAutomata
         // Function to print out the Cellular Automata.
         void print();
 };
+#endif
