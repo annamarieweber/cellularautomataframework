@@ -1,0 +1,29 @@
+# for MSSE Chem 274B - Fall Semester
+# University of California, Berkeley
+# 
+# Creator:  Joyce Kim Graduate Student 
+# Date Created: Dec 3, 2021
+#
+This is directory where all tests for the different C++ and C implementations go.
+This directory and the example directory, contain source C++ program with a main
+(can be executed)
+
+Current test that can be build with source files in this subdirectory are:
+
+- test_CA_compute : makes calls to a different functions implemented in the input service cellular automata object file.
+
+- test_CA_compute : makes calls to a different functions implemented in the input service cellular automata object file.
+
+- test_CA_compute : makes calls to a different functions implemented in the input service cellular automata object file.
+                    
+- test_mergesort2 : tests the timing information and effiency of each type of arrays in ascending, descending, same values, and randomly filled array
+
+- test_selectionsort : tests the timing information and effiency of each type of arrays in ascending, descending, same values, and randomly filled array
+
+- test_quicksort : tests the timing information and effiency of each type of arrays in ascending, descending, same values, and randomly filled array
+
+
+  Files:
+	- README: this file with a general description of the test subdirectory
+
+  - Makefile: contains commands that build the targets listed above

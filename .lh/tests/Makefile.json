@@ -1,0 +1,18 @@
+{
+    "sourceFile": "tests/Makefile",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1639714659326,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1639714659326,
+            "name": "Commit-0",
+            "content": "# for MSSE Chem 274B - Fall Semester\n# University of California, Berkeley\n# \n# Creator: Anna Weber\n# Date Created: Nov 08, 2021\n#\n# This makefile creates executable tests and runs them\n\n# GNU C++ Compiler\nCXX         = g++      \n\n# compiler flags -g debug, -O3 optimized version -c create a library object\nCXXFLAGS    = -std=c++11 -O3 -o\n\n# The directory where the include files needed to create the library objects are\nINC_DIR = ../include\n\n# The directory where all object files are going to moved afer creation\nLIB_DIR     = ../lib\nBIN_DIR     = ../bin\n\n# The next line contains the list of utility objects created by this Makefile.\nEXECUTABLES = test_CA_input test_CA_compute\n\ntest_CA_input: $(INC_DIR)/myutils.h $(INC_DIR)/CellularAutomata.h\n\t$(CXX) $(CXXFLAGS) test_CA_input test_CA_input.cxx -I$(INC_DIR) $(LIB_DIR)/utils.o $(LIB_DIR)/CA_input.o\n\tmv test_CA_input $(BIN_DIR)\n\ntest_CA_compute: $(INC_DIR)/myutils.h $(INC_DIR)/CellularAutomata.h\n\t$(CXX) $(CXXFLAGS) test_CA_compute test_CA_compute.cxx -I$(INC_DIR) $(LIB_DIR)/utils.o $(LIB_DIR)/CA_input.o\n\tmv test_CA_compute $(BIN_DIR)\n\n\n\nall: $(EXECUTABLES)\n\ntest: $(EXECUTABLES)\n\techo Testing Input Functionality\n\t$(BIN_DIR)/test_CA_input\n\techo Testing Compute Functionality\n\t$(BIN_DIR)/test_CA_compute\n\ncleanall:\n\tcd $(BIN_DIR); rm $(EXECUTABLES)\n"
+        }
+    ]
+}

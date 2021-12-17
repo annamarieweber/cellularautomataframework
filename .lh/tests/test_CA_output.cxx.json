@@ -1,0 +1,30 @@
+{
+    "sourceFile": "tests/test_CA_output.cxx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1639714188963,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1639714243265,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,5 @@\n+\n #include \"CellularAutomata.h\"\n #include \"myutils.h\"\n #include <iostream>\n #include <vector>\n"
+                },
+                {
+                    "date": 1639714432924,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,13 @@\n+/*\n+  UC Berkeley - MSSE Program\n+  Chem 279-B  Introduction to Software Engineering\n+  Fall 2021\n \n+  test_.cxx makes calls to a different functions implemented in the heapsort object file.\n+\n+*/\n+\n #include \"CellularAutomata.h\"\n #include \"myutils.h\"\n #include <iostream>\n #include <vector>\n"
+                },
+                {
+                    "date": 1639714452810,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n   UC Berkeley - MSSE Program\n   Chem 279-B  Introduction to Software Engineering\n   Fall 2021\n \n-  test_.cxx makes calls to a different functions implemented in the heapsort object file.\n+  test_CA_output.cxx makes calls to a different functions implemented in the output services for cellular automata object file.\n \n */\n \n #include \"CellularAutomata.h\"\n"
+                }
+            ],
+            "date": 1639714188963,
+            "name": "Commit-0",
+            "content": "#include \"CellularAutomata.h\"\n#include \"myutils.h\"\n#include <iostream>\n#include <vector>\n#include <map>\n\nint main(void)\n{\n    // Test #1\n    // Data needed to create CA\n    std::map<std::string, int> test_legend{{\"empty\", 0}, {\"tree\", 1}, {\"fire\", 2}, {\"char\", 3}};\n\n    // Creating Cellular Automata \n    std::cout << \"Creating Cellular Automata Randomly: \" << std::endl;\n    CellularAutomata Test_2(10, 10, test_legend, \"char\", \"fire\", std::pair<int, int> {5, 5});\n\n    // Testing the Cellular Automata printing to terminal.\n    Test_2.print();\n    std::cout << std::endl;\n    std::cout << std::endl;\n\n    // Testing getting stats on the Cellular Automata.\n    Test_2.get_stats();\n    std::cout << std::endl;\n    std::cout << std::endl;\n\n    // Test #2\n    // Creating Cellular Automata \n    std::cout << \"Creating Cellular Automata using Density: \" << std::endl;\n    std::map<std::string, std::pair<int, float>> test_legend_density{{\"empty\", {0, 0.5}}, {\"tree\", {1, 0.5}}, {\"fire\", {2, 0.0}}, {\"char\", {3, 0.0}}};\n    CellularAutomata Test_3(10, 10, test_legend_density, \"char\", \"fire\", std::pair<int, int> {5, 5});\n\n    // Testing the Cellular Automata printing to terminal.\n    Test_3.print();\n    std::cout << std::endl;\n    std::cout << std::endl;\n\n    // Testing getting stats on the Cellular Automata.\n    Test_3.get_stats();\n}"
+        }
+    ]
+}

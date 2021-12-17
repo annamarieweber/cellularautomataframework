@@ -1,0 +1,13 @@
+# for MSSE Chem 274B - Fall Semester
+# University of California, Berkeley
+# 
+# Creator:  Joyce Kim
+# Date Created: Dec 3, 2021
+#
+# This directory contains only object code files and libraries. 
+# There is no Makefile in this directory because nothing is built 
+# here.
+#
+
+# C++ Programs in the ../src/ subdirectory create object files and libraries
+# that should be store in this subdirectory.  

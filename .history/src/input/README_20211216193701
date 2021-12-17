@@ -1,0 +1,20 @@
+# for MSSE Chem 274B - Fall Semester
+# University of California, Berkeley
+# 
+# Creator: Joyce Kim Graduate Student
+# Date Created: Dec 3, 2021
+#
+This is directory where all input cellular automata implementation in C++ are compiled.
+Tests of the input cellular automata functions and procedures are in the ../tests subdirectory. These function is also used inside programs in other src directory files.
+
+PATH ROOT_DIR/src/input/.
+  Files:
+	- README: this file with a general description of the input services library and objects subdirectory for the cellular automata 
+
+	- Makefile: a makefile that can generate all objects and libraries associated with input cellular automata functions
+	            (e.g. cellular automata input). The make file can also clean all input cellular automata objects in the ../../lib directory
+		    shell> make cleanall
+		    or create all the utilities objects
+		    shell> make all
+		
+		 - CA_input.cxx:  contains functions with a grid with some cells which may be alive or dead. It generates the next generation of cells based on these rules: live cell with less than two live neighbors dies, live cell with two or three live neighbors lives on to the next generation, live cell with more than three live neighbors dies and any dead cell with exactly three live neighbors becomes a live cell(reproduction).

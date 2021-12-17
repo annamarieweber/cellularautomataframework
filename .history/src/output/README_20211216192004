@@ -1,0 +1,23 @@
+# for MSSE Chem 274B - Fall Semester
+# University of California, Berkeley
+# 
+# Creator: Joyce Kim Graduate Student
+# Date Created: Dec 3, 2021
+#
+
+This is directory where all the output functions in implementations of C++ are compiled.
+Tests of these output functions and procedures are in the ../tests subdirectory. These output functions is also used inside programs in other src directory files.
+
+PATH ROOT_DIR/src/mergesort2/.
+  Files:
+	- README: this file with a general description of the math library and objects subdirectory
+
+	- Makefile: a makefile that can generate all objects and libraries associated with insertion sort function
+	            (e.g. insertion sort). The make file can also clean all math objects in the ../../lib directory
+		    shell> make cleanall
+		    or create all the utilities objects
+		    shell> make all
+		
+		 - input.cxx: implements // Getter function to retreive the vector  with Cellular Automata Data.
+// Gives information on the stats of the states in the Cellular Automata.
+// Print the formatted matrix out to the terminal using std::cout. Each row is printed with the first element of the Cellular Automata following an opening square bracket and all elements being seperated by commas. The last element of the Cellular Automata is also followed by a closing square bracket.

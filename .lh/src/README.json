@@ -1,0 +1,62 @@
+{
+    "sourceFile": "src/README",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 11,
+            "patches": [
+                {
+                    "date": 1639712948516,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1639712961865,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n Tests of these functionalities are in the ../tests subdirectory and examples are\n in the ../examples subdirectory.  \n \n The subdirectories here are:\n-input/ For binary heap data structure \n+input/ For input services of the cellular automata structure \n insertionsort/ For insertion sort sorting algorithm\n mergesort3/ For 3-way mergesort \n mergesort2/ For 2-way mergesort \n quicksort/ For divide and conquer algorithm quicksort\n"
+                },
+                {
+                    "date": 1639712969659,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,10 +9,10 @@\n Tests of these functionalities are in the ../tests subdirectory and examples are\n in the ../examples subdirectory.  \n \n The subdirectories here are:\n-input/ For input services of the cellular automata structure \n-insertionsort/ For insertion sort sorting algorithm\n+input/ For input services of the cellular automata \n+output/ For insertion sort sorting algorithm\n mergesort3/ For 3-way mergesort \n mergesort2/ For 2-way mergesort \n quicksort/ For divide and conquer algorithm quicksort\n selectionsort/ For selection sort sorting algorithm\n"
+                },
+                {
+                    "date": 1639713280689,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n in the ../examples subdirectory.  \n \n The subdirectories here are:\n input/ For input services of the cellular automata \n-output/ For insertion sort sorting algorithm\n+output/ For output sorting algorithm\n mergesort3/ For 3-way mergesort \n mergesort2/ For 2-way mergesort \n quicksort/ For divide and conquer algorithm quicksort\n selectionsort/ For selection sort sorting algorithm\n"
+                },
+                {
+                    "date": 1639713289126,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n in the ../examples subdirectory.  \n \n The subdirectories here are:\n input/ For input services of the cellular automata \n-output/ For output sorting algorithm\n+output/ For output ervices of the cellular automata \n mergesort3/ For 3-way mergesort \n mergesort2/ For 2-way mergesort \n quicksort/ For divide and conquer algorithm quicksort\n selectionsort/ For selection sort sorting algorithm\n"
+                },
+                {
+                    "date": 1639713302591,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,14 +10,10 @@\n in the ../examples subdirectory.  \n \n The subdirectories here are:\n input/ For input services of the cellular automata \n-output/ For output ervices of the cellular automata \n-mergesort3/ For 3-way mergesort \n-mergesort2/ For 2-way mergesort \n-quicksort/ For divide and conquer algorithm quicksort\n-selectionsort/ For selection sort sorting algorithm\n+output/ For output services of the cellular automata \n \n   Files:\n \t- README: this file with a general description of the utils subdirectory\n \n\\ No newline at end of file\n-\tNo makefile at this level to force builds per use/functionality (e.g., selection sort, insertion sort, heap sort, 3-way merge, 2-way merge and quick sort etc)\n+\tNo makefile at this level to force builds per use/functionality (e.g., nd quick sort etc)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1639713308175,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,5 +15,5 @@\n \n   Files:\n \t- README: this file with a general description of the utils subdirectory\n \n-\tNo makefile at this level to force builds per use/functionality (e.g., nd quick sort etc)\n\\ No newline at end of file\n+\tNo makefile at this level to force builds per use/functionality (e.g., output services and quick sort etc)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1639713314208,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,5 +15,5 @@\n \n   Files:\n \t- README: this file with a general description of the utils subdirectory\n \n-\tNo makefile at this level to force builds per use/functionality (e.g., output services and quick sort etc)\n\\ No newline at end of file\n+\tNo makefile at this level to force builds per use/functionality (e.g., output services and input services etc)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1639713319578,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,5 +15,5 @@\n \n   Files:\n \t- README: this file with a general description of the utils subdirectory\n \n-\tNo makefile at this level to force builds per use/functionality (e.g., output services and input services etc)\n\\ No newline at end of file\n+\tNo makefile at this level to force builds per use/functionality (e.g., output and input services etc)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1639713326837,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,5 +15,5 @@\n \n   Files:\n \t- README: this file with a general description of the utils subdirectory\n \n-\tNo makefile at this level to force builds per use/functionality (e.g., output and input services etc)\n\\ No newline at end of file\n+\tNo makefile at this level to force builds per use/functionality (e.g., output and input services of the cellular automtata etc)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1639714150619,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,5 +15,5 @@\n \n   Files:\n \t- README: this file with a general description of the utils subdirectory\n \n-\tNo makefile at this level to force builds per use/functionality (e.g., output and input services of the cellular automtata etc)\n\\ No newline at end of file\n+\tNo makefile at this level to force builds per use/functionality (e.g., output and input services of the cellular automtataetc)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1639714157535,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,5 +15,5 @@\n \n   Files:\n \t- README: this file with a general description of the utils subdirectory\n \n-\tNo makefile at this level to force builds per use/functionality (e.g., output and input services of the cellular automtataetc)\n\\ No newline at end of file\n+\tNo makefile at this level to force builds per use/functionality (e.g., output and input services of the cellular automata etc)\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1639712948516,
+            "name": "Commit-0",
+            "content": "\n# for MSSE Chem 274B - Fall Semester\n# University of California, Berkeley\n# \n# Creator: Joyce Kim\n# Date Created: Dec 3, 2021\n#\nThis is directory where all source C++ and C Files are being compiled.  \nTests of these functionalities are in the ../tests subdirectory and examples are\nin the ../examples subdirectory.  \n\nThe subdirectories here are:\ninput/ For binary heap data structure \ninsertionsort/ For insertion sort sorting algorithm\nmergesort3/ For 3-way mergesort \nmergesort2/ For 2-way mergesort \nquicksort/ For divide and conquer algorithm quicksort\nselectionsort/ For selection sort sorting algorithm\n\n  Files:\n\t- README: this file with a general description of the utils subdirectory\n\n\tNo makefile at this level to force builds per use/functionality (e.g., selection sort, insertion sort, heap sort, 3-way merge, 2-way merge and quick sort etc)"
+        }
+    ]
+}

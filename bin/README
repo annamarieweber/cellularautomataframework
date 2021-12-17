@@ -1,0 +1,14 @@
+# for MSSE Chem 274B - Fall Semester
+# University of California, Berkeley
+# 
+# Creator:  Joyce Kim Graduate Student
+# Date Created: Dec 3, 2021
+#
+# This directory contains only executable codes. The Makefile in this directory
+# can execute command lines statements to run the different programs.  This is 
+# a form of documentation. 
+#
+
+# C++ Programs in the ../tests/ subdirectory create executables that are moved
+# to this subdirectory.  The subdirectory ../examples should also put store 
+# here all the executable files after compilation.

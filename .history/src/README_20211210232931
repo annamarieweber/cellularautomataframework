@@ -1,0 +1,23 @@
+
+# for MSSE Chem 274B - Fall Semester
+# University of California, Berkeley
+# 
+# Creator: Joyce Kim
+# Date Created: Dec 3, 2021
+#
+This is directory where all source C++ and C Files are being compiled.  
+Tests of these functionalities are in the ../tests subdirectory and examples are
+in the ../examples subdirectory.  
+
+The subdirectories here are:
+heapsort/ For binary heap data structure 
+insertionsort/ For insertion sort sorting algorithm
+mergesort3/ For 3-way mergesort 
+mergesort2/ For 2-way mergesort 
+quicksort/ For divide and conquer algorithm quicksort
+selectionsort/ For selection sort sorting algorithm
+
+  Files:
+	- README: this file with a general description of the utils subdirectory
+
+	No makefile at this level to force builds per use/functionality (e.g., selection sort, insertion sort, heap sort, 3-way merge, 2-way merge and quick sort etc)

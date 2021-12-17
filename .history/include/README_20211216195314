@@ -1,0 +1,33 @@
+
+# for MSSE Chem 274B - Fall Semester
+# University of California, Berkeley
+# 
+# Creator:  Usman Jamshed and Anna Weber Graduate Student 
+# Date Created: Dec 16, 2021
+
+This is directory where all cellular automata implementations in C++ are compiled.
+Tests of these input, compute and output functions for the cellular automata project and its procedures are in the ../tests subdirectory. These input and output functions of the cellular automata are also used inside programs in other src directory files.
+
+PATH ROOT_DIR/src/input/.
+  Files:
+	- README: this file with a general description of the input services library and objects subdirectory for the cellular automata 
+
+	- Makefile: a makefile that can generate all objects and libraries associated with input cellular automata functions
+	            (e.g. cellular automata input). The make file can also clean all input cellular automata objects in the ../../lib directory
+		    shell> make cleanall
+		    or create all the utilities objects
+		    shell> make all
+		
+		 - CA_input.cxx:  contains functions with a grid with some cells which may be alive or dead. It generates the next generation of cells based on these rules: live cell with less than two live neighbors dies, live cell with two or three live neighbors lives on to the next generation, live cell with more than three live neighbors dies and any dead cell with exactly three live neighbors becomes a live cell(reproduction).
+
+PATH ROOT_DIR/src/output/.
+  Files:
+	- README: this file with a general description of the math library and objects subdirectory
+
+	- Makefile: a makefile that can generate all objects and libraries associated with insertion sort function
+	            (e.g. insertion sort). The make file can also clean all math objects in the ../../lib directory
+		    shell> make cleanall
+		    or create all the utilities objects
+		    shell> make all
+		
+		 - CA_output.cxx: implements a getter function to ontain the vector with Cellular Automata Data that also yield information on the stats of the states in the Cellular Automata. Lastly, the output is printed in the formatted matrix out. Thus, each row will be printed with the first element of the with open square bracket and all elements being seperated by commas. The last element is also followed by a closing square bracket and numbers.CA_output.cxx: 

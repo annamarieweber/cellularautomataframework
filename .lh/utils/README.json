@@ -1,0 +1,18 @@
+{
+    "sourceFile": "utils/README",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1639714572340,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1639714572340,
+            "name": "Commit-0",
+            "content": "# for MSSE Chem 274B - Fall Semester\n# University of California, Berkeley\n# \n# Creator: Joyce Kim Graduate Python\n# Date Created: Dec 3, 2021\n#\nThis is directory where all utilities are being commpiled.  Tests of these\nutilities are in the ../tests subdirectory.   These utilities are also used\ninside programs in the src directory.\n\nPATH ROOT_DIR/utils\n  Files:\n\t- README: this file with a general description of the utils subdirectory\n\n\t- Makefile: a makefile that can generate all objects and libraries assiciated with utilitary functions\n\t            (e.g. getting <key, value> pairs from the shell command line.) The make file can also clean\n\t\t    all utility objects in the ../lib directory\n\t\t    shell> make cleanall\n\t\t    or create all the utilities objects\n\t\t    shell> make all\n\n       - utils.cxx: timing utility to yield times for each sorting algorithm tests and data structure\n       \t               shell command line"
+        }
+    ]
+}

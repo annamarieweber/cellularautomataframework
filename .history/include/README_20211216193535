@@ -1,0 +1,90 @@
+
+# for MSSE Chem 274B - Fall Semester
+# University of California, Berkeley
+# 
+# Creator:  Usman Jamshed and Anna Weber Graduate Student 
+# Date Created: Dec 16, 2021
+
+This is directory where all cellular automata implementations in C++ are compiled.
+Tests of these input, compute and output functions for the cellular automata project and its procedures are in the ../tests subdirectory. These input and output functions of the cellular automata are also used inside programs in other src directory files.
+
+PATH ROOT_DIR/src/input/.
+  Files:
+	- README: this file with a general description of the math library and objects subdirectory
+
+	- Makefile: a makefile that can generate all objects and libraries assiciated with heapsort function
+	            (e.g. heapsort). The make file can also clean all heapsort objects in the ../../lib directory
+		    shell> make cleanall
+		    or create all the utilities objects
+		    shell> make all
+
+       - heapsort.cxx: implements heap sort to compare sorting technique derived from Binary Heap data structure and is analogous to selection sort where the first element found is the minimum element where it is placed in the minimum element at the beginning. The process is repeated with the remaining elements.
+
+    
+
+PATH ROOT_DIR/src/selectionsort/.
+  Files:
+	- README: this file with a general description of the math library and objects subdirectory
+
+	- Makefile: a makefile that can generate all objects and libraries assiciated with mathematical functions
+	            (e.g. factorial and rsapi). The make file can also clean all math objects in the ../../lib directory
+		    shell> make cleanall
+		    or create all the utilities objects
+		    shell> make all
+
+       - selectionsort.cxx: implements selection sort algorithm on array by repeatedly finding the minimum element from unsorted elements and placing it the beginning. it maintains two subarrays in a given array. 
+ 
+
+PATH ROOT_DIR/src/insertionsort/.
+  Files:
+	- README: this file with a general description of the math library and objects subdirectory
+
+	- Makefile: a makefile that can generate all objects and libraries assiciated with mathematical functions
+	            (e.g. factorial and rsapi). The make file can also clean all math objects in the ../../lib directory
+		    shell> make cleanall
+		    or create all the utilities objects
+		    shell> make all
+
+       - insertionsort.cxx:  implements insertion sort with simple sorting algorithm that is similar to playing cards. The array is split into a sorted and an unsorted array. Values from the unsorted part are placed at the correct position in the sorted array.
+
+PATH ROOT_DIR/src/mergesort3/.
+  Files:
+	- README: this file with a general description of the math library and objects subdirectory
+
+	- Makefile: a makefile that can generate all objects and libraries assiciated with mathematical functions
+	            (e.g. factorial and rsapi). The make file can also clean all math objects in the ../../lib directory
+		    shell> make cleanall
+		    or create all the utilities objects
+		    shell> make all
+
+       - mergesort3.cxx: implements merge sort algorithm recursively splitting the array into 2 parts, where it is sorted and merged. 3-way merge sort splits the array into into 3 parts. It recursively breaks down the arrays to subarrays of size one third.
+
+
+
+
+
+PATH ROOT_DIR/src/mergesort2/.
+  Files:
+	- README: this file with a general description of the math library and objects subdirectory
+
+	- Makefile: a makefile that can generate all objects and libraries assiciated with mathematical functions
+	            (e.g. factorial and rsapi). The make file can also clean all math objects in the ../../lib directory
+		    shell> make cleanall
+		    or create all the utilities objects
+		    shell> make all
+
+       - mergesort2.cxx: implements merge sort algorithm recursively splitting the array into 2 parts, where it is sorted and merged. 3-way merge sort splits the array into into 3 parts. It recursively breaks down the arrays to subarrays of size one half. It divides the input array into two halves, and sorts  two halves subarrays, and then merges the two sorted halves.
+
+
+
+PATH ROOT_DIR/src/quicksort/.
+  Files:
+	- README: this file with a general description of the math library and objects subdirectory
+
+	- Makefile: a makefile that can generate all objects and libraries assiciated with mathematical functions
+	            (e.g. factorial and rsapi). The make file can also clean all math objects in the ../../lib directory
+		    shell> make cleanall
+		    or create all the utilities objects
+		    shell> make all
+
+       - quicksort.cxx: implements QuickSort that is a Divide and Conquer algorithm by choosing an element as pivot and partitions an array around the designated pivot. Thus, it will always choose the first element as a pivot,always prioritize last element as pivot, which is demonstrated in this implementation as welel as choosing a random element as pivot, and lastly prioritize median pivot. An array and an element x of array as pivot will add x at its correct position in sorted array and put all smaller elements before x, and put all greater elements after x. 

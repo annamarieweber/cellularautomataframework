@@ -1,0 +1,19 @@
+
+# for MSSE Chem 274B - Fall Semester
+# University of California, Berkeley
+# 
+# Creator: Joyce Kim
+# Date Created: Dec 3, 2021
+#
+This is directory where all source C++ and C Files are being compiled.  
+Tests of these functionalities are in the ../tests subdirectory and examples are
+in the ../examples subdirectory.  
+
+The subdirectories here are:
+input/ For input services of the cellular automata 
+output/ For output services of the cellular automata 
+
+  Files:
+	- README: this file with a general description of the utils subdirectory
+
+	No makefile at this level to force builds per use/functionality (e.g., output,and input services etc)

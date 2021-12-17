@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 1,
+            "activePatchIndex": 2,
             "patches": [
                 {
                     "date": 1639548334931,
@@ -12,6 +12,10 @@
                 {
                     "date": 1639548349104,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,8 @@\n   to get time points, calculate elapsed time and generate random integers.\n   \n */\n \n-#include \"myutils.h\"\n #include <iostream>\n #include <chrono>\n #include <random>\n /*\n@@ -19,18 +18,35 @@\n */\n \n \n \n+/*   \n+     TIMING ROUTINES\n+     These functions and routines get the system's wall-clock time \n+*/\n+#include <chrono>\n+#include <string>\n+using namespace std;\n \n+/* get_wallclock (): returns the current time based on chronos high_resolution_clock*/\n+std::chrono::high_resolution_clock::time_point get_wallclock();\n \n+/* get_elapsedtime (t1, t2): prints the taken between the start and end of get_wallclock\n+in seconds and microseconds to the terminal */\n+void get_elapsedtime(std::chrono::high_resolution_clock::time_point t1, std::chrono::high_resolution_clock::time_point t2);\n \n+/* generate_rand_int (max): generates a random integer from 1 to max and returns it. */\n+int generate_rand_int(int min, int max);\n \n \n \n \n \n \n \n+\n+\n+\n std::chrono::high_resolution_clock::time_point get_wallclock()\n {\n   return std::chrono::high_resolution_clock::now();\n }\n"
+                },
+                {
+                    "date": 1639714609059,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,8 @@\n   output: nothing\n */\n \n \n-\n /*   \n      TIMING ROUTINES\n      These functions and routines get the system's wall-clock time \n */\n"
                 }
             ],
             "date": 1639548334931,

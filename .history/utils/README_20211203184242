@@ -1,0 +1,23 @@
+# for MSSE Chem 274B - Fall Semester
+# University of California, Berkeley
+# 
+# Creator: Joyce Kim Graduate Python
+# Date Created: Dec 3, 2021
+#
+This is directory where all utilities are being commpiled.  Tests of these
+utilities are in the ../tests subdirectory.   These utilities are also used
+inside programs in the src directory.
+
+PATH ROOT_DIR/utils
+  Files:
+	- README: this file with a general description of the utils subdirectory
+
+	- Makefile: a makefile that can generate all objects and libraries assiciated with utilitary functions
+	            (e.g. getting <key, value> pairs from the shell command line.) The make file can also clean
+		    all utility objects in the ../lib directory
+		    shell> make cleanall
+		    or create all the utilities objects
+		    shell> make all
+
+       - timing.cxx: timing utility to yield times for each sorting algorithm tests and data structure
+       	               shell command line

@@ -1,0 +1,46 @@
+{
+    "sourceFile": "src/output/test_CA_output.cpp",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 7,
+            "patches": [
+                {
+                    "date": 1639607194854,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1639610202454,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n     //2d heatmap generation w/legend data and 2d vector data \n     void my_func(int i)\n     {\n         heatmap(_data)->normalization(matrix::color_normalization::i);\n-        title(\"Count of Cause vs. Region\");\n+        title(\"\");\n         auto ax = gca();\n         ax->x_axis().ticklabels(\n             { 0, 1, 2, 3});\n         ax->y_axis().ticklabels(\n"
+                },
+                {
+                    "date": 1639610379706,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -52,4 +52,53 @@\n \n     show();\n     return 0;\n }\n+using namespace matplot;\n+using namespace Seaborn;\n+\n+int main() {\n+    int _rows = 5;\n+    int _columns = 5;\n+    int _num_states = 30;\n+\n+//2d array randomly generated with the rows, number of state and columns predetermined \n+    std::random_device rd; \n+    std::mt19937 gen(rd());\n+    std::uniform_int_distribution<> dis(1,_num_states);\n+    std::vector<std::vector<int>> _data(_rows, std::vector<int>(_columns,0));\n+\n+    for (auto it1 = _data.begin(); it1 != _data.end(); it1++) {\n+        for (auto it2 = it1->begin(); it2 != it1->end(); it2++) {\n+            *it2 = dis(gen); // dereference iterator, set the value\n+            std::cout << std::setw(4) << *it2;\n+        }\n+        std::cout << '\\n';\n+    }\n+\n+    //2d heatmap generation w/legend data and 2d vector data \n+    void my_func(int i)\n+    {\n+        heatmap(_data)->normalization(matrix::color_normalization::i);\n+        title(\"\");\n+        auto ax = gca();\n+        ax->x_axis().ticklabels(\n+            { 0, 1, 2, 3});\n+        ax->y_axis().ticklabels(\n+            {\"empty\", \"tree\", \"fire\", \"char\"});\n+        xlabel(ax, \"String States\");\n+        ylabel(ax, \"Num States\");\n+        float w = ax->width();\n+        ax->width(w * 0.85f);\n+        ax->x_origin(ax->x_origin() + w * 0.1f);\n+\n+    }\n+\n+//rendering for animation \n+    grid_kws = {'width_ratios': (0.9, 0.05), 'wspace': 0.2};\n+    fig, (ax, cbar_ax) = subplots(1, 2, gridspec_kw = grid_kws, figsize = (12, 8));\n+    FuncAnimation(fig = fig, func = my_func, frames = 200, interval = 50, blit = False);\n+\n+    show();\n+    return 0;\n+}\n+\n"
+                },
+                {
+                    "date": 1639610870794,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n #include <iostream>\n #include <vector>\n #include <random>\n #include <iomanip>\n-#include \"Seaborn.h\"\n+#include \"/Seaborn.h\"\n #include <matplot/matplot.h>\n \n using namespace matplot;\n using namespace Seaborn;\n@@ -52,10 +52,8 @@\n \n     show();\n     return 0;\n }\n-using namespace matplot;\n-using namespace Seaborn;\n \n int main() {\n     int _rows = 5;\n     int _columns = 5;\n"
+                },
+                {
+                    "date": 1639610880787,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n #include <iostream>\n #include <vector>\n #include <random>\n #include <iomanip>\n-#include \"/Seaborn.h\"\n+#include \"include/seaborn-cpp/Seaborn.h\"\n #include <matplot/matplot.h>\n \n using namespace matplot;\n using namespace Seaborn;\n"
+                },
+                {
+                    "date": 1639610892154,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n #include <iostream>\n #include <vector>\n #include <random>\n #include <iomanip>\n-#include \"include/seaborn-cpp/Seaborn.h\"\n+#include \"../include/seaborn-cpp/Seaborn.h\"\n #include <matplot/matplot.h>\n \n using namespace matplot;\n using namespace Seaborn;\n"
+                },
+                {
+                    "date": 1639610900051,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n #include <iostream>\n #include <vector>\n #include <random>\n #include <iomanip>\n-#include \"../include/seaborn-cpp/Seaborn.h\"\n+#include \"../../include/seaborn-cpp/Seaborn.h\"\n #include <matplot/matplot.h>\n \n using namespace matplot;\n using namespace Seaborn;\n"
+                },
+                {
+                    "date": 1639610955733,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n #include <iostream>\n #include <vector>\n #include <random>\n #include <iomanip>\n-#include \"../../include/seaborn-cpp/Seaborn.h\"\n+#include \"../../include/seaborn-cpp/project/Seaborn.h\"\n #include <matplot/matplot.h>\n \n using namespace matplot;\n using namespace Seaborn;\n"
+                }
+            ],
+            "date": 1639607194854,
+            "name": "Commit-0",
+            "content": "#include <iostream>\n#include <vector>\n#include <random>\n#include <iomanip>\n#include \"Seaborn.h\"\n#include <matplot/matplot.h>\n\nusing namespace matplot;\nusing namespace Seaborn;\n\nint main() {\n    int _rows = 5;\n    int _columns = 5;\n    int _num_states = 30;\n\n//2d array randomly generated with the rows, number of state and columns predetermined \n    std::random_device rd; \n    std::mt19937 gen(rd());\n    std::uniform_int_distribution<> dis(1,_num_states);\n    std::vector<std::vector<int>> _data(_rows, std::vector<int>(_columns,0));\n\n    for (auto it1 = _data.begin(); it1 != _data.end(); it1++) {\n        for (auto it2 = it1->begin(); it2 != it1->end(); it2++) {\n            *it2 = dis(gen); // dereference iterator, set the value\n            std::cout << std::setw(4) << *it2;\n        }\n        std::cout << '\\n';\n    }\n\n    //2d heatmap generation w/legend data and 2d vector data \n    void my_func(int i)\n    {\n        heatmap(_data)->normalization(matrix::color_normalization::i);\n        title(\"Count of Cause vs. Region\");\n        auto ax = gca();\n        ax->x_axis().ticklabels(\n            { 0, 1, 2, 3});\n        ax->y_axis().ticklabels(\n            {\"empty\", \"tree\", \"fire\", \"char\"});\n        xlabel(ax, \"String States\");\n        ylabel(ax, \"Num States\");\n        float w = ax->width();\n        ax->width(w * 0.85f);\n        ax->x_origin(ax->x_origin() + w * 0.1f);\n\n    }\n\n//rendering for animation \n    grid_kws = {'width_ratios': (0.9, 0.05), 'wspace': 0.2};\n    fig, (ax, cbar_ax) = subplots(1, 2, gridspec_kw = grid_kws, figsize = (12, 8));\n    FuncAnimation(fig = fig, func = my_func, frames = 200, interval = 50, blit = False);\n\n    show();\n    return 0;\n}\n"
+        }
+    ]
+}
