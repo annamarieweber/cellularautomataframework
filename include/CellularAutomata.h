@@ -126,24 +126,6 @@ class CellularAutomata
          * @return std::vector<int>, a vector containing all the neighbors in the order of North West, North, North East, West, East, South West, South, South East.
          */
         std::vector<int> moore_neighborhood(int row, int column); 
-        
-        //code to get the appropriate neighborhood
-        std::vector<int> get_neighborhood(int x, int y,int neighborhood_num);
-        
-        // Code to run Cellular Automata Simulation
-        void run(int num_steps, int rule_num, int neighborhood_num);
-        
-        //logic for taking a single step of the CA simluation todo: document the funciton
-        void step(int rule_num, int neighborhood_num);
-        
-        // code to apply transition rule using neighborhood data
-        int transition_function(int x, int y, int rule_num, std::vector<int> neighborhood);
-
-        // logic for the majority rule todo:  add additional function documentation
-        int majority_rule(int x, int y, std::vector<int> neighborhood);
-        
-        // logic for the purity rule todo:  add additional function documentation
-        int purity_rule(int x, int y, std::vector<int> neighborhood);
 
         /**
          * @brief Update the value in the cell at x,y with the value n
@@ -191,13 +173,23 @@ class CellularAutomata
          */
         int get_num_states();
 
-        // Getter function to retrieve the data of the Cellular Automata.
+        /**
+         * @brief Getter function to retreive the vector with Cellular Automata Data.
+         * 
+         * @return std::vector<std::vector<int>> 
+         */
         std::vector<std::vector<int>> get_data();
 
-        // Displays statistics of the Cellular Automata, count for each state.
+        /**
+         * @brief Gives information on the statistics of the states in the Cellular Automata.
+         * 
+         */
         void get_stats();
 
-        // Function to print out the Cellular Automata.
+        /**
+         * @brief Prints the formatted matrix out to the terminal using std::cout. Each row is printed with the first element of the Cellular Automata following an opening square bracket and all elements being seperated by commas. The last element of the Cellular Automata is also followed by a closing square bracket.
+         * 
+         */
         void print();
 };
 #endif

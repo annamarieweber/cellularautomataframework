@@ -3,7 +3,11 @@
 #include "CellularAutomata.h"
 #include "myutils.h"
 
-// Getter function to retreive the vector  with Cellular Automata Data.
+/**
+ * @brief Getter function to retreive the vector with Cellular Automata Data.
+ * 
+ * @return std::vector<std::vector<int>> 
+ */
 std::vector<std::vector<int>> CellularAutomata::get_data()
 {
     std::vector<std::vector<int>> return_data;
@@ -18,7 +22,10 @@ std::vector<std::vector<int>> CellularAutomata::get_data()
     return return_data;
 }
 
-// Gives information on the stats of the states in the Cellular Automata.
+/**
+ * @brief Gives information on the statistics of the states in the Cellular Automata.
+ * 
+ */
 void CellularAutomata::get_stats()
 {
     if (_legend.empty() == false)
@@ -59,7 +66,10 @@ void CellularAutomata::get_stats()
     }
 }
 
-// Print the formatted matrix out to the terminal using std::cout. Each row is printed with the first element of the Cellular Automata following an opening square bracket and all elements being seperated by commas. The last element of the Cellular Automata is also followed by a closing square bracket.
+/**
+ * @brief Prints the formatted matrix out to the terminal using std::cout. Each row is printed with the first element of the Cellular Automata following an opening square bracket and all elements being seperated by commas. The last element of the Cellular Automata is also followed by a closing square bracket.
+ * 
+ */
 void CellularAutomata::print()
 {
     for(int i = 0; i < _rows; i++)
