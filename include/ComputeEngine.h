@@ -17,20 +17,65 @@ class ComputeEngine {
     int _rule_type;
     int _num_steps;
     CellularAutomata* _ca;
-
-    // logic for the majority rule todo:  add additional function documentation
+  
+    /**
+   * @brief Calculates the next value for cell using the majority rule
+   * 
+   * @param x the x position of the cell
+   * @param y the y position of the cell
+   * @param neighborhood a vector of integers representing the cells neighborhood
+   * @return int the next value for the cell
+   */
     int majority_rule(int x, int y, std::vector<int> neighborhood);
-    // logic for the purity rule todo:  add additional function documentation
+
+    /**
+   * @brief Calculates the next value for cell using the majority rule
+   * 
+   * @param x the x position of the cell
+   * @param y the y position of the cell
+   * @param neighborhood a vector of integers representing the cells neighborhood
+   * @return int the next value for the cell
+   */
     int purity_rule(int x, int y, std::vector<int> neighborhood);
-    //code to get the appropriate neighborhood
+
+    /**
+   * @brief Gets the neighborhood for the cell at x,y based on int neighborhood type
+   * 
+   * @param x the x position of the cell
+   * @param y the y position of the cell
+   * @return std::vector<int> an array representing the neighborhood 
+   */
     std::vector<int> get_neighborhood(int x, int y);
-    // code to apply transition rule using neighborhood data
+
+    /**
+   * @brief Selects the appropriate transition function to use for calculating the next state for a cell and runs it
+   * 
+   * @param x the x position of the cell
+   * @param y the y position of the cell
+   * @param neighborhood a vector of integers representing the cells neighborhood
+   * @return int the next value for the cell
+   */
     int transition_function(int x, int y, std::vector<int> neighborhood);
 
   public:
+    /**
+   * @brief Construct a new Compute Engine object
+   * 
+   * @param neighborhood_type the int identifier for the type of neighborhood to use
+   * @param rule_type the int identifier for the type of rule to use
+   * @param steps the number of steps to run the simulation for
+   * @param ca the cellular automata to run the simulation on
+   */
     ComputeEngine(int neighborhood_type, int rule_type, int steps, CellularAutomata* ca);
-    // Code to run Cellular Automata Simulation
+
+    /**
+   * @brief Runs simulation with params provided to ComputeEngine
+   * 
+   */
     void run();
-    //logic for taking a single step of the CA simluation todo: document the funciton
+
+    /**
+   * @brief Runs a single step in the CA simulation using params provided to the compute engine
+   */
     void step();
 };
