@@ -1,3 +1,11 @@
+/*
+  UC Berkeley - MSSE Program
+  Chem 279-B  Introduction to Software Engineering
+  Fall 2021
+  This file, CellularAutomata.h, contains an API to the Cellular Automata class.
+  being used in Chem 274-B final project.
+*/
+
 #ifndef CELLULAR_AUTOMATA
 #define CELLULAR_AUTOMATA
 #include <iostream>
@@ -8,7 +16,7 @@
 class CellularAutomata
 {
     private:
-        // Holds the dimensions of the Cellular Automata.
+        // Holds the total area of the Cellular Automata matrix.
         int _size;
 
         // Holds the data for the Cellular Automata as a vector of vectors.
@@ -39,31 +47,84 @@ class CellularAutomata
         std::pair<int, int> _starting_position;
         
     public:
-        // Default Constructor
+        /**
+         * @brief Construct a new Cellular Automata:: Cellular Automata object. Default Constructor.
+         * 
+         */
         CellularAutomata();
         
-        // Constructor for the class, requires all data for the Cellular Automata to be passed in.
+        /**
+         * @brief Construct a new Cellular Automata:: Cellular Automata object. Constructor with data being passed in from the user.
+         * 
+         * @param rows Number of rows for the Cellular Automata matrix.
+         * @param columns Number of columns for the Cellular Automata matrix.
+         * @param legend A map including the name of the state as a string (key) and its corresponding integer value (value)
+         * @param data A vector of vectors holding data for the Cellular Automata matrix.
+         * @param product The name of the state which is a produced by rules acting on other states.
+         * @param reactor The name of the state which acts on other states through rules.
+         * @param starting_position The starting coordinates for the reactor state as a pair of integers.
+         */
         CellularAutomata(int rows, int columns, std::map<std::string, int> legend, std::vector<std::vector<int> > data, std::string product, std::string reactor, std::pair<int, int> starting_position);
 
-        // Another constructor for the class, calls the initialization to set up the Cellular Automata randomly.
+        /**
+         * @brief Construct a new Cellular Automata:: Cellular Automata object. Constructor with no data where data is generated randomly.
+         * 
+         * @param rows Number of rows for the Cellular Automata matrix.
+         * @param columns Number of columns for the Cellular Automata matrix.
+         * @param legend A map including the name of the state as a string (key) and its corresponding integer value (value)
+         * @param product The name of the state which is a produced by rules acting on other states.
+         * @param reactor The name of the state which acts on other states through rules.
+         * @param starting_position The starting coordinates for the reactor state as a pair of integers. 
+         */
         CellularAutomata(int rows, int columns, std::map<std::string, int> legend, std::string product, std::string reactor, std::pair<int, int> starting_position);
 
-        // Another constructor for the class, calls the initialization to set up the Cellular Automata using density values passed in.
+        /**
+         * @brief Construct a new Cellular Automata:: Cellular Automata object. Constructor with no data, and data is generated using density values passed in via legend.
+         * 
+         * @param rows Number of rows for the Cellular Automata matrix.
+         * @param columns Number of columns for the Cellular Automata matrix.
+         * @param legend A map including the name of the state as a string (key) and its value being a pair of integer and float, corresponding to the states integer value and density.
+         * @param product The name of the state which is a produced by rules acting on other states.
+         * @param reactor The name of the state which acts on other states through rules.
+         * @param starting_position The starting coordinates for the reactor state as a pair of integers. 
+         */
         CellularAutomata(int rows, int columns, std::map<std::string, std::pair<int, float> > legend, std::string product, std::string reactor, std::pair<int, int> starting_position);
         
-        // Copy constructor fot the class
+        /**
+         * @brief Copy Constructor to create a new Cellular Automata:: Cellular Automata object.
+         * 
+         * @param ca Cellular Automata object.
+         */
         CellularAutomata(const CellularAutomata& ca);
 
-        // Intiatlize function to create a cellular automata randomly.
+        /**
+         * @brief Function to initialize cellular automata data randomly.
+         * 
+         */
         void Initialize_Rand();
 
-        // Intialize function to create a cellular automata using density values.
+        /**
+         * @brief Function to initialize cellular automata data using density.
+         * 
+         */
         void Initialize_Density();
 
-        // Code to evaluate von neumaan neighborhood where r=1.
+        /**
+         * @brief Code to evaluate Von Neumaan neighborhood where r = 1 with periodic bounds.
+         * 
+         * @param row Index of the row of the value you want to evaluate the Von Neumaan neighborhood for.
+         * @param column Index of the column of the value you want to evaluate the Von Neumaan neighborhood for.
+         * @return std::vector<int>, a vector containing all the neighbors in the order of North, West, East, and South.
+         */
         std::vector<int> vn_neighborhood(int row, int column);
 
-        // Code to evaluate moore neighborhood where r=1.
+        /**
+         * @brief Code to evaluate Moore neighborhood where r = 1 with periodic bounds.
+         * 
+         * @param row Index of the row of the value you want to evaluate the Von Neumaan neighborhood for.
+         * @param column Index of the column of the value you want to evaluate the Von Neumaan neighborhood for.
+         * @return std::vector<int>, a vector containing all the neighbors in the order of North West, North, North East, West, East, South West, South, South East.
+         */
         std::vector<int> moore_neighborhood(int row, int column); 
         
         //code to get the appropriate neighborhood
@@ -84,22 +145,50 @@ class CellularAutomata
         // logic for the purity rule todo:  add additional function documentation
         int purity_rule(int x, int y, std::vector<int> neighborhood);
 
-        // logic to update the value of a cell
+        /**
+         * @brief Update the value in the cell at x,y with the value n
+         * 
+         * @param x the x position of the cell
+         * @param y the y position of the cell
+         * @param n the value change the cell to
+         */
         void update_cell(int x, int y, int n);
 
-        // logic to get the value of a cell
+        /**
+         * @brief gets the value of the cell at x, y
+         * 
+         * @param x the x position of the cell
+         * @param y the y position of the cell
+         * @return int the value of the cell
+         */
         int get_cell(int x, int y);
 
-        // logic to get number of rows
+        /**
+         * @brief Get the number of rows in the CA
+         * 
+         * @return int number of rows
+         */
         int get_rows();
 
-        // logic to get number of columns
+        /**
+         * @brief Get the number of columns in the CA
+         * 
+         * @return int number of columns
+         */
         int get_columns();
 
-        // logic to get number of cells
+        /**
+         * @brief Get the total number of cells in the CA
+         * 
+         * @return int number of cells
+         */
         int get_size();
 
-        // logic to get the number of states
+        /**
+         * @brief Get the number of possible states for a cell in the CA
+         * 
+         * @return int number of possible states
+         */
         int get_num_states();
 
         // Getter function to retrieve the data of the Cellular Automata.

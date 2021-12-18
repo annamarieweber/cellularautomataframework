@@ -4,15 +4,27 @@
 #include "CellularAutomata.h"
 #include "myutils.h"
 
-//Default constructor
+/**
+ * @brief Construct a new Cellular Automata:: Cellular Automata object. Default Constructor.
+ * 
+ */
 CellularAutomata::CellularAutomata(){
 
 }
 
-// Constructor with data being passed in from the user.
+/**
+ * @brief Construct a new Cellular Automata:: Cellular Automata object. Constructor with data being passed in from the user.
+ * 
+ * @param rows Number of rows for the Cellular Automata matrix.
+ * @param columns Number of columns for the Cellular Automata matrix.
+ * @param legend A map including the name of the state as a string (key) and its corresponding integer value (value)
+ * @param data A vector of vectors holding data for the Cellular Automata matrix.
+ * @param product The name of the state which is a produced by rules acting on other states.
+ * @param reactor The name of the state which acts on other states through rules.
+ * @param starting_position The starting coordinates for the reactor state as a pair of integers.
+ */
 CellularAutomata::CellularAutomata(int rows, int columns, std::map<std::string, int> legend, std::vector<std::vector<int> > data, std::string product, std::string reactor, std::pair<int, int> starting_position)
 {
-    // Will need to ensure that the integers in the legend cover the data that is input, if not it should throw an error.
     _rows = rows;
     _columns = columns;
     _data = data;
@@ -22,9 +34,21 @@ CellularAutomata::CellularAutomata(int rows, int columns, std::map<std::string, 
     _product = product;
     _reactor = reactor;
     _starting_position = starting_position;
+
+    // Generates the starting position for the reactor variable which will cause changes throughout the Cellular Automata.
+    _data[_starting_position.first][_starting_position.second] = _legend[_reactor];
 }
 
-// Constructor with no data, but data is built randomly.
+/**
+ * @brief Construct a new Cellular Automata:: Cellular Automata object. Constructor with no data where data is generated randomly.
+ * 
+ * @param rows Number of rows for the Cellular Automata matrix.
+ * @param columns Number of columns for the Cellular Automata matrix.
+ * @param legend A map including the name of the state as a string (key) and its corresponding integer value (value)
+ * @param product The name of the state which is a produced by rules acting on other states.
+ * @param reactor The name of the state which acts on other states through rules.
+ * @param starting_position The starting coordinates for the reactor state as a pair of integers. 
+ */
 CellularAutomata::CellularAutomata(int rows, int columns, std::map<std::string, int> legend, std::string product, std::string reactor, std::pair<int, int> starting_position)
 {
     _rows = rows;
@@ -41,7 +65,16 @@ CellularAutomata::CellularAutomata(int rows, int columns, std::map<std::string, 
     CellularAutomata::Initialize_Rand();
 }
 
-// Constructor with no data, and data is built using density values passed in.
+/**
+ * @brief Construct a new Cellular Automata:: Cellular Automata object. Constructor with no data, and data is generated using density values passed in via legend.
+ * 
+ * @param rows Number of rows for the Cellular Automata matrix.
+ * @param columns Number of columns for the Cellular Automata matrix.
+ * @param legend A map including the name of the state as a string (key) and its value being a pair of integer and float, corresponding to the states integer value and density.
+ * @param product The name of the state which is a produced by rules acting on other states.
+ * @param reactor The name of the state which acts on other states through rules.
+ * @param starting_position The starting coordinates for the reactor state as a pair of integers. 
+ */
 CellularAutomata::CellularAutomata(int rows, int columns, std::map<std::string, std::pair<int, float> > legend, std::string product, std::string reactor, std::pair<int, int> starting_position)
 {
     _rows = rows;
@@ -66,6 +99,11 @@ CellularAutomata::CellularAutomata(int rows, int columns, std::map<std::string, 
     CellularAutomata::Initialize_Density();
 }
 
+/**
+ * @brief Copy Constructor to create a new Cellular Automata:: Cellular Automata object.
+ * 
+ * @param ca Cellular Automata object.
+ */
 CellularAutomata::CellularAutomata(const CellularAutomata& ca){
     _rows = ca._rows;
     _columns = ca._columns;
@@ -78,11 +116,13 @@ CellularAutomata::CellularAutomata(const CellularAutomata& ca){
     _starting_position = ca._starting_position;
 }
 
-// Function to initialize cellular automata data randomly.
+/**
+ * @brief Function to initialize cellular automata data randomly.
+ * 
+ */
 void CellularAutomata::Initialize_Rand()
 {   
-    // Grabs the max element in the legend map.
-    // Grabs the max element in the legend map, leaving out the reactor and product values (The reactor will be placed specifically by the user and the product will be placed after the compute steps).
+    // Grabs the max element in the legend map, leaving out the reactor and product values (The reactor will be placed specifically by the user and the product will be placed after the compute/rules steps).
     int max = 0;
     for(const auto &it : _legend)
     {
@@ -92,10 +132,8 @@ void CellularAutomata::Initialize_Rand()
         }
     }
 
-    // Grabs the min element in the legend map.
-    // Grabs the min element in the legend map, leaving out the reactor and product values (The reactor will be placed specifically by the user and the product will be placed after the compute steps).
+    // Grabs the min element in the legend map, leaving out the reactor and product values (The reactor will be placed specifically by the user and the product will be placed after the compute/rules steps).
     int min = 2147483647;
-    for(auto it = _legend.begin(); it != _legend.end(); ++it )
     for(const auto &it2 : _legend)
     {
         if (it2.second < min && it2.first != _product && it2.first != _reactor) 
@@ -113,11 +151,17 @@ void CellularAutomata::Initialize_Rand()
         }
     }
 
-    // Generates the starting position for the reactor variable which will cause changes throughout the Cellular Automata. Acceses using row major
-    _data[_starting_position.first][_starting_position.second] = _legend[_reactor]; 
+    // Generates the starting position for the reactor variable which will cause changes throughout the Cellular Automata.
+    if (_legend.find(_reactor) != _legend.end())
+    {
+        _data[_starting_position.first][_starting_position.second] = _legend[_reactor]; 
+    }
 }
 
-// Function to initialize cellular automata data using density.
+/**
+ * @brief Function to initialize cellular automata data using density.
+ * 
+ */
 void CellularAutomata::Initialize_Density()
 {
     // Sets the seed for the random float generator below
@@ -143,11 +187,20 @@ void CellularAutomata::Initialize_Density()
         }
     }
 
-    // Generates the starting position for the reactor variable which will cause changes throughout the Cellular Automata. Acceses using row major
+    // Generates the starting position for the reactor variable which will cause changes throughout the Cellular Automata.
+    if (_legend_density.find(_reactor) != _legend_density.end())
+    {
     _data[_starting_position.first][_starting_position.second] = _legend_density[_reactor].first; 
+    }
 }
 
-// Code to evaluate von neumman neighborhood where r = 1 with periodic bounds.
+/**
+ * @brief Code to evaluate Von Neumaan neighborhood where r = 1 with periodic bounds.
+ * 
+ * @param row Index of the row of the value you want to evaluate the Von Neumaan neighborhood for.
+ * @param column Index of the column of the value you want to evaluate the Von Neumaan neighborhood for.
+ * @return std::vector<int>, a vector containing all the neighbors in the order of North, West, East, and South.
+ */
 std::vector<int> CellularAutomata::vn_neighborhood(int row, int column)
 {
     std::vector<int> neighborhood;
@@ -169,7 +222,13 @@ std::vector<int> CellularAutomata::vn_neighborhood(int row, int column)
     return neighborhood;
 }
 
-// Code to evaluate moore neighborhood where r = 1 with periodic bounds.
+/**
+ * @brief Code to evaluate Moore neighborhood where r = 1 with periodic bounds.
+ * 
+ * @param row Index of the row of the value you want to evaluate the Von Neumaan neighborhood for.
+ * @param column Index of the column of the value you want to evaluate the Von Neumaan neighborhood for.
+ * @return std::vector<int>, a vector containing all the neighbors in the order of North West, North, North East, West, East, South West, South, South East.
+ */
 std::vector<int> CellularAutomata::moore_neighborhood(int row, int column)
 {
     int north = _data[(_rows + ((row-1) % _rows) ) % _rows][column];
@@ -225,6 +284,7 @@ void CellularAutomata::update_cell(int x, int y, int n){
 int CellularAutomata::get_cell(int x, int y){
   return _data[x][y];
 }
+
 /**
  * @brief Get the number of rows in the CA
  * 

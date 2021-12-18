@@ -18,12 +18,26 @@
 #include <string>
 using namespace std;
 
-/* get_wallclock (): returns the current time based on chronos high_resolution_clock*/
+/**
+ * @brief Function to determine the currently wall clock time.
+ * 
+ * @return std::chrono::high_resolution_clock::time_point. A timepoint.
+ */
 std::chrono::high_resolution_clock::time_point get_wallclock();
 
-/* get_elapsedtime (t1, t2): prints the taken between the start and end of get_wallclock
-in seconds and microseconds to the terminal */
+/**
+ * @brief Function to calculate the time elapsed between 2 time points.
+ * 
+ * @param t1 The starting time for the code block as a std::chrono::time_point.
+ * @param t2 The ending time for the code block as a std::chrono::time_point.
+ */
 void get_elapsedtime(std::chrono::high_resolution_clock::time_point t1, std::chrono::high_resolution_clock::time_point t2);
 
-/* generate_rand_int (max): generates a random integer from 1 to max and returns it. */
+/**
+ * @brief Function to generate a random integer.
+ * 
+ * @param min The smallest number you want to generate.
+ * @param max The largest number you want to generate.
+ * @return int, an integer between the min and max.
+ */
 int generate_rand_int(int min, int max);

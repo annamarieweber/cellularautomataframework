@@ -1,3 +1,11 @@
+/*
+  UC Berkeley - MSSE Program
+  Chem 279-B  Introduction to Software Engineering
+  Fall 2021
+  This file, CellularAutomata.h, contains an API to the ComputeEngine class.
+  being used in Chem 274-B final project.
+*/
+
 #ifndef _CELLULAR_AUTOMATA_
 #include "CellularAutomata.h"
 #endif
